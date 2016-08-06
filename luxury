@@ -1,0 +1,65 @@
+#!/usr/bin/env php
+<?php
+/*
+$tb_mem_start        = memory_get_usage(true);
+$tb_mem_peak_start   = memory_get_peak_usage(true);
+$tb_mem_start_0      = memory_get_usage();
+$tb_mem_peak_start_0 = memory_get_peak_usage();
+*/
+try {
+    /*--------------------------------------------------------------*/
+    /* Make Application                                             */
+    /*--------------------------------------------------------------*/
+
+    /** @var \Luxury\Foundation\Application $application */
+    $application = require_once __DIR__ . '/bootstrap/app.php';
+
+    /** @var \App\Cli\Kernel $kernel */
+    $kernel = $application->make(App\Cli\Kernel::class);
+
+    /**
+     * Process the console arguments
+     */
+    $arguments = [];
+    foreach ($argv as $k => $arg) {
+        if ($k == 1) {
+            $arguments['task'] = $arg;
+        } elseif ($k == 2) {
+            $arguments['action'] = $arg;
+        } elseif ($k >= 3) {
+            $arguments['params'][] = $arg;
+        }
+    }
+
+    // Define global constants for the current task and action
+    define('CURRENT_TASK', (isset($argv[1]) ? $argv[1] : null));
+    define('CURRENT_ACTION', (isset($argv[2]) ? $argv[2] : null));
+
+    /**
+     * Handle the request
+     */
+    $kernel->handle($arguments);
+
+} catch (\Exception $e) {
+    echo $e->getMessage() . '<br>';
+    echo '<pre>' . $e->getTraceAsString() . '</pre>';
+    exit(255);
+}
+
+/*
+$meminfo = json_encode([
+    'mem:i'     => $tb_mem_start / 1024 . 'kb',
+    'mem:o'     => memory_get_usage(true) / 1024 . 'kb',
+    'mem:p:i'   => $tb_mem_peak_start / 1024 . 'kb',
+    'mem:p:o'   => memory_get_peak_usage(true) / 1024 . 'kb',
+    'mem:i:0'   => $tb_mem_start_0 / 1024 . 'kb',
+    'mem:o:0'   => memory_get_usage() / 1024 . 'kb',
+    'mem:p:i:0' => $tb_mem_peak_start_0 / 1024 . 'kb',
+    'mem:p:o:0' => memory_get_peak_usage() / 1024 . 'kb',
+    'time'      => microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'],
+], JSON_PRETTY_PRINT);
+
+echo <<<HTML
+<pre>{$meminfo}</pre>
+HTML;
+*/
