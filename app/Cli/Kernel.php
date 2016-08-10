@@ -7,7 +7,6 @@ use Luxury\Foundation\Application\Cli as CliApplication;
 use Luxury\Foundation\Middleware\Debug as DebugMiddleware;
 use Luxury\Providers\Cli\Dispatcher as DispatcherProvider;
 use Luxury\Providers\Cli\Router as RouterProvider;
-use Luxury\Providers\Config as ConfigProvider;
 use Luxury\Providers\Database as DatabaseProvider;
 use Luxury\Providers\HttpClient as HttpClientProvider;
 use Luxury\Providers\Logger as LoggerProvider;
@@ -29,7 +28,6 @@ class Kernel extends CliApplication
         /*
          * Basic Configuration
          */
-        ConfigProvider::class,
         LoggerProvider::class,
         RouterProvider::class,
         DispatcherProvider::class,

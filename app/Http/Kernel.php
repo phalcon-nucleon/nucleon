@@ -4,10 +4,8 @@ namespace App\Http;
 
 use App\Providers\SomeApiServices as SomeApiProvider;
 use Luxury\Foundation\Application\Http as HttpApplication;
-use Luxury\Foundation\Middleware\Debug as DebugMiddleware;
-use Luxury\Http\Middleware\Throttle as ThrottleMiddleware;
 use Luxury\Providers\Auth as AuthProvider;
-use Luxury\Providers\Config as ConfigProvider;
+use Luxury\Providers\Cache as CacheProvider;
 use Luxury\Providers\Database as DatabaseProvider;
 use Luxury\Providers\Flash as FlashProvider;
 use Luxury\Providers\Http\Dispatcher as DispatcherProvider;
@@ -34,7 +32,6 @@ class Kernel extends HttpApplication
         /*
          * Basic Configuration
          */
-        ConfigProvider::class,
         LoggerProvider::class,
         UrlProvider::class,
         FlashProvider::class,
@@ -43,6 +40,7 @@ class Kernel extends HttpApplication
         ViewProvider::class,
         DispatcherProvider::class,
         DatabaseProvider::class,
+        CacheProvider::class,
         /*
          * Service provided by the Phalcon\Di\FactoryDefault
          *
@@ -77,8 +75,7 @@ class Kernel extends HttpApplication
      * @var string[]
      */
     protected $middlewares = [
-        DebugMiddleware::class,
-        ThrottleMiddleware::class
+        // DebugMiddleware::class
     ];
 
     /**
@@ -107,6 +104,11 @@ class Kernel extends HttpApplication
         $router->addGet($base . 'forward', [
             'controller' => 'index',
             'action'     => 'forward'
+        ]);
+
+        $router->addGet($base . 'throttled', [
+            'controller' => 'throttled',
+            'action'     => 'index'
         ]);
 
         $router->addPost($base . 'auth/login', [
