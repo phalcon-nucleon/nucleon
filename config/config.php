@@ -10,11 +10,8 @@ return [
     |                                                                   |
     +-------------------------------------------------------------------+
      */
-    'application' => [
-        'appDir'        => __DIR__ . '/../app/',
-        'migrationsDir' => __DIR__ . '/../migrations/',
-        'vendorDir'     => __DIR__ . '/../vendor/',
-        'baseUri'       => '/luxury/',
+    'app' => [
+        'base_uri'       => '/',
     ],
     /*
     +-------------------------------------------------------------------+
@@ -43,9 +40,22 @@ return [
     +-------------------------------------------------------------------+
      */
     'cache'       => [
-        'adapter' => 'Data', // Files, Memcache, Libmemcached, Redis
-        'driver'  => 'File', // Files, Memcache, Libmemcached, Redis
-        'options' => ['cacheDir' => __DIR__ . '/../storage/caches/'],
+        'default' => [
+            'adapter' => 'Data',
+            'driver'  => 'File',
+            'options' => ['cacheDir' => __DIR__ . '/../storage/caches/'],
+        ]
+    ],
+
+    'paths'   => [
+        'app'        => __DIR__ . '/../App/',
+        'migrations' => __DIR__ . '/../migrations/',
+        'views'      => __DIR__ . '/../resources/views/',
+        'storage'    => __DIR__ . '/../storage/',
+        'datas'      => __DIR__ . '/../storage/datas/',
+        'log'        => __DIR__ . '/../storage/logs/',
+        'vendor'     => __DIR__ . '/../vendor/',
+        'base'       => '/',
     ],
     /*
     +-------------------------------------------------------------------+
@@ -57,7 +67,8 @@ return [
     +-------------------------------------------------------------------+
      */
     'session'     => [
-        'adapter' => 'Files' // Files, Memcache, Libmemcached, Redis
+        'adapter' => 'Files', // Files, Memcache, Libmemcached, Redis
+        'id'      => 'phalcon-luxury'
     ],
     /*
     +-------------------------------------------------------------------+
@@ -69,8 +80,8 @@ return [
     +-------------------------------------------------------------------+
      */
     'view'        => [
-        'viewsDir'     => __DIR__ . '/../resources/views/',
-        'compiledPath' => __DIR__ . '/../storage/views/',
+        'views_dir'     => __DIR__ . '/../resources/views/',
+        'compiled_path' => __DIR__ . '/../storage/views/',
     ],
     /*
     +-------------------------------------------------------------------+
@@ -83,7 +94,8 @@ return [
      */
     'log'         => [
         'adapter' => 'multiple',
-        'path'    => __DIR__ . '/../storage/logs'
+        'path'    => __DIR__ . '/../storage/logs',
+        'options' => []
     ],
     /*
     +-------------------------------------------------------------------+

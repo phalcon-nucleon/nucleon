@@ -4,32 +4,21 @@ namespace App\Providers;
 
 use App\Api\SomeApi;
 use App\Constants\Services;
-use Luxury\Interfaces\Providable;
-use Phalcon\DiInterface;
+use Luxury\Providers\Provider;
 
 /**
  * Class Tumblr
  *
  * @package Lust\Bootstrap
  */
-class SomeApiServices implements Providable
+class SomeApiServices extends Provider
 {
-    /**
-     * @param \Phalcon\DiInterface $di
-     *
-     * @return void
-     */
-    public function register(DiInterface $di)
+    protected $name = Services::SOME_API;
+
+    protected $shared = false;
+
+    public function register()
     {
-        /**
-         * Register the service of "SomeApi"
-         */
-        $di->setShared(Services::SOME_API, function () {
-            $api = new SomeApi();
-
-            $api->setDI($this);
-
-            return $api;
-        });
+        return new SomeApi();
     }
 }

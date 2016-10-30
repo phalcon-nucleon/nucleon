@@ -15,7 +15,6 @@ try {
 
     /** @var \App\Http\Kernel $kernel */
     $kernel = $application->make(App\Http\Kernel::class);
-
     /**
      * Handle the request
      */

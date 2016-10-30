@@ -3,7 +3,7 @@
 namespace App\Http;
 
 use App\Providers\SomeApiServices as SomeApiProvider;
-use Luxury\Foundation\Application\Http as HttpApplication;
+use Luxury\Foundation\Kernel\Http as HttpApplication;
 use Luxury\Providers\Auth as AuthProvider;
 use Luxury\Providers\Cache as CacheProvider;
 use Luxury\Providers\Database as DatabaseProvider;
@@ -87,7 +87,7 @@ class Kernel extends HttpApplication
 
         $config = $this->config;
 
-        $base = isset($config->application->baseUri) ? $config->application->baseUri : '/';
+        $base = isset($config->app->base_uri) ? $config->app->base_uri : '/';
 
         $router->setDefaultNamespace('App\Http\Controllers');
 
