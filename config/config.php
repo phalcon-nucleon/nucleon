@@ -10,8 +10,20 @@ return [
     |                                                                   |
     +-------------------------------------------------------------------+
      */
-    'app' => [
-        'base_uri'       => '/',
+    'app'      => [
+        'base_uri' => '/',
+    ],
+    /*
+    +-------------------------------------------------------------------+
+    | Auth configuration                                                |
+    +-------------------------------------------------------------------+
+    |                                                                   |
+    |                                                                   |
+    |                                                                   |
+    +-------------------------------------------------------------------+
+     */
+    'auth'      => [
+        'model' => \Luxury\Foundation\Auth\User::class,
     ],
     /*
     +-------------------------------------------------------------------+
@@ -22,7 +34,7 @@ return [
     |                                                                   |
     +-------------------------------------------------------------------+
      */
-    'database'    => [
+    'database' => [
         'adapter'  => 'Mysql',
         'host'     => 'localhost',
         'username' => 'root',
@@ -39,7 +51,7 @@ return [
     |                                                                   |
     +-------------------------------------------------------------------+
      */
-    'cache'       => [
+    'cache'    => [
         'default' => [
             'adapter' => 'Data',
             'driver'  => 'File',
@@ -48,14 +60,11 @@ return [
     ],
 
     'paths'   => [
-        'app'        => __DIR__ . '/../App/',
-        'migrations' => __DIR__ . '/../migrations/',
-        'views'      => __DIR__ . '/../resources/views/',
-        'storage'    => __DIR__ . '/../storage/',
-        'datas'      => __DIR__ . '/../storage/datas/',
-        'log'        => __DIR__ . '/../storage/logs/',
-        'vendor'     => __DIR__ . '/../vendor/',
-        'base'       => '/',
+        'base'      => __DIR__ . '/../',
+        'app'       => __DIR__ . '/../app/',
+        'resources' => __DIR__ . '/../resources/',
+        'storage'   => __DIR__ . '/../storage/',
+        'vendor'    => __DIR__ . '/../vendor/',
     ],
     /*
     +-------------------------------------------------------------------+
@@ -66,7 +75,7 @@ return [
     |                                                                   |
     +-------------------------------------------------------------------+
      */
-    'session'     => [
+    'session' => [
         'adapter' => 'Files', // Files, Memcache, Libmemcached, Redis
         'id'      => 'phalcon-luxury'
     ],
@@ -79,7 +88,7 @@ return [
     |                                                                   |
     +-------------------------------------------------------------------+
      */
-    'view'        => [
+    'view'    => [
         'views_dir'     => __DIR__ . '/../resources/views/',
         'compiled_path' => __DIR__ . '/../storage/views/',
     ],
@@ -92,7 +101,7 @@ return [
     |                                                                   |
     +-------------------------------------------------------------------+
      */
-    'log'         => [
+    'log'     => [
         'adapter' => 'multiple',
         'path'    => __DIR__ . '/../storage/logs',
         'options' => []
@@ -105,7 +114,7 @@ return [
     | Auto dispatching on ErrorController                               |
     +-------------------------------------------------------------------+
      */
-    'error'       => [
+    'error'   => [
         'formatter'  => [
             'formatter'  => \Phalcon\Logger\Formatter\Line::class,
             'format'     => '[%date%][%type%] %message%',

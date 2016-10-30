@@ -12,6 +12,16 @@ use Luxury\Support\Facades\Auth;
  */
 class AuthController extends ControllerBase
 {
+
+    protected function onConstruct()
+    {
+        parent::onConstruct();
+
+        $this->middleware(new GuestMiddleware());
+
+        $this->app->useImplicitView(false);
+    }
+
     /**
      * The Sign-in action.
      *
@@ -19,7 +29,7 @@ class AuthController extends ControllerBase
      */
     public function signinAction()
     {
-        // Nothing here, implicit view used.
+        $this->view->render('auth', 'signin');
     }
 
     /**
@@ -59,12 +69,5 @@ class AuthController extends ControllerBase
         ]);
 
         return;
-    }
-
-    protected function onConstruct()
-    {
-        parent::onConstruct();
-
-        $this->middleware(new GuestMiddleware());
     }
 }

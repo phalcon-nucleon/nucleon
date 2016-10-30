@@ -79,6 +79,13 @@ class Kernel extends HttpApplication
     ];
 
     /**
+     * Return the Events Listeners to attach onto the application.
+     *
+     * @var string[]
+     */
+    protected $listeners = [];
+
+    /**
      * Register the routes of the application.
      */
     public function registerRoutes()
@@ -101,14 +108,9 @@ class Kernel extends HttpApplication
             'action'     => 'index'
         ]);
 
-        $router->addGet($base . 'forward', [
-            'controller' => 'index',
-            'action'     => 'forward'
-        ]);
-
-        $router->addGet($base . 'throttled', [
-            'controller' => 'throttled',
-            'action'     => 'index'
+        $router->addGet($base . 'auth/signin', [
+            'controller' => 'auth',
+            'action'     => 'signin'
         ]);
 
         $router->addPost($base . 'auth/login', [

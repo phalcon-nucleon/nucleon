@@ -34,12 +34,4 @@ class IndexController extends ControllerBase
 
         $this->view->render('index', 'index');
     }
-
-    public function forwardAction()
-    {
-        $this->dispatcher->forward([
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
-    }
 }
