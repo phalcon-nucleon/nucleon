@@ -2,6 +2,7 @@
 
 namespace App\Cli;
 
+use App\Cli\Tasks\SomeTask;
 use App\Providers\SomeApiServices as SomeApiProvider;
 use Luxury\Foundation\Kernel\Cli as CliApplication;
 use Luxury\Foundation\Middleware\Debug as DebugMiddleware;
@@ -10,7 +11,6 @@ use Luxury\Providers\Cli\Router as RouterProvider;
 use Luxury\Providers\Database as DatabaseProvider;
 use Luxury\Providers\HttpClient as HttpClientProvider;
 use Luxury\Providers\Logger as LoggerProvider;
-use Phalcon\Cli\Router;
 
 /**
  * Class Kernel
@@ -69,5 +69,7 @@ class Kernel extends CliApplication
      */
     public function registerRoutes()
     {
+        $this->router->addTask('some', SomeTask::class);
+        $this->router->addTask('some test :param_1: :param_2:', SomeTask::class, 'test');
     }
 }

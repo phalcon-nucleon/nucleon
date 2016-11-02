@@ -2,16 +2,14 @@
 
 namespace App\Cli\Tasks;
 
-use Phalcon\Cli\Task;
-use Phalcon\Cli\TaskInterface;
-use Phalcon\Mvc\Model\Query;
+use Luxury\Cli\Task;
 
 /**
  * Class XvideoDb
  *
  * @package App\Tasks
  */
-class SomeTask extends Task implements TaskInterface
+class SomeTask extends Task
 {
     /**
      * \> php luxury some

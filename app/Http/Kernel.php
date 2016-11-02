@@ -108,12 +108,12 @@ class Kernel extends HttpApplication
             'action'     => 'index'
         ]);
 
-        $router->addGet($base . 'auth/signin', [
+        $router->addGet($base . 'signin', [
             'controller' => 'auth',
             'action'     => 'signin'
         ]);
 
-        $router->addPost($base . 'auth/login', [
+        $router->addPost($base . 'login', [
             'controller' => 'auth',
             'action'     => 'login'
         ]);
