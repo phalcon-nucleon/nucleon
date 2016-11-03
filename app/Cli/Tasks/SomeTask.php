@@ -5,7 +5,7 @@ namespace App\Cli\Tasks;
 use Luxury\Cli\Task;
 
 /**
- * Class XvideoDb
+ * Class SomeTask
  *
  * @package App\Tasks
  */
@@ -16,16 +16,19 @@ class SomeTask extends Task
      */
     public function mainAction()
     {
-        echo __METHOD__;
+        $this->line(__METHOD__);
     }
 
     /**
      * \> php luxury some test hello world
      *
+     * @argument param_1: the first param
+     * @argument param_2: the second param
+     *
      * @param array $params
      */
     public function testAction(array $params)
     {
-        echo __METHOD__ . ':' . implode(' ', $params);
+      $this->line($this->output->notice(__METHOD__) . ' ' . $this->output->info(implode(' ', $params)));
     }
 }
