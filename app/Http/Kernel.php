@@ -84,38 +84,4 @@ class Kernel extends HttpApplication
      * @var string[]
      */
     protected $listeners = [];
-
-    /**
-     * Register the routes of the application.
-     */
-    public function registerRoutes()
-    {
-        $router = $this->router;
-
-        $config = $this->config;
-
-        $base = isset($config->app->base_uri) ? $config->app->base_uri : '/';
-
-        $router->setDefaultNamespace('App\Http\Controllers');
-
-        $router->notFound([
-            'controller' => 'errors',
-            'action'     => 'http404'
-        ]);
-
-        $router->addGet($base, [
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
-
-        $router->addGet($base . 'signin', [
-            'controller' => 'auth',
-            'action'     => 'signin'
-        ]);
-
-        $router->addPost($base . 'login', [
-            'controller' => 'auth',
-            'action'     => 'login'
-        ]);
-    }
 }

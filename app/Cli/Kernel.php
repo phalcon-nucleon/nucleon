@@ -2,7 +2,6 @@
 
 namespace App\Cli;
 
-use App\Cli\Tasks\SomeTask;
 use App\Providers\SomeApiServices as SomeApiProvider;
 use Luxury\Foundation\Kernel\Cli as CliApplication;
 use Luxury\Foundation\Middleware\Debug as DebugMiddleware;
@@ -63,13 +62,4 @@ class Kernel extends CliApplication
     protected $middlewares = [
         DebugMiddleware::class
     ];
-
-    /**
-     * Register the routes of the application.
-     */
-    public function registerRoutes()
-    {
-        $this->router->addTask('some', SomeTask::class);
-        $this->router->addTask('some test :param_1: :param_2:', SomeTask::class, 'test');
-    }
 }
