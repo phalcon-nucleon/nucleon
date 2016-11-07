@@ -7,4 +7,4 @@ define('APP_ENV', 'development');
 /**
  * Read auto-loader
  */
-$loader = require __DIR__ . "/../config/loader.php";
+$loader = require __DIR__ . "/loader.php";

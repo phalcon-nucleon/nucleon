@@ -3,14 +3,13 @@
 namespace App\Cli;
 
 use App\Providers\SomeApiServices as SomeApiProvider;
-use Luxury\Foundation\Application\Cli as CliApplication;
+use Luxury\Foundation\Kernel\Cli as CliApplication;
 use Luxury\Foundation\Middleware\Debug as DebugMiddleware;
 use Luxury\Providers\Cli\Dispatcher as DispatcherProvider;
 use Luxury\Providers\Cli\Router as RouterProvider;
 use Luxury\Providers\Database as DatabaseProvider;
 use Luxury\Providers\HttpClient as HttpClientProvider;
 use Luxury\Providers\Logger as LoggerProvider;
-use Phalcon\Cli\Router;
 
 /**
  * Class Kernel
@@ -63,11 +62,4 @@ class Kernel extends CliApplication
     protected $middlewares = [
         DebugMiddleware::class
     ];
-
-    /**
-     * Register the routes of the application.
-     */
-    public function registerRoutes()
-    {
-    }
 }

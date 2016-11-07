@@ -11,6 +11,14 @@ use Luxury\Error\Handler;
  */
 class ErrorsController extends ControllerBase
 {
+
+    protected function onConstruct()
+    {
+        parent::onConstruct();
+
+        $this->app->useImplicitView(false);
+    }
+
     public function indexAction()
     {
         /* @var \Luxury\Error\Error $error */
@@ -22,10 +30,12 @@ class ErrorsController extends ControllerBase
             'file'    => $error->file,
             'line'    => $error->line,
         ];
+
+        $this->view->render('errors', 'index');
     }
 
     public function http404Action()
     {
-        // Nothing here, implicit view used.
+        $this->view->render('errors', 'http404');
     }
 }

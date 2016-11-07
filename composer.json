@@ -21,20 +21,25 @@
     }
   ],
   "require": {
-    "php": ">=5.6",
+    "php": ">=7.0",
     "ext-phalcon": ">=3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "ark4ne/phalcon-luxury-framework": "*"
+    "ark4ne/phalcon-luxury-framework": "dev-master"
   },
   "require-dev": {
     "phalcon/devtools": "dev-master",
-    "phpunit/phpunit": "~5.0",
+    "phpunit/phpunit": "~5.6",
     "mockery/mockery": "~0.9.4"
   },
   "autoload": {
     "psr-4": {
       "App\\": "app"
     }
+  },
+  "scripts" : {
+    "post-update-cmd" : [
+      "php luxury optimize --memory"
+    ]
   }
 }

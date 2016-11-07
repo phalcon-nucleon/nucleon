@@ -3,7 +3,7 @@
 namespace App\Http;
 
 use App\Providers\SomeApiServices as SomeApiProvider;
-use Luxury\Foundation\Application\Http as HttpApplication;
+use Luxury\Foundation\Kernel\Http as HttpApplication;
 use Luxury\Providers\Auth as AuthProvider;
 use Luxury\Providers\Cache as CacheProvider;
 use Luxury\Providers\Database as DatabaseProvider;
@@ -79,41 +79,9 @@ class Kernel extends HttpApplication
     ];
 
     /**
-     * Register the routes of the application.
+     * Return the Events Listeners to attach onto the application.
+     *
+     * @var string[]
      */
-    public function registerRoutes()
-    {
-        $router = $this->router;
-
-        $config = $this->config;
-
-        $base = isset($config->application->baseUri) ? $config->application->baseUri : '/';
-
-        $router->setDefaultNamespace('App\Http\Controllers');
-
-        $router->notFound([
-            'controller' => 'errors',
-            'action'     => 'http404'
-        ]);
-
-        $router->addGet($base, [
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
-
-        $router->addGet($base . 'forward', [
-            'controller' => 'index',
-            'action'     => 'forward'
-        ]);
-
-        $router->addGet($base . 'throttled', [
-            'controller' => 'throttled',
-            'action'     => 'index'
-        ]);
-
-        $router->addPost($base . 'auth/login', [
-            'controller' => 'auth',
-            'action'     => 'login'
-        ]);
-    }
+    protected $listeners = [];
 }

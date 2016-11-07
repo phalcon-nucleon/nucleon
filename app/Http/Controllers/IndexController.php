@@ -15,6 +15,8 @@ class IndexController extends ControllerBase
     protected function onConstruct()
     {
         parent::onConstruct();
+
+        $this->app->useImplicitView(false);
     }
 
     public function indexAction()
@@ -29,13 +31,7 @@ class IndexController extends ControllerBase
         SomeApi::doAnotherThing();
 
         $this->view->content = "Some Content";
-    }
 
-    public function forwardAction()
-    {
-        $this->dispatcher->forward([
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
+        $this->view->render('index', 'index');
     }
 }
