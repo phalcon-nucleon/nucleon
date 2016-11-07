@@ -25,7 +25,7 @@
     "ext-phalcon": ">=3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "ark4ne/phalcon-luxury-framework": "dev-cli"
+    "ark4ne/phalcon-luxury-framework": "dev-master"
   },
   "require-dev": {
     "phalcon/devtools": "dev-master",
