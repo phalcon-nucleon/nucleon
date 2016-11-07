@@ -32,8 +32,3 @@ Router::addPost('/login', [
     'controller' => 'auth',
     'action'     => 'login'
 ]);
-Router::addPost('/user/:int', [
-    'controller' => 'auth',
-    'action'     => 'login',
-    'user_id' => 1
-]);

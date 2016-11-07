@@ -30,9 +30,10 @@ class RoutesTest extends RoutesTestCase
         return [
             /* path, http_method, excepted, [ctrl, [action, [params]]] */
             ['', 'GET', true, 'index', 'index'],
-            ['/', 'GET', false, 'errors', 'http404'],
-            ['/auth/signin', 'GET', true, 'auth', 'signin'],
-            ['/auth/login', 'POST', true, 'auth', 'login'],
+            ['/login', 'GET', false, 'errors', 'http404'],
+            ['/login', 'POST', true, 'auth', 'login'],
+            ['/signin', 'POST', false, 'errors', 'http404'],
+            ['/signin', 'GET', true, 'auth', 'signin'],
         ];
     }
 }

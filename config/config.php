@@ -22,7 +22,7 @@ return [
         'base'      => __DIR__ . '/../',
         'app'       => __DIR__ . '/../app/',
         'resources' => __DIR__ . '/../resources/',
-        'routes'       => __DIR__ . '/../routes/',
+        'routes'    => __DIR__ . '/../routes/',
         'storage'   => __DIR__ . '/../storage/',
         'vendor'    => __DIR__ . '/../vendor/',
     ],
