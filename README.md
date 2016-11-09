@@ -2,25 +2,25 @@ Luxury : Phalcon extended framework. (App)
 =======
 [![Build Status](https://travis-ci.org/Ark4ne/phalcon-luxury-framework.svg?branch=master)](https://travis-ci.org/Ark4ne/phalcon-luxury-framework) 
 
-## About
+# About
 Luxury is a web application that uses Phalcon.
 Our philosophy is to make the web faster, with enjoyable development.
 
-## Install
+# Install
 ```
 \> git clone https://github.com/Ark4ne/phalcon-luxury.git
 \> composer install
 ```
 _After first beta release, the_ `composer create-project` _command will be available_
 
-## Require
+# Require
 * PHP >= 5.6
 * ext-mbstring
 * ext-openssl
 * Phalcon >= 3.0
 
-## Directory Structure
-#### Root Directory
+# Directory Structure
+## Root Directory
 * __app/__
     - The core code of your application.
     Autoloading via PSR4.
@@ -41,7 +41,7 @@ _After first beta release, the_ `composer create-project` _command will be avail
 * __vendor/__
     -  The vendor directory contains your Composer dependencies.
     
-#### App Directory
+## App Directory
 - __Api/__
 
 _Currently (*v0-alpha*)_ : just a directory whose may contains your api logic.
@@ -79,11 +79,11 @@ The Providers directory contains all of the service providers for your applicati
 The Support directory is a proposed location of your tools.
 
 
-## Core Concepts
-#### Service Container / Dependency Injection 
+# Core Concepts
+## Service Container / Dependency Injection 
 [See Phalcon Dependency Injection](https://docs.phalconphp.com/en/3.0.0/reference/di.html)
-#### Service Providers
-##### Register a Provider
+## Service Providers
+### Register a Provider
 
 To register a provider, you must add it to the list of provider loaded by the application.
 
@@ -100,7 +100,7 @@ class Kernel extends HttpApplication
     ];
 }
 ```
-##### Create Provider
+### Create Provider
 A provider should extends the `Luxury\Providers\Provider` class and contain a `register` method.
 
 The `register` method simply return the instance to provide.
@@ -125,7 +125,7 @@ class ExampleServiceProvider extends Provider
 }
 ```
 
-##### Complex Provider
+### Complex Provider
 All providers implements the Interface `Luxury\Interfaces\Providable`.
 
 If you created your a provider with your own `registering` method, you can simply implement this class.
@@ -144,18 +144,18 @@ class ExampleServiceProvider implements Providable
 }
 ```
 
-#### Facades
+## Facades
 Facades are inspired and implemented as they are in [Laravel](https://laravel.com/docs/5.3/facades).
 
 
-## Http Layer
-#### Routing
+# Http Layer
+## Routing
 
 The `routes/http.php` file defines your application routes.
 
 This file is automatically loaded by the framework. 
 
-##### Router methods
+### Router methods
 The router allows you to register routes that respond to any HTTP verb :
 ```php
 use Luxury\Support\Facades\Router;
@@ -174,23 +174,23 @@ Sometimes you may need to register a route that responds to multiple HTTP verbs 
 Router::add($uri, $paths, ['HEAD', 'GET']);
 ```
 
-#### Middleware
+## Middleware
 Middleware provide a convenient mechanism for filtering requests entering your application.
 
 Middleware are managed through the Event Manager.
 
 They can handle 4 methods : 
-- init
-- before
-- after
-- finish
+- init      : Initialization
+- before    : Before handle the request
+- after     : After handle the request
+- finish    : Finalization
 
 They 3 types of middleware :
 - Application middleware
 - Dispatcher middleware
 - Controller middleware
 
-##### Application Middleware
+### Application Middleware
 Handle : 
 - init : Events\Http\Application::BOOT
 - before : Events\Http\Application::BEFORE_HANDLE
@@ -213,7 +213,7 @@ class Kernel extends HttpApplication
 }
 ```
 
-##### Dispatcher Middleware
+### Dispatcher Middleware
 Handle : 
 - init : Events\Dispatch::BEFORE_DISPATCH_LOOP
 - before : Events\Dispatch::BEFORE_DISPATCH
@@ -236,12 +236,30 @@ class Kernel extends HttpApplication
 }
 ```
 
-##### Controller Middleware
+### Controller Middleware
 Handle : 
 - before : Events\Dispatch::BEFORE_EXECUTE_ROUTE
 - after : Events\Dispatch::AFTER_EXECUTE_ROUTE
 - finish : Events\Dispatch::AFTER_DISPATCH
 
+#### Register Middleware
+
+##### Via the Router (in dev)
+Controller middleware are register directly in the route, via the attribute `middleware`.
+
+```php
+use \Luxury\Support\Facades\Router;
+
+Router::addGet($uri, [
+    // ...
+    'middleware' => [
+        \Luxury\Http\Middleware\Csrf::class,
+        \Luxury\Auth\Middleware\ThrottleLogin::class => [$max_request, $decay_seconds]
+    ]
+]);
+```
+
+##### Via the Controller
 Controller middleware are register directly in the controller, in the `onConstruct` method.
 
 ```php
@@ -254,4 +272,57 @@ class AuthController extends ControllerBase
 }
 ```
 
-`Documantation Under Construction`
+###### Filter Middleware
+
+The middleware on the controllers can be filtered.
+
+You can specify the method(s) subject to the middleware setting with the `only` function. 
+
+Or, conversely, exclude the method(s) that will not be submitted to the middleware with the `except` function.
+
+```php
+class AuthController extends ControllerBase
+{
+    protected function onConstruct()
+    {
+        $csrf_middleware = new \Luxury\Http\Middleware\Csrf;
+        
+        // CSRF middleware only on loginAction
+        $csrf_middleware->only(['login']);
+
+        // CSRF middleware expect on registerAction
+        $csrf_middleware->expect(['register']);
+        
+        $this->middleware($csrf_middleware);
+    }
+}
+```
+
+#### Create Middleware
+
+You can create your own middleware by inheriting ApplicationMiddleware, DispatcherMiddleware, or ControllerMiddleware.
+
+The management of associated events does this simply by implementing the interfaces:
+- Luxury\Interfaces\Middleware\InitInterface => init
+- Luxury\Interfaces\Middleware\BeforeInterface => before
+- Luxury\Interfaces\Middleware\AfterInterface => after
+- Luxury\Interfaces\Middleware\FinishInterface => finish
+
+```php
+use Luxury\Foundation\Middleware\Controller as ControllerMiddleware;
+use Luxury\Interfaces\Middleware\BeforeInterface;
+
+class ExampleMiddleware extends ControllerMiddleware implements BeforeInterface
+{
+    public function before(Event $event, $source, $data = null)
+    {
+        if($success){
+            return true;
+        }
+        
+        return false;
+    }
+}
+```
+
+`Documentation Under Construction`
