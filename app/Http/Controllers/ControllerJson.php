@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Luxury\Foundation\Controller;
+use Luxury\Http\Controller;
 use Phalcon\Mvc\View;
 
 /**

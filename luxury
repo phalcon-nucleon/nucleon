@@ -1,22 +1,20 @@
 #!/usr/bin/env php
 <?php
-/*
-$tb_mem_start        = memory_get_usage(true);
-$tb_mem_peak_start   = memory_get_peak_usage(true);
-$tb_mem_start_0      = memory_get_usage();
-$tb_mem_peak_start_0 = memory_get_peak_usage();
-*/
+
 try {
     /*--------------------------------------------------------------*/
     /* Make Application                                             */
     /*--------------------------------------------------------------*/
 
-    /** @var \Luxury\Foundation\Application $application */
-    $application = require_once __DIR__ . '/bootstrap/app.php';
+    /** @var \Luxury\Foundation\Bootstrap $bootstrap */
+    $bootstrap = require_once __DIR__ . '/bootstrap/app.php';
 
     /** @var \App\Cli\Kernel $kernel */
-    $kernel = $application->make(App\Cli\Kernel::class);
+    $kernel = $bootstrap->make(App\Cli\Kernel::class);
 
+    /**
+     * Parse the arguments pass to the cli
+     */
     $kernel->setArgument($argv);
 
     /**
@@ -29,21 +27,3 @@ try {
     echo '<pre>' . $e->getTraceAsString() . '</pre>';
     exit(255);
 }
-
-/*
-$meminfo = json_encode([
-    'mem:i'     => $tb_mem_start / 1024 . 'kb',
-    'mem:o'     => memory_get_usage(true) / 1024 . 'kb',
-    'mem:p:i'   => $tb_mem_peak_start / 1024 . 'kb',
-    'mem:p:o'   => memory_get_peak_usage(true) / 1024 . 'kb',
-    'mem:i:0'   => $tb_mem_start_0 / 1024 . 'kb',
-    'mem:o:0'   => memory_get_usage() / 1024 . 'kb',
-    'mem:p:i:0' => $tb_mem_peak_start_0 / 1024 . 'kb',
-    'mem:p:o:0' => memory_get_peak_usage() / 1024 . 'kb',
-    'time'      => microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'],
-], JSON_PRETTY_PRINT);
-
-echo <<<HTML
-<pre>{$meminfo}</pre>
-HTML;
-*/

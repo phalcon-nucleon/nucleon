@@ -3,7 +3,7 @@
 namespace App\Http;
 
 use App\Providers\SomeApiServices as SomeApiProvider;
-use Luxury\Foundation\Kernel\Http as HttpApplication;
+use Luxury\Foundation\Http\Kernel as HttpKernel;
 use Luxury\Providers\Auth as AuthProvider;
 use Luxury\Providers\Cache as CacheProvider;
 use Luxury\Providers\Database as DatabaseProvider;
@@ -21,7 +21,7 @@ use Luxury\Providers\View as ViewProvider;
  *
  * @package App\Http\Controllers
  */
-class Kernel extends HttpApplication
+class Kernel extends HttpKernel
 {
     /**
      * Return the Provider List to load.

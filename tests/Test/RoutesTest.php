@@ -25,7 +25,7 @@ class RoutesTest extends RoutesTestCase
     /**
      * @return array
      */
-    protected function routes(): array
+    protected function routes()
     {
         return [
             /* path, http_method, excepted, [ctrl, [action, [params]]] */

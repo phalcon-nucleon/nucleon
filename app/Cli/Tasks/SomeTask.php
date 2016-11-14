@@ -2,6 +2,7 @@
 
 namespace App\Cli\Tasks;
 
+use Luxury\Cli\Output\Decorate;
 use Luxury\Cli\Task;
 
 /**
@@ -29,6 +30,6 @@ class SomeTask extends Task
      */
     public function testAction(array $params)
     {
-      $this->line($this->output->notice(__METHOD__) . ' ' . $this->output->info(implode(' ', $params)));
+      $this->line($this->output->notice(__METHOD__) . ' ' . Decorate::info(implode(' ', $params)));
     }
 }

@@ -25,7 +25,11 @@ Router::addGet('/', [
 
 Router::addGet('/signin', [
     'controller' => 'auth',
-    'action'     => 'signin'
+    'action'     => 'signin',
+    'middleware' => [
+      \Luxury\Http\Middleware\Csrf::class,
+      \Luxury\Auth\Middleware\ThrottleLogin::class => [30, 60]
+    ]
 ]);
 
 Router::addPost('/login', [
