@@ -3,7 +3,8 @@ Luxury : Phalcon extended framework. (App)
 [![Build Status](https://travis-ci.org/Ark4ne/phalcon-luxury-framework.svg?branch=master)](https://travis-ci.org/Ark4ne/phalcon-luxury-framework) 
 
 # About
-Luxury is a web application that uses Phalcon.
+Luxury is a web application that uses [Phalcon](https://www.phalconphp.com/)
+.
 Our philosophy is to make the web faster, with enjoyable development.
 
 # Install
@@ -18,6 +19,11 @@ _After first beta release, the_ `composer create-project` _command will be avail
 * ext-mbstring
 * ext-openssl
 * Phalcon >= 3.0
+
+# Composer & Autoloading
+Luxury uses composer. So you can use all your libraries prefer as you wish!
+
+The `php luxury optimize` command will optimize autoloading using the phalcon loader (best performing autoloader !)
 
 # Directory Structure
 ## Root Directory
@@ -244,7 +250,7 @@ Handle :
 
 #### Register Middleware
 
-##### Via the Router (in dev)
+##### Via the Router
 Controller middleware are register directly in the route, via the attribute `middleware`.
 
 ```php
@@ -267,7 +273,9 @@ class AuthController extends ControllerBase
 {
     protected function onConstruct()
     {
-        $this->middleware(new \Luxury\Http\Middleware\Csrf);
+        $this->middleware(\Luxury\Http\Middleware\Csrf::class);
+        
+        $this->middleware(\Luxury\Http\Middleware\ThrottleRequest::class, $max_request, $decay_seconds);
     }
 }
 ```
@@ -285,15 +293,13 @@ class AuthController extends ControllerBase
 {
     protected function onConstruct()
     {
-        $csrf_middleware = new \Luxury\Http\Middleware\Csrf;
-        
-        // CSRF middleware only on loginAction
-        $csrf_middleware->only(['login']);
-
-        // CSRF middleware expect on registerAction
-        $csrf_middleware->expect(['register']);
-        
-        $this->middleware($csrf_middleware);
+        $this->middleware(\Luxury\Http\Middleware\Csrf::class)
+            // CSRF middleware only on loginAction
+            ->only(['login'])
+            
+            // CSRF middleware expect on registerAction
+            ->expect(['register'])
+            ;
     }
 }
 ```
