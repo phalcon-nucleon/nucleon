@@ -23,16 +23,27 @@ Router::addGet('/', [
     'action'     => 'index'
 ]);
 
-Router::addGet('/signin', [
+Router::addGet('/register', [
     'controller' => 'auth',
-    'action'     => 'signin',
-    'middleware' => [
-      \Luxury\Http\Middleware\Csrf::class,
-      \Luxury\Auth\Middleware\ThrottleLogin::class => [30, 60]
-    ]
+    'action'     => 'register'
+]);
+
+Router::addPost('/register', [
+    'controller' => 'auth',
+    'action'     => 'postRegister'
+]);
+
+Router::addGet('/login', [
+    'controller' => 'auth',
+    'action'     => 'login'
 ]);
 
 Router::addPost('/login', [
     'controller' => 'auth',
-    'action'     => 'login'
+    'action'     => 'postLogin'
+]);
+
+Router::addGet('/logout', [
+    'controller' => 'auth',
+    'action'     => 'logout'
 ]);

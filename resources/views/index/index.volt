@@ -71,6 +71,12 @@
         <div class="title m-b-md">
             Luxury
         </div>
+        <div>
+            {{ microtime(true) - _SERVER['REQUEST_TIME_FLOAT'] }}
+        </div>
+        <div>
+            {{ memory_get_peak_usage() }}
+        </div>
     </div>
 </div>
 </body>

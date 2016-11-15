@@ -5,18 +5,19 @@
 
 {% block content %}
     <div class="container">
-        {{ form('auth/login', 'class' : 'form-horizontal') }}
+        <h1>Login</h1>
+        {{ form('/login', 'method': 'post', 'class' : 'form-horizontal') }}
         <fieldset>
             <div class="form-group">
                 <label for="email" class="col-sm-2 control-label">Username/Email</label>
                 <div class="col-sm-10">
-                    {{ text_field('email', 'class' :'form-control') }}
+                    {{ text_field('email', 'class' :'form-control', 'placeholder': 'Username/Email', 'required': 'true') }}
                 </div>
             </div>
             <div class="form-group">
                 <label for="password" class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-10">
-                    {{ password_field('password',  'class' :'form-control') }}
+                    {{ password_field('password',  'class' :'form-control', 'placeholder': 'Password', 'required': 'true') }}
                 </div>
             </div>
             <div class="form-group">

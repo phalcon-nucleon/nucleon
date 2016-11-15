@@ -13,7 +13,10 @@
 <div id="header">
     {% include "partials/header.volt" %}
 </div>
-<div id="content" class="container-fluid">{% block content %}{% endblock %}</div>
+<div id="content" class="container-fluid">
+    {{ flash.output() }}
+    {% block content %}{% endblock %}
+</div>
 <div id="footer">{% block footer %}{% endblock %}</div>
 {% block scripts %}{% endblock %}
 </body>

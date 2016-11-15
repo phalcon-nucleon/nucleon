@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Luxury\Support\Facades\Log;
+use Phalcon\Db\Column;
 use Phalcon\Mvc\Model;
 
 /**
@@ -9,8 +11,9 @@ use Phalcon\Mvc\Model;
  *
  * @package Models
  */
-class User extends Model
+class User extends \Luxury\Foundation\Auth\User
 {
+    use Viewable;
 
     /**
      * @var integer
@@ -28,12 +31,23 @@ class User extends Model
     public $email;
 
     /**
-     * Returns table name mapped in the model.
-     *
-     * @return string
+     * @var string
      */
-    public function getSource()
+    public $password;
+
+    public function initialize()
     {
-        return 'users';
+        // Returns table name mapped in the model.
+        $this->setSource("users");
+    }
+
+    protected static function describe()
+    {
+        static::primary('id', Column::TYPE_INTEGER);
+
+        static::column('name', Column::TYPE_VARCHAR);
+        static::column('email', Column::TYPE_VARCHAR);
+        static::column('password', Column::TYPE_VARCHAR);
+        static::column('remember_token', Column::TYPE_VARCHAR, true);
     }
 }

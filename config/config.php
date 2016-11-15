@@ -85,7 +85,7 @@ return [
          |
          | This value define the Model to use for authentication
          */
-        'model' => \Luxury\Foundation\Auth\User::class,
+        'model' => \App\Models\User::class,
     ],
     /*
      +-------------------------------------------------------------------
@@ -113,7 +113,7 @@ return [
         'host'     => 'localhost',
         'username' => 'root',
         'password' => '',
-        'dbname'   => 'test',
+        'dbname'   => 'luxury-test',
         'charset'  => 'utf8',
     ],
     /*
