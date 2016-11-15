@@ -2,9 +2,7 @@
 
 namespace App\Models;
 
-use Luxury\Support\Facades\Log;
 use Phalcon\Db\Column;
-use Phalcon\Mvc\Model;
 
 /**
  * Class User
@@ -18,36 +16,44 @@ class User extends \Luxury\Foundation\Auth\User
     /**
      * @var integer
      */
-    public $id;
+    protected $id;
 
     /**
      * @var string
      */
-    public $name;
+    protected $name;
 
     /**
      * @var string
      */
-    public $email;
+    protected $email;
 
     /**
      * @var string
      */
-    public $password;
+    protected $password;
 
-    public function initialize()
+    /**
+     * @var string
+     */
+    protected $remember_token;
+
+    /**
+     * Describe the column of the model.
+     *
+     * Use the function "primary", "column" to describe them.
+     *
+     * @return void
+     */
+    protected function describe()
     {
-        // Returns table name mapped in the model.
         $this->setSource("users");
-    }
 
-    protected static function describe()
-    {
-        static::primary('id', Column::TYPE_INTEGER);
+        $this->primary('id', Column::TYPE_INTEGER);
 
-        static::column('name', Column::TYPE_VARCHAR);
-        static::column('email', Column::TYPE_VARCHAR);
-        static::column('password', Column::TYPE_VARCHAR);
-        static::column('remember_token', Column::TYPE_VARCHAR, true);
+        $this->column('name', Column::TYPE_VARCHAR);
+        $this->column('email', Column::TYPE_VARCHAR);
+        $this->column('password', Column::TYPE_VARCHAR);
+        $this->column('remember_token', Column::TYPE_VARCHAR, true);
     }
 }
