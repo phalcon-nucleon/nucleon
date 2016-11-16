@@ -39,14 +39,12 @@ class User extends \Luxury\Foundation\Auth\User
     protected $remember_token;
 
     /**
-     * Describe the column of the model.
-     *
-     * Use the function "primary", "column" to describe them.
-     *
-     * @return void
+     * Initializes metaDatas & columnsMap if they are not.
      */
-    protected function describe()
+    public function initialize()
     {
+        parent::initialize();
+
         $this->setSource("users");
 
         $this->primary('id', Column::TYPE_INTEGER);
