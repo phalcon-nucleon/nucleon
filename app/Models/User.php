@@ -16,27 +16,27 @@ class User extends \Luxury\Foundation\Auth\User
     /**
      * @var integer
      */
-    protected $id;
+    public $id;
 
     /**
      * @var string
      */
-    protected $name;
+    public $name;
 
     /**
      * @var string
      */
-    protected $email;
+    public $email;
 
     /**
      * @var string
      */
-    protected $password;
+    public $password;
 
     /**
      * @var string
      */
-    protected $remember_token;
+    public $remember_token;
 
     /**
      * Initializes metaDatas & columnsMap if they are not.
@@ -52,6 +52,8 @@ class User extends \Luxury\Foundation\Auth\User
         $this->column('name', Column::TYPE_VARCHAR);
         $this->column('email', Column::TYPE_VARCHAR);
         $this->column('password', Column::TYPE_VARCHAR);
-        $this->column('remember_token', Column::TYPE_VARCHAR, true);
+        $this->column('remember_token', Column::TYPE_VARCHAR, [
+            'nullable' => true
+        ]);
     }
 }

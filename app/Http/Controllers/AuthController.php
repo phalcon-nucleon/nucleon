@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\Guest as GuestMiddleware;
 use Luxury\Constants\Events;
-use Luxury\Constants\Services;
 use Luxury\Support\Facades\Auth;
-use Luxury\Support\Facades\Log;
 use Phalcon\Db\Adapter\Pdo;
 
 /**
@@ -100,6 +98,7 @@ class AuthController extends ControllerBase
         }
 
         $this->flash->success('User create successful !');
+
         $this->response->redirect('/');
         $this->view->disable();
 
@@ -123,14 +122,6 @@ class AuthController extends ControllerBase
      */
     public function postLoginAction()
     {
-        $db = $this->getDI()->getShared(Services::DB);
-
-        $db->setEventsManager($this->getDI()->getShared(Services::EVENTS_MANAGER));
-
-        $db->getEventsManager()->attach(Events\Db::BEFORE_QUERY, function ($event, Pdo\Mysql $mysql){
-           Log::debug($mysql->prepare($mysql->getSQLStatement())->queryString);
-        });
-
         // Get the data from the user
         $email    = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -155,10 +146,8 @@ class AuthController extends ControllerBase
         $this->flash->success('Welcome ' . $user->name);
 
         // Forward to the 'invoices' controller if the user is valid
-        $this->dispatcher->forward([
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
+        $this->response->redirect('/');
+        $this->view->disable();
 
         return;
     }
@@ -167,10 +156,8 @@ class AuthController extends ControllerBase
     {
         Auth::logout();
 
-        $this->dispatcher->forward([
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
+        $this->response->redirect('/');
+        $this->view->disable();
 
         return;
     }
