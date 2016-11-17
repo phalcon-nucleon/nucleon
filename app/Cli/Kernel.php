@@ -8,7 +8,6 @@ use Luxury\Foundation\Middleware\Debug as DebugMiddleware;
 use Luxury\Providers\Cli\Dispatcher as DispatcherProvider;
 use Luxury\Providers\Cli\Router as RouterProvider;
 use Luxury\Providers\Database as DatabaseProvider;
-use Luxury\Providers\HttpClient as HttpClientProvider;
 use Luxury\Providers\Logger as LoggerProvider;
 
 /**
@@ -42,11 +41,6 @@ class Kernel extends CliKernel
         \Luxury\Providers\Crypt::class,
         \Luxury\Providers\Annotations::class,
         /**/
-
-        /*
-         * Http Client
-         */
-        HttpClientProvider::class,
 
         /*
          * SomeApi Service

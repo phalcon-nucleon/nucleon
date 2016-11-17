@@ -10,7 +10,6 @@ use Luxury\Providers\Database as DatabaseProvider;
 use Luxury\Providers\Flash as FlashProvider;
 use Luxury\Providers\Http\Dispatcher as DispatcherProvider;
 use Luxury\Providers\Http\Router as RouterProvider;
-use Luxury\Providers\HttpClient as HttpClientProvider;
 use Luxury\Providers\Logger as LoggerProvider;
 use Luxury\Providers\Session as SessionProvider;
 use Luxury\Providers\Url as UrlProvider;
@@ -41,6 +40,7 @@ class Kernel extends HttpKernel
         DispatcherProvider::class,
         DatabaseProvider::class,
         CacheProvider::class,
+
         /*
          * Service provided by the Phalcon\Di\FactoryDefault
          *
@@ -52,11 +52,6 @@ class Kernel extends HttpKernel
         \Luxury\Providers\Crypt::class,
         \Luxury\Providers\Annotations::class,
         /**/
-
-        /*
-         * Http Client
-         */
-        HttpClientProvider::class,
 
         /*
          * Auth Service

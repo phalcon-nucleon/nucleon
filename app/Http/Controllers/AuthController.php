@@ -137,7 +137,7 @@ class AuthController extends ControllerBase
             // Forward to the login form again
             $this->dispatcher->forward([
                 'controller' => 'auth',
-                'action'     => 'signin'
+                'action'     => 'login'
             ]);
 
             return;
