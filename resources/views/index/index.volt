@@ -60,7 +60,8 @@
 <div class="flex-center position-ref full-height">
     <div class="top-right links">
         {% if (auth.check()) %}
-        <a href="{{ url('/home') }}">Home</a>
+            <a href="{{ url('/') }}">Home</a>
+            <a href="{{ url('/logout') }}">Logout</a>
         {% else %}
         <a href="{{ url('login') }}">Login</a>
         <a href="{{ url('register') }}">Register</a>

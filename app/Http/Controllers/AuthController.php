@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\Guest as GuestMiddleware;
 use Luxury\Constants\Events;
-use Luxury\Constants\Services;
 use Luxury\Support\Facades\Auth;
-use Luxury\Support\Facades\Log;
 use Phalcon\Db\Adapter\Pdo;
 
 /**
@@ -41,15 +39,6 @@ class AuthController extends ControllerBase
      */
     public function postRegisterAction()
     {
-        $db = $this->getDI()->getShared(Services::DB);
-
-        $db->setEventsManager($this->getDI()->getShared(Services::EVENTS_MANAGER));
-
-        $db->getEventsManager()->attach(Events\Db::BEFORE_QUERY, function ($event, Pdo\Mysql $mysql){
-            Log::debug(Events\Db::BEFORE_QUERY);
-            Log::debug($mysql->prepare($mysql->getSQLStatement())->queryString);
-        });
-
         // Get the data from the user
         $email    = $this->request->getPost('email');
         $name     = $this->request->getPost('name');
@@ -77,7 +66,6 @@ class AuthController extends ControllerBase
             ]
         ]);
 
-        Log::debug('user:' . var_export($user, true));
         if (!empty($user)) {
             $this->flash->error('User already exist');
 
@@ -96,9 +84,7 @@ class AuthController extends ControllerBase
         $user->{$userClass::getAuthIdentifierName()} = $email;
         $user->{$userClass::getAuthPasswordName()}   = $this->security->hash($password);
 
-        Log::debug('user:try save');
         if ($user->save() === false) {
-            Log::debug('user:save failed');
             $messages = array_merge(['Failed save user.'], $user->getMessages());
 
             $this->flash->error(implode(' - ', $messages));
@@ -113,10 +99,8 @@ class AuthController extends ControllerBase
 
         $this->flash->success('User create successful !');
 
-        $this->dispatcher->forward([
-            'controller' => 'auth',
-            'action'     => 'login'
-        ]);
+        $this->response->redirect('/');
+        $this->view->disable();
 
         return;
     }
@@ -138,14 +122,6 @@ class AuthController extends ControllerBase
      */
     public function postLoginAction()
     {
-        $db = $this->getDI()->getShared(Services::DB);
-
-        $db->setEventsManager($this->getDI()->getShared(Services::EVENTS_MANAGER));
-
-        $db->getEventsManager()->attach(Events\Db::BEFORE_QUERY, function ($event, Pdo\Mysql $mysql){
-           Log::debug($mysql->prepare($mysql->getSQLStatement())->queryString);
-        });
-
         // Get the data from the user
         $email    = $this->request->getPost('email');
         $password = $this->request->getPost('password');
@@ -161,7 +137,7 @@ class AuthController extends ControllerBase
             // Forward to the login form again
             $this->dispatcher->forward([
                 'controller' => 'auth',
-                'action'     => 'signin'
+                'action'     => 'login'
             ]);
 
             return;
@@ -170,10 +146,8 @@ class AuthController extends ControllerBase
         $this->flash->success('Welcome ' . $user->name);
 
         // Forward to the 'invoices' controller if the user is valid
-        $this->dispatcher->forward([
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
+        $this->response->redirect('/');
+        $this->view->disable();
 
         return;
     }
@@ -182,10 +156,8 @@ class AuthController extends ControllerBase
     {
         Auth::logout();
 
-        $this->dispatcher->forward([
-            'controller' => 'index',
-            'action'     => 'index'
-        ]);
+        $this->response->redirect('/');
+        $this->view->disable();
 
         return;
     }

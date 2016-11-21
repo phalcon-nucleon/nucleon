@@ -104,9 +104,11 @@ return [
          | Available adapter :
          |
          | \Phalcon\Db\Adapter\Pdo\Mysql
-         | \Phalcon\Db\Adapter\Pdo\Oracle
          | \Phalcon\Db\Adapter\Pdo\Postgresql
          | \Phalcon\Db\Adapter\Pdo\Sqlite
+         |
+         | (phalcon/incubator)
+         | \Phalcon\Db\Adapter\Pdo\Oracle
          | \Phalcon\Db\Adapter\Mongo\Db
          */
         'adapter'  => \Phalcon\Db\Adapter\Pdo\Mysql::class,
@@ -136,17 +138,19 @@ return [
              | This value define the cache driver (backend)
              |
              | Available Cache Driver (Backend) :
-             | \Phalcon\Cache\Backend\Aerospike
              | \Phalcon\Cache\Backend\Apc
-             | \Phalcon\Cache\Backend\Database
              | \Phalcon\Cache\Backend\Libmemcached
              | \Phalcon\Cache\Backend\File
              | \Phalcon\Cache\Backend\Memcache
              | \Phalcon\Cache\Backend\Memory
              | \Phalcon\Cache\Backend\Mongo
              | \Phalcon\Cache\Backend\Redis
-             | \Phalcon\Cache\Backend\Wincache
              | \Phalcon\Cache\Backend\Xcache
+             |
+             | (phalcon/incubator)
+             | \Phalcon\Cache\Backend\Aerospike
+             | \Phalcon\Cache\Backend\Database
+             | \Phalcon\Cache\Backend\Wincache
              */
             'driver'  => 'File',
             /*
@@ -183,14 +187,16 @@ return [
          | This value define the session adapter
          |
          | Available Session Adapter :
-         | \Phalcon\Session\Adapter\Aerospike
-         | \Phalcon\Session\Adapter\Database
-         | \Phalcon\Session\Adapter\HandlerSocket
-         | \Phalcon\Session\Adapter\Mongo
          | \Phalcon\Session\Adapter\Files
          | \Phalcon\Session\Adapter\Libmemcached
          | \Phalcon\Session\Adapter\Memcache
          | \Phalcon\Session\Adapter\Redis
+         |
+         | (phalcon/incubator)
+         | \Phalcon\Session\Adapter\Aerospike
+         | \Phalcon\Session\Adapter\Database
+         | \Phalcon\Session\Adapter\HandlerSocket
+         | \Phalcon\Session\Adapter\Mongo
          */
         'adapter' => 'Files',
         'id'      => 'phalcon-luxury'
@@ -242,16 +248,18 @@ return [
          | This value define the logger adapter
          |
          | Available Logger Adapter :
-         | \Phalcon\Logger\Adapter\File\Multiple
          | \Phalcon\Logger\Adapter\File
-         | \Phalcon\Logger\Adapter\Database
-         | \Phalcon\Logger\Adapter\Firelogger
          | \Phalcon\Logger\Adapter\Stream
          | \Phalcon\Logger\Adapter\Syslog
+         |
+         | (phalcon/incubator)
+         | \Phalcon\Logger\Adapter\File\Multiple
          | \Phalcon\Logger\Adapter\Udplogger
+         | \Phalcon\Logger\Adapter\Database
+         | \Phalcon\Logger\Adapter\Firelogger
          */
-        'adapter' => 'Multiple',
-        'path'    => __DIR__ . '/../storage/logs',
+        'adapter' => 'File',
+        'path'    => __DIR__ . '/../storage/logs/luxury.log',
         'options' => []
     ],
     /*

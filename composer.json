@@ -32,7 +32,12 @@
     }
   },
   "scripts" : {
+    "post-install-cmd" : [
+      "Luxury\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
+      "php luxury optimize --memory"
+    ],
     "post-update-cmd" : [
+      "Luxury\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
       "php luxury optimize --memory"
     ]
   }
