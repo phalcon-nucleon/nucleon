@@ -18,8 +18,6 @@ class RoutesTest extends RoutesTestCase
     protected function setUp()
     {
         parent::setUp();
-
-        Auth::shouldReceive('chech')->andReturn(false);
     }
 
     /**
@@ -30,10 +28,14 @@ class RoutesTest extends RoutesTestCase
         return [
             /* path, http_method, excepted, [ctrl, [action, [params]]] */
             ['', 'GET', true, 'index', 'index'],
-            ['/login', 'GET', false, 'errors', 'http404'],
-            ['/login', 'POST', true, 'auth', 'login'],
+            ['/login', 'GET', true, 'auth', 'login'],
+            ['/login', 'POST', true, 'auth', 'postLogin'],
+            ['/register', 'GET', true, 'auth', 'register'],
+            ['/register', 'POST', true, 'auth', 'postRegister'],
+            ['/logout', 'GET', true, 'auth', 'logout'],
+            ['/logout', 'POST', false, 'errors', 'http404'],
             ['/signin', 'POST', false, 'errors', 'http404'],
-            ['/signin', 'GET', true, 'auth', 'signin'],
+            ['/signin', 'GET', false, 'errors', 'http404'],
         ];
     }
 }

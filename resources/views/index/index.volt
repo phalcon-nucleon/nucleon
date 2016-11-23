@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Nucl&eacute;on</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -54,6 +54,12 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+        .logo{
+            display: block;
+            margin: auto;
+            max-width: 96px;
+            max-height: 96px;
+        }
     </style>
 </head>
 <body>
@@ -63,14 +69,15 @@
             <a href="{{ url('/') }}">Home</a>
             <a href="{{ url('/logout') }}">Logout</a>
         {% else %}
-        <a href="{{ url('login') }}">Login</a>
-        <a href="{{ url('register') }}">Register</a>
+            <a href="{{ url('login') }}">Login</a>
+            <a href="{{ url('register') }}">Register</a>
         {% endif %}
     </div>
 
     <div class="content">
         <div class="title m-b-md">
-            Luxury
+            <img class="logo" src="{{ url('img/nucleon.svg') }}"/>
+            Nucl&eacute;on
         </div>
         <div>
             {{ microtime(true) - _SERVER['REQUEST_TIME_FLOAT'] }}
