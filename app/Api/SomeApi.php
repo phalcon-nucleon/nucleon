@@ -2,8 +2,8 @@
 
 namespace App\Api;
 
-use Luxury\Constants\Services;
-use Luxury\Support\Facades\Log;
+use Neutrino\Constants\Services;
+use Neutrino\Support\Facades\Log;
 use Phalcon\Di\Injectable;
 use Phalcon\Di\InjectionAwareInterface;
 

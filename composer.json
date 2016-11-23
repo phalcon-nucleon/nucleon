@@ -19,7 +19,7 @@
     "ext-phalcon": ">=3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "nucleon/framework": "dev-master"
+    "nucleon/framework": "dev-dev-master"
   },
   "require-dev": {
     "phalcon/devtools": "dev-master",
@@ -33,12 +33,12 @@
   },
   "scripts" : {
     "post-install-cmd" : [
-      "Luxury\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
-      "php luxury optimize --memory"
+      "Neutrino\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
+      "php quark optimize --memory"
     ],
     "post-update-cmd" : [
-      "Luxury\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
-      "php luxury optimize --memory"
+      "Neutrino\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
+      "php quark optimize --memory"
     ]
   }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Luxury\Error\Handler;
+use Neutrino\Error\Handler;
 
 /**
  * Class ErrorsController
@@ -21,7 +21,7 @@ class ErrorsController extends ControllerBase
 
     public function indexAction()
     {
-        /* @var \Luxury\Error\Error $error */
+        /* @var \Neutrino\Error\Error $error */
         $error = $this->dispatcher->getParam('error');
 
         $this->view->error = [

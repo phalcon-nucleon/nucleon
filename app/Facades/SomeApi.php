@@ -3,7 +3,7 @@
 namespace App\Facades;
 
 use App\Constants\Services;
-use Luxury\Support\Facades\Facade;
+use Neutrino\Support\Facades\Facade;
 
 /**
  * Class SomeApi

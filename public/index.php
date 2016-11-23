@@ -5,7 +5,7 @@ try {
     /* Make Application                                             */
     /*--------------------------------------------------------------*/
 
-    /** @var \Luxury\Foundation\Bootstrap $bootstrap */
+    /** @var \Neutrino\Foundation\Bootstrap $bootstrap */
     $bootstrap = require_once __DIR__ . '/../bootstrap/app.php';
 
     /** @var \App\Http\Kernel $kernel */

@@ -9,7 +9,7 @@
 |
 */
 
-use Luxury\Support\Facades\Router;
+use Neutrino\Support\Facades\Router;
 
 Router::setDefaultNamespace('App\Http\Controllers');
 

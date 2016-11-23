@@ -15,4 +15,4 @@ $config = new \Phalcon\Config\Adapter\Php(__DIR__ . '/../config/config.php');
 /**
  * Creating the application
  */
-return new \Luxury\Foundation\Bootstrap($config);
+return new \Neutrino\Foundation\Bootstrap($config);
