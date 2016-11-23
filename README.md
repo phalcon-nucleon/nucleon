@@ -1,9 +1,11 @@
-Luxury : Phalcon extended framework. (App)
-=======
+<p align="center"><a href="https://phalcon-nucleon.github.io/" target="_blank"><img width="150"src="https://phalcon-nucleon.github.io/nucleon.svg"></a></p>
+
+Nucleon : Phalcon extended framework. (App)
+===========================================
 [![Build Status](https://travis-ci.org/Ark4ne/phalcon-luxury-framework.svg?branch=master)](https://travis-ci.org/Ark4ne/phalcon-luxury-framework) 
 
 # About
-Luxury is a web application that uses [Phalcon](https://www.phalconphp.com/)
+Nucleon is a web application that uses [Phalcon](https://www.phalconphp.com/)
 .
 Our philosophy is to make the web faster, with enjoyable development.
 

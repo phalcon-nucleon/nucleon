@@ -1,13 +1,13 @@
 {
-  "name": "ark4ne/phalcon-luxury",
-  "description": "Phalcon extended framework. (Luxury:App)",
+  "name": "nucleon/nucleon",
+  "description": "Phalcon extended framework. (Nucleon:App)",
   "keywords": [
     "framework",
     "phalcon",
-    "luxury"
+    "nucleon"
   ],
   "minimum-stability": "dev",
-  "license": "MIT",
+  "license": "GNU",
   "authors": [
     {
       "name": "Ark4ne (Guillaume Allegret)",
@@ -19,7 +19,7 @@
     "ext-phalcon": ">=3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "ark4ne/phalcon-luxury-framework": "dev-master"
+    "nucleon/framework": "dev-master"
   },
   "require-dev": {
     "phalcon/devtools": "dev-master",
