@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Luxury\Http\Middleware\Throttle as ThrottleMiddleware;
+use Neutrino\Http\Middleware\ThrottleRequest;
 
 /**
  * Class ThrottledController
@@ -15,7 +15,7 @@ class ThrottledController extends ControllerJson
     {
         parent::onConstruct();
 
-        $this->middleware(new ThrottleMiddleware(60, 60));
+        $this->middleware(new ThrottleRequest(60, 60));
     }
 
     public function indexAction()

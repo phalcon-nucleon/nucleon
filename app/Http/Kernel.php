@@ -3,17 +3,17 @@
 namespace App\Http;
 
 use App\Providers\SomeApiServices as SomeApiProvider;
-use Luxury\Foundation\Http\Kernel as HttpKernel;
-use Luxury\Providers\Auth as AuthProvider;
-use Luxury\Providers\Cache as CacheProvider;
-use Luxury\Providers\Database as DatabaseProvider;
-use Luxury\Providers\Flash as FlashProvider;
-use Luxury\Providers\Http\Dispatcher as DispatcherProvider;
-use Luxury\Providers\Http\Router as RouterProvider;
-use Luxury\Providers\Logger as LoggerProvider;
-use Luxury\Providers\Session as SessionProvider;
-use Luxury\Providers\Url as UrlProvider;
-use Luxury\Providers\View as ViewProvider;
+use Neutrino\Foundation\Http\Kernel as HttpKernel;
+use Neutrino\Providers\Auth as AuthProvider;
+use Neutrino\Providers\Cache as CacheProvider;
+use Neutrino\Providers\Database as DatabaseProvider;
+use Neutrino\Providers\Flash as FlashProvider;
+use Neutrino\Providers\Http\Dispatcher as DispatcherProvider;
+use Neutrino\Providers\Http\Router as RouterProvider;
+use Neutrino\Providers\Logger as LoggerProvider;
+use Neutrino\Providers\Session as SessionProvider;
+use Neutrino\Providers\Url as UrlProvider;
+use Neutrino\Providers\View as ViewProvider;
 
 /**
  * Class Kernel
@@ -44,13 +44,13 @@ class Kernel extends HttpKernel
         /*
          * Service provided by the Phalcon\Di\FactoryDefault
          *
-        \Luxury\Providers\Models::class,
-        \Luxury\Providers\Cookies::class,
-        \Luxury\Providers\Filter::class,
-        \Luxury\Providers\Escaper::class,
-        \Luxury\Providers\Security::class,
-        \Luxury\Providers\Crypt::class,
-        \Luxury\Providers\Annotations::class,
+        \Neutrino\Providers\Models::class,
+        \Neutrino\Providers\Cookies::class,
+        \Neutrino\Providers\Filter::class,
+        \Neutrino\Providers\Escaper::class,
+        \Neutrino\Providers\Security::class,
+        \Neutrino\Providers\Crypt::class,
+        \Neutrino\Providers\Annotations::class,
         /**/
 
         /*

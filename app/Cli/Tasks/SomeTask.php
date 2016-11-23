@@ -2,8 +2,8 @@
 
 namespace App\Cli\Tasks;
 
-use Luxury\Cli\Output\Decorate;
-use Luxury\Cli\Task;
+use Neutrino\Cli\Output\Decorate;
+use Neutrino\Cli\Task;
 
 /**
  * Class SomeTask
@@ -13,7 +13,7 @@ use Luxury\Cli\Task;
 class SomeTask extends Task
 {
     /**
-     * \> php luxury some
+     * \> php quark some
      */
     public function mainAction()
     {
@@ -21,7 +21,7 @@ class SomeTask extends Task
     }
 
     /**
-     * \> php luxury some test hello world
+     * \> php quark some test hello world
      *
      * @argument param_1: the first param
      * @argument param_2: the second param

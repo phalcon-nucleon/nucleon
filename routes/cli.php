@@ -10,7 +10,7 @@
 |
 */
 
-use Luxury\Support\Facades\Router;
+use Neutrino\Support\Facades\Router;
 
 Router::add('some', [
     'task' => \App\Cli\Tasks\SomeTask::class

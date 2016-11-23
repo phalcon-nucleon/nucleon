@@ -2,11 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Luxury\Foundation\Middleware\Controller as ControllerMiddleware;
-use Luxury\Interfaces\Middleware\BeforeInterface;
-use Luxury\Support\Facades\Auth;
+use Neutrino\Foundation\Middleware\Controller as ControllerMiddleware;
+use Neutrino\Interfaces\Middleware\BeforeInterface;
+use Neutrino\Support\Facades\Auth;
 use Phalcon\Events\Event;
-use Phalcon\Http\Client\Exception;
 
 /**
  * Class Guest
@@ -23,12 +22,12 @@ class Guest extends ControllerMiddleware implements BeforeInterface
      * @param mixed|null                  $data
      *
      * @return bool
-     * @throws Exception
+     * @throws \RuntimeException
      */
     public function before(Event $event, $source, $data = null)
     {
         if (Auth::check()) {
-            throw new Exception('User already logged in.');
+            throw new \RuntimeException('User already logged in.');
         }
 
         return true;

@@ -1,8 +1,8 @@
-<p align="center"><a href="https://phalcon-nucleon.github.io/" target="_blank"><img width="150"src="https://phalcon-nucleon.github.io/nucleon.svg"></a></p>
+<p align="center"><a href="https://phalcon-nucleon.github.io/" target="_blank"><img width="150"src="https://phalcon-nucleon.github.io/img/nucleon.svg"></a></p>
 
 Nucleon : Phalcon extended framework. (App)
 ===========================================
-[![Build Status](https://travis-ci.org/Ark4ne/phalcon-luxury-framework.svg?branch=master)](https://travis-ci.org/Ark4ne/phalcon-luxury-framework) 
+[![Build Status](https://travis-ci.org/phalcon-nucleon/framework.svg?branch=master)](https://travis-ci.org/phalcon-nucleon/framework) 
 
 # About
 Nucleon is a web application that uses [Phalcon](https://www.phalconphp.com/)
@@ -11,7 +11,7 @@ Our philosophy is to make the web faster, with enjoyable development.
 
 # Install
 ```
-\> git clone https://github.com/Ark4ne/phalcon-luxury.git
+\> git clone https://github.com/phalcon-nucleon/nucleon.git
 \> composer install
 ```
 _After first beta release, the_ `composer create-project` _command will be available_
@@ -23,9 +23,9 @@ _After first beta release, the_ `composer create-project` _command will be avail
 * Phalcon >= 3.0
 
 # Composer & Autoloading
-Luxury uses composer. So you can use all your libraries prefer as you wish!
+Nucleon uses composer. So you can use all your libraries prefer as you wish!
 
-The `php luxury optimize` command will optimize autoloading using the phalcon loader (best performing autoloader !)
+The `php quark optimize` command will optimize autoloading using the phalcon loader (best performing autoloader !)
 
 # Directory Structure
 ## Root Directory
@@ -98,7 +98,7 @@ To register a provider, you must add it to the list of provider loaded by the ap
 This list is managed in the kernel, Http\Kernel, Cli\Kernel, by property $providers.
 
 ```php
-use Luxury\Foundation\Kernel\Http as HttpApplication;
+use Neutrino\Foundation\Kernel\Http as HttpApplication;
 
 class Kernel extends HttpApplication
 {
@@ -109,7 +109,7 @@ class Kernel extends HttpApplication
 }
 ```
 ### Create Provider
-A provider should extends the `Luxury\Providers\Provider` class and contain a `register` method.
+A provider should extends the `Neutrino\Providers\Provider` class and contain a `register` method.
 
 The `register` method simply return the instance to provide.
 
@@ -118,7 +118,7 @@ You must pass the name of the service via the property `$name`.
 You can make a service shared via the property `$shared`. 
 
 ```php
-use \Luxury\Providers\Provider;
+use \Neutrino\Providers\Provider;
 
 class ExampleServiceProvider extends Provider
 {
@@ -134,12 +134,12 @@ class ExampleServiceProvider extends Provider
 ```
 
 ### Complex Provider
-All providers implements the Interface `Luxury\Interfaces\Providable`.
+All providers implements the Interface `Neutrino\Interfaces\Providable`.
 
 If you created your a provider with your own `registering` method, you can simply implement this class.
 
 ```php
-use \Luxury\Interfaces\Providable;
+use \Neutrino\Interfaces\Providable;
 
 class ExampleServiceProvider implements Providable
 {
@@ -166,7 +166,7 @@ This file is automatically loaded by the framework.
 ### Router methods
 The router allows you to register routes that respond to any HTTP verb :
 ```php
-use Luxury\Support\Facades\Router;
+use Neutrino\Support\Facades\Router;
 
 Router::addHead($uri, $paths);
 Router::addGet($uri, $paths);
@@ -210,7 +210,7 @@ _`Application Middleware can't be use directly in the http controller`_
 Application middleware are register in the kernel, by property $middlewares.
 
 ```php
-use Luxury\Foundation\Kernel\Http as HttpApplication;
+use Neutrino\Foundation\Kernel\Http as HttpApplication;
 
 class Kernel extends HttpApplication
 {
@@ -233,7 +233,7 @@ _`Dispatcher Middleware can't be use directly in the http controller`_
 Dispatcher middleware are register in the kernel, by property $middlewares.
 
 ```php
-use Luxury\Foundation\Kernel\Http as HttpApplication;
+use Neutrino\Foundation\Kernel\Http as HttpApplication;
 
 class Kernel extends HttpApplication
 {
@@ -256,13 +256,13 @@ Handle :
 Controller middleware are register directly in the route, via the attribute `middleware`.
 
 ```php
-use \Luxury\Support\Facades\Router;
+use \Neutrino\Support\Facades\Router;
 
 Router::addGet($uri, [
     // ...
     'middleware' => [
-        \Luxury\Http\Middleware\Csrf::class,
-        \Luxury\Auth\Middleware\ThrottleLogin::class => [$max_request, $decay_seconds]
+        \Neutrino\Http\Middleware\Csrf::class,
+        \Neutrino\Auth\Middleware\ThrottleLogin::class => [$max_request, $decay_seconds]
     ]
 ]);
 ```
@@ -275,9 +275,9 @@ class AuthController extends ControllerBase
 {
     protected function onConstruct()
     {
-        $this->middleware(\Luxury\Http\Middleware\Csrf::class);
+        $this->middleware(\Neutrino\Http\Middleware\Csrf::class);
         
-        $this->middleware(\Luxury\Http\Middleware\ThrottleRequest::class, $max_request, $decay_seconds);
+        $this->middleware(\Neutrino\Http\Middleware\ThrottleRequest::class, $max_request, $decay_seconds);
     }
 }
 ```
@@ -295,7 +295,7 @@ class AuthController extends ControllerBase
 {
     protected function onConstruct()
     {
-        $this->middleware(\Luxury\Http\Middleware\Csrf::class)
+        $this->middleware(\Neutrino\Http\Middleware\Csrf::class)
             // CSRF middleware only on loginAction
             ->only(['login'])
             
@@ -311,14 +311,14 @@ class AuthController extends ControllerBase
 You can create your own middleware by inheriting ApplicationMiddleware, DispatcherMiddleware, or ControllerMiddleware.
 
 The management of associated events does this simply by implementing the interfaces:
-- Luxury\Interfaces\Middleware\InitInterface => init
-- Luxury\Interfaces\Middleware\BeforeInterface => before
-- Luxury\Interfaces\Middleware\AfterInterface => after
-- Luxury\Interfaces\Middleware\FinishInterface => finish
+- Neutrino\Interfaces\Middleware\InitInterface => init
+- Neutrino\Interfaces\Middleware\BeforeInterface => before
+- Neutrino\Interfaces\Middleware\AfterInterface => after
+- Neutrino\Interfaces\Middleware\FinishInterface => finish
 
 ```php
-use Luxury\Foundation\Middleware\Controller as ControllerMiddleware;
-use Luxury\Interfaces\Middleware\BeforeInterface;
+use Neutrino\Foundation\Middleware\Controller as ControllerMiddleware;
+use Neutrino\Interfaces\Middleware\BeforeInterface;
 
 class ExampleMiddleware extends ControllerMiddleware implements BeforeInterface
 {

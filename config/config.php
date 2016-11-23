@@ -115,7 +115,7 @@ return [
         'host'     => 'localhost',
         'username' => 'root',
         'password' => '',
-        'dbname'   => 'luxury-test',
+        'dbname'   => 'nucleon-test',
         'charset'  => 'utf8',
     ],
     /*
@@ -126,7 +126,7 @@ return [
      | Cache use the Strategy Design pattern.
      |
      | All caches defined below will be accessed via the function :
-     | Luxury\Support\Facade\Cache::uses({cache_name})
+     | Neutrino\Support\Facade\Cache::uses({cache_name})
      */
     'cache'    => [
         'default' => [
@@ -199,7 +199,7 @@ return [
          | \Phalcon\Session\Adapter\Mongo
          */
         'adapter' => 'Files',
-        'id'      => 'phalcon-luxury'
+        'id'      => 'phalcon-nucleon'
     ],
     /*
      +-------------------------------------------------------------------
@@ -259,7 +259,7 @@ return [
          | \Phalcon\Logger\Adapter\Firelogger
          */
         'adapter' => 'File',
-        'path'    => __DIR__ . '/../storage/logs/luxury.log',
+        'path'    => __DIR__ . '/../storage/logs/nucleon.log',
         'options' => []
     ],
     /*

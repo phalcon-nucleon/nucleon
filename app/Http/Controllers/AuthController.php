@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\Guest as GuestMiddleware;
-use Luxury\Constants\Events;
-use Luxury\Support\Facades\Auth;
+use Neutrino\Constants\Events;
+use Neutrino\Support\Facades\Auth;
 use Phalcon\Db\Adapter\Pdo;
 
 /**

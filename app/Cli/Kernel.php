@@ -3,12 +3,12 @@
 namespace App\Cli;
 
 use App\Providers\SomeApiServices as SomeApiProvider;
-use Luxury\Foundation\Cli\Kernel as CliKernel;
-use Luxury\Foundation\Middleware\Debug as DebugMiddleware;
-use Luxury\Providers\Cli\Dispatcher as DispatcherProvider;
-use Luxury\Providers\Cli\Router as RouterProvider;
-use Luxury\Providers\Database as DatabaseProvider;
-use Luxury\Providers\Logger as LoggerProvider;
+use Neutrino\Foundation\Cli\Kernel as CliKernel;
+use Neutrino\Foundation\Middleware\Debug as DebugMiddleware;
+use Neutrino\Providers\Cli\Dispatcher as DispatcherProvider;
+use Neutrino\Providers\Cli\Router as RouterProvider;
+use Neutrino\Providers\Database as DatabaseProvider;
+use Neutrino\Providers\Logger as LoggerProvider;
 
 /**
  * Class Kernel
@@ -33,13 +33,13 @@ class Kernel extends CliKernel
         /*
          * Service provided by the Phalcon\Di\FactoryDefault
          *
-        \Luxury\Providers\Models::class,
-        \Luxury\Providers\Cookies::class,
-        \Luxury\Providers\Filter::class,
-        \Luxury\Providers\Escaper::class,
-        \Luxury\Providers\Security::class,
-        \Luxury\Providers\Crypt::class,
-        \Luxury\Providers\Annotations::class,
+        \Neutrino\Providers\Models::class,
+        \Neutrino\Providers\Cookies::class,
+        \Neutrino\Providers\Filter::class,
+        \Neutrino\Providers\Escaper::class,
+        \Neutrino\Providers\Security::class,
+        \Neutrino\Providers\Crypt::class,
+        \Neutrino\Providers\Annotations::class,
         /**/
 
         /*

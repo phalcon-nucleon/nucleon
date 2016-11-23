@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Luxury\Support\Str;
+use Neutrino\Support\Str;
 
 /**
  * Class Viewable

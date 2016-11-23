@@ -5,7 +5,7 @@ namespace App\Support\Traits;
 /**
  * Class Jsonize
  *
- * @package Luxury\Support\Traits
+ * @package Neutrino\Support\Traits
  */
 trait Jsonize
 {

@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="true">
-  <testsuite name="Luxury - Testsuite">
+  <testsuite name="Nucleon - Testsuite">
     <directory>./tests/</directory>
   </testsuite>
   <filter>

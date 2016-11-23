@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Api\SomeApi;
 use App\Constants\Services;
-use Luxury\Providers\Provider;
+use Neutrino\Providers\Provider;
 
 /**
  * Class Tumblr

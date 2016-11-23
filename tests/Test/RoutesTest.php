@@ -2,8 +2,7 @@
 
 namespace Test;
 
-use Luxury\Support\Facades\Auth;
-use Luxury\Test\RoutesTestCase;
+use Neutrino\Test\RoutesTestCase;
 
 /**
  * Class RoutesTest

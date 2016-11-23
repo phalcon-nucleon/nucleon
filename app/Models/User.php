@@ -9,7 +9,7 @@ use Phalcon\Db\Column;
  *
  * @package Models
  */
-class User extends \Luxury\Foundation\Auth\User
+class User extends \Neutrino\Foundation\Auth\User
 {
     use Viewable;
 
