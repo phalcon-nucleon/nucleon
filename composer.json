@@ -6,7 +6,7 @@
     "phalcon",
     "nucleon"
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "license": "GNU",
   "authors": [
     {
@@ -19,7 +19,7 @@
     "ext-phalcon": ">=3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "nucleon/framework": "dev-dev-master"
+    "nucleon/framework": "0.1.*"
   },
   "require-dev": {
     "phalcon/devtools": "dev-master",
