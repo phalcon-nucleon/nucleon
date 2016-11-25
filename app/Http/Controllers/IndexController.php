@@ -21,17 +21,6 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-        // Call SomeApi using DependencyInjection
-        $this->getDI()->getShared(Services::SOME_API)->doSomething();
-
-        // ShortCut Call
-        $this->{Services::SOME_API}->doSomething();
-
-        // Call SomeApi using Facade
-        SomeApi::doAnotherThing();
-
-        $this->view->content = "Some Content";
-
         $this->view->render('index', 'index');
     }
 }
