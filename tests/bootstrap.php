@@ -13,7 +13,7 @@ set_include_path(
 /**
  * Read the configuration
  */
-$config = require __DIR__ . "/../config/config.php";
+$config = \Neutrino\Config\Loader::load(__DIR__.'/../', ['compile']);
 
 /**
  * Register composer auto-loader
