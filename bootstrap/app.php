@@ -1,7 +1,5 @@
 <?php
 
-define('APP_ENV', 'development');
-
 /**
  * Register The Auto Loader
  */
