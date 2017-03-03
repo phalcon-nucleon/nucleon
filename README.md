@@ -108,32 +108,85 @@ class Kernel extends HttpApplication
     ];
 }
 ```
-### Create Provider
-A provider should extends the `Neutrino\Providers\Provider` class and contain a `register` method.
+### Create Providers
+#### Basic Provider
+Use BasicProvider to simple provide a class as string or array definition if $options is specified.
+
+You must pass the class name of the service via the property `$class`.
+
+You must pass the name of the service via the property `$name`.
+
+You can make a shared service via the property `$shared`. 
+
+You can define aliases of the service via the property `$aliases`. 
+
+You can specify some options too add to the service definition via the property `$options`.
+
+```php
+use \Neutrino\Providers\Provider;
+
+class ExampleServiceProvider extends BasicProvider
+{
+    // Class to provide
+    protected $class = ExampleService::class;
+
+    // Name of service
+    protected $name = 'example';
+
+    // Service is shared
+    protected $shared = true;
+
+    // optional, aliases
+    protected $aliases = [
+        ExampleService::class,
+    ];
+
+    // optional, options for build service definition
+    protected $options = [
+        'arguments' => [
+          [
+              'type' => 'service',
+              'name' => Service::LOGGER
+          ]
+        ],
+    ];
+}
+```
+
+#### Own Provider
+You can create more complex provider by extends the `Neutrino\Providers\Provider` class.
+A provider witch extends the `Neutrino\Providers\Provider` class should contain a `register` method.
 
 The `register` method simply return the instance to provide.
 
 You must pass the name of the service via the property `$name`.
 
-You can make a service shared via the property `$shared`. 
+You can make a shared service via the property `$shared`. 
 
 ```php
 use \Neutrino\Providers\Provider;
 
 class ExampleServiceProvider extends Provider
 {
+    // Name of service
     protected $name = 'example';
     
+    // Service is shared
     protected $shared = true;
   
+    // optional aliases
+    protected $aliases = [
+        ExampleService::class,
+    ];
+
     public function register()
     {
-        return new ExampleService();
+        return new ExampleService($this->getDI()->getShared(Service::LOGGER));
     }
 }
 ```
 
-### Complex Provider
+#### Complex Provider
 All providers implements the Interface `Neutrino\Interfaces\Providable`.
 
 If you created your a provider with your own `registering` method, you can simply implement this class.
