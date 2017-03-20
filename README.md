@@ -1,6 +1,6 @@
 <p align="center"><a href="https://phalcon-nucleon.github.io/" target="_blank"><img width="150"src="https://phalcon-nucleon.github.io/img/nucleon.svg"></a></p>
 
-Nucleon : Phalcon extended framework. (App)
+Nucleon : Phalcon extended framework. (App\Core)
 ===========================================
 [![Build Status](https://travis-ci.org/phalcon-nucleon/framework.svg?branch=master)](https://travis-ci.org/phalcon-nucleon/framework) 
 
@@ -49,7 +49,7 @@ The `php quark optimize` command will optimize autoloading using the phalcon loa
 * __vendor/__
     -  The vendor directory contains your Composer dependencies.
     
-## App Directory
+## App\Core Directory
 - __Api/__
 
 _Currently (*v0-alpha*)_ : just a directory whose may contains your api logic.
@@ -87,7 +87,7 @@ The Providers directory contains all of the service providers for your applicati
 The Support directory is a proposed location of your tools.
 
 
-# Core Concepts
+# App\Core Concepts
 ## Service Container / Dependency Injection 
 [See Phalcon Dependency Injection](https://docs.phalconphp.com/en/3.0.0/reference/di.html)
 ## Service Providers

@@ -11,7 +11,7 @@
 
 use Neutrino\Support\Facades\Router;
 
-Router::setDefaultNamespace('App\Http\Controllers');
+Router::setDefaultNamespace('App\Kernels\Http\Modules\Frontend\Controllers');
 
 Router::notFound([
     'controller' => 'errors',
