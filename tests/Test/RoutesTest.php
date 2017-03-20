@@ -11,7 +11,7 @@ class RoutesTest extends RoutesTestCase
 {
     protected static function kernelClassInstance()
     {
-        return \App\Http\Kernel::class;
+        return \App\Kernels\Http\Modules\Frontend\Module::class;
     }
 
     protected function setUp()
