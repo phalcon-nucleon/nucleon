@@ -2,6 +2,7 @@
 
 namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
+use App\Kernels\Http\Controllers\ControllerJson;
 use Neutrino\Http\Middleware\ThrottleRequest;
 
 /**

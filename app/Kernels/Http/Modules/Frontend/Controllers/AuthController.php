@@ -2,10 +2,9 @@
 
 namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
+use App\Kernels\Http\Controllers\ControllerBase;
 use App\Kernels\Http\Modules\Frontend\Middleware\Guest as GuestMiddleware;
-use Neutrino\Constants\Events;
 use Neutrino\Support\Facades\Auth;
-use Phalcon\Db\Adapter\Pdo;
 
 /**
  * Class AuthController
