@@ -8,42 +8,61 @@
 | These routes are loaded by the HttpKernel
 |
 */
+$di = \Phalcon\Di::getDefault();
+/** @var \Phalcon\Mvc\Dispatcher $dispatcher */
+//$dispatcher = $di->getShared(\Neutrino\Constants\Services::DISPATCHER);
+//$dispatcher->setControllerSuffix('');
 
-use Neutrino\Support\Facades\Router;
+/** @var \Phalcon\Mvc\Router $router */
+$router = $di->getShared(\Neutrino\Constants\Services::ROUTER);
 
-Router::setDefaultNamespace('App\Kernels\Http\Modules\Frontend\Controllers');
+//$router->setDefaultModule('Frontend');
+//$router->setDefaultNamespace('App\Kernels\Http\Modules\Frontend\Controllers');
 
-Router::notFound([
+$router->notFound([
     'controller' => 'errors',
-    'action'     => 'http404'
+    'action'     => 'http404',
+    'module'     => 'Frontend'
 ]);
 
-Router::addGet('/', [
-    'controller' => 'index',
+$router->addGet('/', [
+    'namespace' => 'App\Kernels\Http\Controllers',
+    'controller' => 'home',
     'action'     => 'index'
 ]);
 
-Router::addGet('/register', [
-    'controller' => 'auth',
-    'action'     => 'register'
+$router->addGet('/index', [
+    'controller' => 'index',
+    'action'     => 'index',
+    'module'     => 'Frontend'
 ]);
 
-Router::addPost('/register', [
+$router->addGet('/register', [
     'controller' => 'auth',
-    'action'     => 'postRegister'
+    'action'     => 'register',
+    'module'     => 'Frontend'
 ]);
 
-Router::addGet('/login', [
+$router->addPost('/register', [
     'controller' => 'auth',
-    'action'     => 'login'
+    'action'     => 'postRegister',
+    'module'     => 'Frontend'
 ]);
 
-Router::addPost('/login', [
+$router->addGet('/login', [
     'controller' => 'auth',
-    'action'     => 'postLogin'
+    'action'     => 'login',
+    'module'     => 'Frontend'
 ]);
 
-Router::addGet('/logout', [
+$router->addPost('/login', [
     'controller' => 'auth',
-    'action'     => 'logout'
+    'action'     => 'postLogin',
+    'module'     => 'Frontend'
+]);
+
+$router->addGet('/logout', [
+    'controller' => 'auth',
+    'action'     => 'logout',
+    'module'     => 'Frontend'
 ]);

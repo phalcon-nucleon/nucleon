@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Kernels\Http\Modules\Frontend\Controllers;
+namespace App\Kernels\Http\Controllers;
 
 use Neutrino\Http\Controller;
 use Phalcon\Mvc\View;

@@ -2,8 +2,7 @@
 
 namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
-use App\Core\Constants\Services;
-use App\Core\Facades\SomeApi;
+use App\Kernels\Http\Controllers\ControllerBase;
 
 /**
  * Class IndexController
@@ -14,6 +13,6 @@ class IndexController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->render('index', 'index');
+        $this->view->render('front/index', 'index');
     }
 }
