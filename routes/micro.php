@@ -34,23 +34,25 @@ Router::addGet('test', [
 /** @var \Neutrino\Micro\Router $router */
 $router = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::MICRO_ROUTER);
 
-$router->addGet('/api/test',
-  function () {
+$router->addGet('/api/test', function () {
     /** @var \App\Kernels\Micro\Kernel $this */
     $this->response->setStatusCode(200);
 
     $this->response->setJsonContent(['status' => 'found', 'code' => 200]);
 
     return $this->response;
-  });
+});
 
-$router->addGet('/api/index', ['controller' => \App\Kernels\Micro\Controllers\TestController::class, 'action' => 'indexAction']);
+$router->addGet('/api/index', [
+    'controller' => \App\Kernels\Micro\Controllers\MicroController::class,
+    'action' => 'indexAction'
+]);
 
 $router->notFound(function () {
-  /** @var \App\Kernels\Micro\Kernel $this */
-  $this->response->setStatusCode(404);
+    /** @var \App\Kernels\Micro\Kernel $this */
+    $this->response->setStatusCode(404);
 
-  $this->response->setJsonContent(['status' => 'not found', 'code' => 404]);
+    $this->response->setJsonContent(['status' => 'not found', 'code' => 404]);
 
-  return $this->response;
+    return $this->response;
 });

@@ -11,6 +11,6 @@ class HomeController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->render('index', 'index');
+        $this->view->render('home', 'index');
     }
 }

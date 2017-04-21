@@ -2,9 +2,10 @@
 
 namespace App\Kernels\Micro\Controllers;
 
-use Neutrino\Http\Controller;
+//use Neutrino\Http\Controller;
+use Phalcon\Mvc\Controller;
 
-class TestController extends Controller
+class MicroController extends Controller
 {
   public function indexAction()
   {

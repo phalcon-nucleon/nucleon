@@ -16,53 +16,59 @@ $di = \Phalcon\Di::getDefault();
 /** @var \Phalcon\Mvc\Router $router */
 $router = $di->getShared(\Neutrino\Constants\Services::ROUTER);
 
-//$router->setDefaultModule('Frontend');
-//$router->setDefaultNamespace('App\Kernels\Http\Modules\Frontend\Controllers');
+$router->setDefaultNamespace('App\Kernels\Http\Controllers');
 
 $router->notFound([
     'controller' => 'errors',
-    'action'     => 'http404',
-    'module'     => 'Frontend'
+    'action'     => 'http404'
 ]);
 
 $router->addGet('/', [
-    'namespace' => 'App\Kernels\Http\Controllers',
     'controller' => 'home',
     'action'     => 'index'
 ]);
 
-$router->addGet('/index', [
+$frontend = new \Phalcon\Mvc\Router\Group([
+    'namespace' => 'App\Kernels\Http\Modules\Frontend\Controllers',
+    'module'     => 'Frontend'
+]);
+$frontend->addGet('/index', [
     'controller' => 'index',
     'action'     => 'index',
-    'module'     => 'Frontend'
 ]);
-
-$router->addGet('/register', [
+$frontend->addGet('/register', [
     'controller' => 'auth',
     'action'     => 'register',
-    'module'     => 'Frontend'
 ]);
 
-$router->addPost('/register', [
+$frontend->addPost('/register', [
     'controller' => 'auth',
     'action'     => 'postRegister',
-    'module'     => 'Frontend'
 ]);
 
-$router->addGet('/login', [
+$frontend->addGet('/login', [
     'controller' => 'auth',
     'action'     => 'login',
-    'module'     => 'Frontend'
 ]);
 
-$router->addPost('/login', [
+$frontend->addPost('/login', [
     'controller' => 'auth',
     'action'     => 'postLogin',
-    'module'     => 'Frontend'
 ]);
 
-$router->addGet('/logout', [
+$frontend->addGet('/logout', [
     'controller' => 'auth',
     'action'     => 'logout',
-    'module'     => 'Frontend'
 ]);
+
+$router->mount($frontend);
+
+
+$backend = new \Phalcon\Mvc\Router\Group([
+    'namespace' => 'App\Kernels\Http\Modules\Backend\Controllers',
+    'module'     => 'Backend'
+]);
+
+$backend->addGet('/back/:controller/:action');
+
+$router->mount($backend);
