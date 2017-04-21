@@ -80,7 +80,7 @@
             Nucl&eacute;on
         </div>
         <div>
-            <h3>[Frontend] Index</h3>
+            <h3>[Backend] Index</h3>
         </div>
         <div>
             {{ (microtime(true) - _SERVER['REQUEST_TIME_FLOAT']) * 1000 }} ms

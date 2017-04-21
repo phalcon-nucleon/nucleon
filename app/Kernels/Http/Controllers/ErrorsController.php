@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Kernels\Http\Modules\Frontend\Controllers;
+namespace App\Kernels\Http\Controllers;
 
 use App\Kernels\Http\Controllers\ControllerBase;
 use Neutrino\Error\Handler;

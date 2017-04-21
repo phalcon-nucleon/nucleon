@@ -84,11 +84,11 @@ class Kernel extends HttpKernel
     protected $modules = [
         'Frontend' => [
             'className' => FrontendModule::class,
-            'path'      => __DIR__ . '/Module/Frontend/Module.php'
+            'path'      => __DIR__ . '/Modules/Frontend/Module.php'
         ],
         'Backend' => [
           'className' => BackendModule::class,
-          'path'      => __DIR__ . '/Module/Backend/Module.php'
+          'path'      => __DIR__ . '/Modules/Backend/Module.php'
         ]
     ];
 }
