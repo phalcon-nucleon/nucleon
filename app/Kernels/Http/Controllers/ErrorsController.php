@@ -2,7 +2,6 @@
 
 namespace App\Kernels\Http\Controllers;
 
-use App\Kernels\Http\Controllers\ControllerBase;
 use Neutrino\Error\Handler;
 
 /**

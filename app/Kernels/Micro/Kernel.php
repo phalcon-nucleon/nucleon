@@ -2,7 +2,6 @@
 
 namespace App\Kernels\Micro;
 
-use Neutrino\Dotenv;
 use Neutrino\Foundation\Micro\Kernel as MicroKernel;
 use Neutrino\Interfaces\Kernelable;
 use Neutrino\Providers\Auth as AuthProvider;
@@ -72,16 +71,6 @@ class Kernel extends MicroKernel implements Kernelable
    * @var string[]
    */
   protected $listeners = [];
-
-  /**
-   * Register the routes.
-   *
-   * @return void
-   */
-  public function registerRoutes()
-  {
-    require Dotenv::env('BASE_PATH') .'/routes/micro.php';
-  }
 
   /**
    * @return void
