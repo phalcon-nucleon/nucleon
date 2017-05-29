@@ -49,42 +49,43 @@ The `php quark optimize` command will optimize autoloading using the phalcon loa
 * __vendor/__
     -  The vendor directory contains your Composer dependencies.
     
-## App\Core Directory
-- __Api/__
+## App Directory
+- __Core/__
+Contains your application core code.
+    - __Constants/__
+    
+    _[TODO:explain]_ This directory contains all constants you may should use in your application.
 
-_Currently (*v0-alpha*)_ : just a directory whose may contains your api logic.
+    - __Facades/__
+    
+    This directory contains all facades you may should use in your application.
 
-_Version (*v1.0*)_ : Should be the directory containing your api controllers, load from the micro Phalcon Application.
+    - __Models/__
+    
+    The Models directory is a proposed location of your Models.
+    
+    - __Providers/__
+    
+    The Providers directory contains all of the service providers for your application. Service providers bootstrap your application by binding services in the service container (Phalcon\Di) without instantiating.
+    
+    - __Support/__
 
-- __Cli/__ : Console application
+    The Support directory is a proposed location of your tools.
 
-The Tasks directory contains all of the custom cli commands for your application.
-This directory also houses your console kernel.
-
-- __Constants/__
-
-_[TODO:explain]_ This directory contains all constants you may should use in your application.
-
-- __Facades/__
-
-This directory contains all facades you may should use in your application.
-
-- __Http/__
-
-The Http directory contains your controllers, middleware, and your http kernel.
-
-- __Models/__
-
-
-The Models directory is a proposed location of your Models.
-
-- __Providers/__
-
-The Providers directory contains all of the service providers for your application. Service providers bootstrap your application by binding services in the service container (Phalcon\Di) without instantiating.
-
-- __Support/__
-
-The Support directory is a proposed location of your tools.
+- __Kernels/__
+Contains the code the different kernels (Kernel settings, Controllers, ... ).
+    - __Cli/__ : Console application
+    
+    The Tasks directory contains all of the custom cli commands for your application.
+    This directory also houses your console kernel.
+    
+    - __Http/__ : Http application
+    
+    The Http directory contains your controllers, middleware, and your http kernel.
+    
+    - __Micro/__ : Micro application
+    
+    The Micro directory contains your controllers, middleware, and your micro kernel.
 
 
 # App\Core Concepts
@@ -209,7 +210,7 @@ class ExampleServiceProvider implements Providable
 Facades are inspired and implemented as they are in [Laravel](https://laravel.com/docs/5.3/facades).
 
 
-# Http Layer
+# Http Kernel
 ## Routing
 
 The `routes/http.php` file defines your application routes.
@@ -384,6 +385,119 @@ class ExampleMiddleware extends ControllerMiddleware implements BeforeInterface
         return false;
     }
 }
+```
+
+## Modules (HMVC)
+Modules is optional, and only available for the Http Kernels.
+
+View [Phalcon Multi-Modules](https://docs.phalconphp.com/en/latest/reference/applications.html#multi-module).
+
+### Registering Module 
+
+Add to the Http\Kernel file : 
+```php
+class Kernel extends \Neutrino\Foundation\Http\Kernel
+{
+    // ...
+    
+    protected $modules = [
+        'Frontend' => [
+            'className' => \App\Kernels\Http\Modules\Frontend\Module::class,
+            'path'      => __DIR__ . '/Modules/Frontend/Module.php'
+        ],
+    ];
+}
+```
+
+### Routing Module
+
+The easier way is to create a Router\Group.
+
+Define your module's controllers namespace, and your module name. And then, add your routes.
+
+```php
+$router = $di->getShared(\Neutrino\Constants\Services::ROUTER);
+
+$frontend = new \Phalcon\Mvc\Router\Group([
+    'namespace' => 'App\Kernels\Http\Modules\Frontend\Controllers',
+    'module'     => 'Frontend'
+]);
+
+$frontend->addGet('/front/index', [
+    'controller' => 'index',
+    'action'     => 'index',
+]);
+
+$router->mount($frontend);
+```
+
+# Cli Kernel
+`Under Construction`
+
+# Micro Kernel
+
+The micro kernel is the implementation of the phalcon micro application.
+
+There are two ways to implement it: 
+- With Http Kernel, with a specific configuration of your http server (apache/nginx/...)
+- Without Http Kernel, with a change in the public/index.php file.
+
+## Without Http Kernel :
+In the public/index.php you just have to change the kernel maked : 
+
+```php
+$kernel = $bootstrap->make(App\Kernels\Http\Kernel::class);
+```
+Become : 
+```php
+$kernel = $bootstrap->make(App\Kernels\Micro\Kernel::class);
+```
+
+Or you also can change your Document root in http-server configuration, to make it pointing to public/micro.php.
+
+## With Http Kernel :
+
+With Http Kernel, it's means you want to work with a FullStack and a MicroStack framework 
+(Because your want the lowest implement and resource consumption for your api, for example).
+
+To made this work well, you have to separate your 'HttpKernel' route and your 'MicroKernel' route :
+- example.com/* : index.php > HTTP Kernel
+- example.com/api/* : micro.php > MICRO Kernel
+
+### Nginx Example 
+```
+server {
+    ...
+    server_name example.com;
+    root /data/www/example/public;
+    ...
+    location /api {
+        index   micro.php;
+        ...
+    }
+    location ~ \.php$ {
+        index   index.php;
+        ...
+    }
+    ...
+}
+```
+
+### Apache2 Example 
+```
+# .htaccess
+# Require mod_rewrite.c
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^/?api/(.*)$ /micro.php [QSA,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ /index.php [QSA,L]
+</IfModule>
 ```
 
 `Documentation Under Construction`
