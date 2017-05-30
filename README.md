@@ -431,9 +431,6 @@ $frontend->addGet('/front/index', [
 $router->mount($frontend);
 ```
 
-# Cli Kernel
-`Under Construction`
-
 # Micro Kernel
 
 The micro kernel is the implementation of the phalcon micro application.
@@ -500,4 +497,164 @@ server {
 </IfModule>
 ```
 
-`Documentation Under Construction`
+# Cli Kernel
+
+## Create a Task
+### Actions
+#### Default Action
+The default action task is "main".
+
+```php
+class MyTask extends \Neutrino\Cli\Task
+{
+    public function mainAction()
+    {
+        // do something
+    }
+}
+```
+```php
+// routes\cli.php
+
+Router::add('my-task', [
+    'task' => \App\Kernels\Cli\Tasks\MyTask::class
+]);
+```
+
+#### Multi Actions
+You can specify many action in one Task class, you just have to specify the action to do in the route file :
+
+```php
+// routes\cli.php
+
+Router::add('my-task', [
+    'task' => \App\Kernels\Cli\Tasks\MyTask::class
+    // 'action' => 'main'
+]);
+Router::add('my-task:send', [
+    'task' => \App\Kernels\Cli\Tasks\MyTask::class,
+    'action' => 'send'
+]);
+Router::add('my-task:dosomething', [
+    'task' => \App\Kernels\Cli\Tasks\MyTask::class,
+    'action' => 'dosomething'
+]);
+```
+
+### Arguments
+
+Arguments must be specified in the routes : 
+
+```php
+// routes\cli.php
+
+Router::add('my-task (\w+)', [
+    'task' => \App\Kernels\Cli\Tasks\MyTask::class,
+    'arg' => 1
+]);
+```
+
+Add then retrieved them in the action function : 
+
+```php
+class MyTask extends \Neutrino\Cli\Task
+{
+    public function mainAction(array $args)
+    {
+        $args === $this->getArgs();
+
+        $args['arg'] === $this->getArg('arg');
+    }
+}
+```
+
+### Options
+Options are retrieved directly in the action function :
+
+```php
+class MyTask extends \Neutrino\Cli\Task
+{
+    public function mainAction()
+    {
+        $this->getOptions(); // All Options
+        
+        $this->getOption('opt'); // retrieved the value of "opts" option
+        
+        $this->hasOption('o', 'opt'); // Check if 'o' or 'opt' option is passed to the cli.
+    }
+}
+```
+
+### Output & Decoration
+
+#### Basic 
+You can output any string with a style / coloration : 
+
+| fn()     | do :                                 |
+|----------|--------------------------------------|
+| line     | Write a line, without any decoration |
+| info     | Write a info                         |
+| notice   | Write a notice                       |
+| warn     | Write a warning                      |
+| error    | Write a error                        |
+| question | Write a question                     |
+
+__/!\\__ For now, "question" is not interactive. This will be added later.
+
+#### Table
+
+```php
+public function mainAction()
+{
+    $this->table([
+        ['col_1' => 'c1_v1', 'col_2' => 'c2_v1'],
+        ['col_1' => 'c1_v2', 'col_2' => 'c2_v2'],
+    ]);
+}
+```
+
+Will Output : 
+
+```
++-------+-------+
+| col_1 | col_2 |
++-------+-------+
+| c1_v1 | c2_v1 |
+| c1_v2 | c2_v2 |
++-------+-------+
+```
+
+
+### Description & Helpers
+Any task could be document via the phpdoc block : 
+
+```php
+/** 
+ * @description The Main Action
+ * @argument arg : an argument
+ * @option -o, --opt : an option
+ */
+public function mainAction(array $args){}
+```
+
+And then, this information can be retrieved with a "--help" or "-h" : 
+
+```
+/> php quark my-task -h
+/> 
+Usage :
+        my-task
+Description :
+        The Main Action
+Arguments :
+        arg : an argument
+Options :
+        -o, --opt : an option
+```
+
+### Not Found Task/Action
+Neutrino\Cli don't use "symfony\console". It's based on Phalcon\Cli, to preserve performance.
+
+For now, when a cmd is't found, the list task is called. 
+
+Later, it will be improved.
