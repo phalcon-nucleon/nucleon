@@ -467,16 +467,20 @@ server {
     ...
     server_name example.com;
     root /data/www/example/public;
+    index index.php micro.php;
     ...
-    location /api {
-        index   micro.php;
-        ...
+    location ~ /api/(.*) {
+        try_files $uri $uri/ /micro.php$is_args$query_string;
     }
+    location / {
+        try_files $uri $uri/ /index.php$is_args$query_string;
+    }
+
     location ~ \.php$ {
-        index   index.php;
-        ...
+        try_files     $uri =404;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        // ...
     }
-    ...
 }
 ```
 
