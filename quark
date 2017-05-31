@@ -9,8 +9,8 @@ try {
     /** @var \Neutrino\Foundation\Bootstrap $bootstrap */
     $bootstrap = require_once __DIR__ . '/bootstrap/app.php';
 
-    /** @var \App\Cli\Kernel $kernel */
-    $kernel = $bootstrap->make(App\Cli\Kernel::class);
+    /** @var \App\Kernels\Cli\Kernel $kernel */
+    $kernel = $bootstrap->make(App\Kernels\Cli\Kernel::class);
 
     /**
      * Parse the arguments pass to the cli

@@ -8,42 +8,67 @@
 | These routes are loaded by the HttpKernel
 |
 */
+$di = \Phalcon\Di::getDefault();
+/** @var \Phalcon\Mvc\Dispatcher $dispatcher */
+//$dispatcher = $di->getShared(\Neutrino\Constants\Services::DISPATCHER);
+//$dispatcher->setControllerSuffix('');
 
-use Neutrino\Support\Facades\Router;
+/** @var \Phalcon\Mvc\Router $router */
+$router = $di->getShared(\Neutrino\Constants\Services::ROUTER);
 
-Router::setDefaultNamespace('App\Http\Controllers');
+$router->setDefaultNamespace('App\Kernels\Http\Controllers');
 
-Router::notFound([
+$router->notFound([
     'controller' => 'errors',
     'action'     => 'http404'
 ]);
 
-Router::addGet('/', [
-    'controller' => 'index',
+$router->addGet('/', [
+    'controller' => 'home',
     'action'     => 'index'
 ]);
 
-Router::addGet('/register', [
+$frontend = new \Phalcon\Mvc\Router\Group([
+    'namespace' => 'App\Kernels\Http\Modules\Frontend\Controllers',
+    'module'     => 'Frontend'
+]);
+$frontend->addGet('/index', [
+    'controller' => 'index',
+    'action'     => 'index',
+]);
+$frontend->addGet('/register', [
     'controller' => 'auth',
-    'action'     => 'register'
+    'action'     => 'register',
 ]);
 
-Router::addPost('/register', [
+$frontend->addPost('/register', [
     'controller' => 'auth',
-    'action'     => 'postRegister'
+    'action'     => 'postRegister',
 ]);
 
-Router::addGet('/login', [
+$frontend->addGet('/login', [
     'controller' => 'auth',
-    'action'     => 'login'
+    'action'     => 'login',
 ]);
 
-Router::addPost('/login', [
+$frontend->addPost('/login', [
     'controller' => 'auth',
-    'action'     => 'postLogin'
+    'action'     => 'postLogin',
 ]);
 
-Router::addGet('/logout', [
+$frontend->addGet('/logout', [
     'controller' => 'auth',
-    'action'     => 'logout'
+    'action'     => 'logout',
 ]);
+
+$router->mount($frontend);
+
+
+$backend = new \Phalcon\Mvc\Router\Group([
+    'namespace' => 'App\Kernels\Http\Modules\Backend\Controllers',
+    'module'     => 'Backend'
+]);
+
+$backend->addGet('/back/:controller/:action');
+
+$router->mount($backend);
