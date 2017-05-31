@@ -20,6 +20,11 @@ try {
      * Send the response.
      */
     $response->send();
+
+    /**
+     * Terminate the kernel
+     */
+    $kernel->terminate();
 } catch (\Exception $e) {
     echo $e->getMessage() . '<br>';
     echo '<pre>' . $e->getTraceAsString() . '</pre>';
