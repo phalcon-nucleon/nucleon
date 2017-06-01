@@ -26,5 +26,5 @@ return [
      | \Phalcon\Session\Adapter\Mongo
      */
     'adapter' => 'Files',
-    'id'      => 'phalcon-nucleon'
+    'id'      => \Neutrino\Dotenv::env('SESSION_ID')
 ];

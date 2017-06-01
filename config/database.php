@@ -26,8 +26,8 @@ return [
      */
     'adapter'  => \Phalcon\Db\Adapter\Pdo\Mysql::class,
     'host'     => 'localhost',
-    'username' => 'root',
-    'password' => '',
+    'username' => \Neutrino\Dotenv::env('DB_USER'),
+    'password' => \Neutrino\Dotenv::env('DB_PASSWORD'),
     'dbname'   => 'nucleon-test',
     'charset'  => 'utf8',
 ];
