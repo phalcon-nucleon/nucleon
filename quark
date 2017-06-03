@@ -17,6 +17,6 @@ $kernel = $bootstrap->make(App\Kernels\Cli\Kernel::class);
 $kernel->setArgument($argv);
 
 /**
- * Handle the request
+ * Run kernel
  */
-$kernel->handle();
+$bootstrap->run($kernel);

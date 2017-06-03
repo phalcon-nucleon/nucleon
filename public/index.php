@@ -11,11 +11,6 @@ $bootstrap = require_once __DIR__ . '/../bootstrap/app.php';
 $kernel = $bootstrap->make(App\Kernels\Http\Kernel::class);
 
 /**
- * Handle the request
+ * Run kernel
  */
-$response = $kernel->handle();
-
-/**
- * Send the response.
- */
-$response->send();
+$bootstrap->run($kernel);

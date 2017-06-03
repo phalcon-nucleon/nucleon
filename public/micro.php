@@ -10,6 +10,6 @@ $bootstrap = require_once __DIR__ . '/../bootstrap/app.php';
 $kernel = $bootstrap->make(\App\Kernels\Micro\Kernel::class);
 
 /**
- * Handle the request
+ * Run kernel
  */
-$kernel->handle();
+$bootstrap->run($kernel);
