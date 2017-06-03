@@ -2,6 +2,7 @@
 
 namespace App\Kernels\Cli;
 
+use App\Core\Providers\Example as ExampleProvider;
 use Neutrino\Foundation\Cli\Kernel as CliKernel;
 use Neutrino\Foundation\Middleware\Debug as DebugMiddleware;
 use Neutrino\Providers\Cli\Dispatcher as DispatcherProvider;
@@ -28,7 +29,6 @@ class Kernel extends CliKernel
          */
         OutputProvider::class,
         LoggerProvider::class,
-        LoggerProvider::class,
         RouterProvider::class,
         DispatcherProvider::class,
         DatabaseProvider::class,
@@ -43,6 +43,11 @@ class Kernel extends CliKernel
         \Neutrino\Providers\Crypt::class,
         \Neutrino\Providers\Annotations::class,
         /**/
+
+        /*
+         * Application Services
+         */
+        ExampleProvider::class,
     ];
 
     /**

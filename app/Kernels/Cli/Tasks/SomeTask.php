@@ -30,6 +30,6 @@ class SomeTask extends Task
      */
     public function testAction(array $params)
     {
-      $this->line($this->output->notice(__METHOD__) . ' ' . Decorate::info(implode(' ', $params)));
+        $this->line($this->output->notice(__METHOD__) . ' ' . Decorate::info(implode(' ', $params)));
     }
 }

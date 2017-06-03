@@ -2,9 +2,9 @@
 
 namespace App\Kernels\Micro;
 
+use App\Core\Providers\Example as ExampleProvider;
 use Neutrino\Foundation\Micro\Kernel as MicroKernel;
 use Neutrino\Interfaces\Kernelable;
-use Neutrino\Providers\Auth as AuthProvider;
 use Neutrino\Providers\Cache as CacheProvider;
 use Neutrino\Providers\Database as DatabaseProvider;
 use Neutrino\Providers\Flash as FlashProvider;
@@ -51,9 +51,9 @@ class Kernel extends MicroKernel implements Kernelable
     /**/
 
     /*
-     * Auth Service
+     * Application Services
      */
-    AuthProvider::class,
+    ExampleProvider::class,
   ];
 
   /**

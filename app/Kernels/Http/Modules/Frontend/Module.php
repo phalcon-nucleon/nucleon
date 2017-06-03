@@ -2,8 +2,6 @@
 
 namespace App\Kernels\Http\Modules\Frontend;
 
-use App\Core\Providers\SomeApiServices as SomeApiProvider;
-use Neutrino\Constants\Services;
 use Neutrino\Module as NeutrinoModule;
 use Phalcon\DiInterface;
 

@@ -26,8 +26,8 @@ return [
      */
     'adapter'  => \Phalcon\Db\Adapter\Pdo\Mysql::class,
     'host'     => 'localhost',
-    'username' => 'root',
-    'password' => '',
+    'username' => DB_USER,
+    'password' => DB_PASSWORD,
     'dbname'   => 'nucleon-test',
     'charset'  => 'utf8',
 ];

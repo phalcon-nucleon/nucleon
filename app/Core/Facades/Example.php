@@ -13,7 +13,7 @@ use Neutrino\Support\Facades\Facade;
  * @method static string doSomething()
  * @method static string doAnotherThing()
  */
-class SomeApi extends Facade
+class Example extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -22,6 +22,6 @@ class SomeApi extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return Services::SOME_API;
+        return Services::EXAMPLE;
     }
 }

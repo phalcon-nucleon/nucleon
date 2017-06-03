@@ -9,5 +9,5 @@ namespace App\Core\Constants;
  */
 final class Services
 {
-    const SOME_API = 'some.api';
+    const EXAMPLE = 'example';
 }

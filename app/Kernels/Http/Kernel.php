@@ -2,6 +2,7 @@
 
 namespace App\Kernels\Http;
 
+use App\Core\Providers\Example as ExampleProvider;
 use App\Kernels\Http\Modules\Backend\Module as BackendModule;
 use App\Kernels\Http\Modules\Frontend\Module as FrontendModule;
 use Neutrino\Foundation\Http\Kernel as HttpKernel;
@@ -58,6 +59,11 @@ class Kernel extends HttpKernel
          * Auth Service
          */
         AuthProvider::class,
+
+        /*
+         * Application Services
+         */
+        ExampleProvider::class,
     ];
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\Api;
+namespace App\Core\Services;
 
 use Neutrino\Constants\Services;
 use Neutrino\Support\Facades\Log;
@@ -12,7 +12,7 @@ use Phalcon\Di\InjectionAwareInterface;
  *
  * @package App\Core\Api
  */
-class SomeApi extends Injectable implements InjectionAwareInterface
+class Example extends Injectable implements InjectionAwareInterface
 {
     /**
      * @return string
