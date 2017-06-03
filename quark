@@ -1,33 +1,22 @@
 #!/usr/bin/env php
 <?php
 
-try {
-    /*--------------------------------------------------------------*/
-    /* Make Application                                             */
-    /*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/* Make Application                                             */
+/*--------------------------------------------------------------*/
 
-    /** @var \Neutrino\Foundation\Bootstrap $bootstrap */
-    $bootstrap = require_once __DIR__ . '/bootstrap/app.php';
+/** @var \Neutrino\Foundation\Bootstrap $bootstrap */
+$bootstrap = require_once __DIR__ . '/bootstrap/app.php';
 
-    /** @var \App\Kernels\Cli\Kernel $kernel */
-    $kernel = $bootstrap->make(App\Kernels\Cli\Kernel::class);
+/** @var \App\Kernels\Cli\Kernel $kernel */
+$kernel = $bootstrap->make(App\Kernels\Cli\Kernel::class);
 
-    /**
-     * Parse the arguments pass to the cli
-     */
-    $kernel->setArgument($argv);
+/**
+ * Parse the arguments pass to the cli
+ */
+$kernel->setArgument($argv);
 
-    /**
-     * Handle the request
-     */
-    $kernel->handle();
-
-    /**
-     * Terminate the kernel
-     */
-    $kernel->terminate();
-} catch (\Exception $e) {
-    echo $e->getMessage() . '<br>';
-    echo '<pre>' . $e->getTraceAsString() . '</pre>';
-    exit(255);
-}
+/**
+ * Handle the request
+ */
+$kernel->handle();
