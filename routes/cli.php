@@ -15,9 +15,7 @@ use Neutrino\Support\Facades\Router;
 Router::add('some', [
     'task' => \App\Kernels\Cli\Tasks\SomeTask::class
 ]);
-Router::add('some:test (\w+)(?: (\w+))', [
+Router::add('some:test {param_1} {param_2})', [
   'task'    => \App\Kernels\Cli\Tasks\SomeTask::class,
   'action'  => 'test',
-  'param_1' => 1,
-  'param_2' => 2
 ]);
