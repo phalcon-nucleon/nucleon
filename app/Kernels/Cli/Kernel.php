@@ -8,6 +8,7 @@ use Neutrino\Providers\Cli\Dispatcher as DispatcherProvider;
 use Neutrino\Providers\Cli\Router as RouterProvider;
 use Neutrino\Providers\Database as DatabaseProvider;
 use Neutrino\Providers\Logger as LoggerProvider;
+use Neutrino\Providers\Cli\Output as OutputProvider;
 
 /**
  * Class Kernel
@@ -25,6 +26,8 @@ class Kernel extends CliKernel
         /*
          * Basic Configuration
          */
+        OutputProvider::class,
+        LoggerProvider::class,
         LoggerProvider::class,
         RouterProvider::class,
         DispatcherProvider::class,
@@ -48,6 +51,6 @@ class Kernel extends CliKernel
      * @var string[]
      */
     protected $middlewares = [
-        DebugMiddleware::class
+        // DebugMiddleware::class
     ];
 }
