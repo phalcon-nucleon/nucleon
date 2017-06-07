@@ -10,7 +10,7 @@ use Neutrino\Cli\Task;
  *
  * @package App\Core\Tasks
  */
-class SomeTask extends Task
+class ExampleTask extends Task
 {
     /**
      * \> php quark some
@@ -18,6 +18,11 @@ class SomeTask extends Task
     public function mainAction()
     {
         $this->line(__METHOD__);
+    }
+
+    public function throwException()
+    {
+        throw new \Exception();
     }
 
     /**
