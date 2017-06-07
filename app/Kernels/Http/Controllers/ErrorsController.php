@@ -2,8 +2,6 @@
 
 namespace App\Kernels\Http\Controllers;
 
-use Neutrino\Error\Handler;
-
 /**
  * Class ErrorsController
  *
@@ -16,12 +14,7 @@ class ErrorsController extends ControllerBase
         /* @var \Neutrino\Error\Error $error */
         $error = $this->dispatcher->getParam('error');
 
-        $this->view->error = [
-            'type'    => Handler::getErrorType($error->type),
-            'message' => $error->message,
-            'file'    => $error->file,
-            'line'    => $error->line,
-        ];
+        $this->view->error = $error;
 
         $this->view->render('errors', 'index');
     }
