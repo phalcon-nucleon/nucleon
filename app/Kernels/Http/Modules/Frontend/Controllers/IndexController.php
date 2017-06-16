@@ -2,7 +2,7 @@
 
 namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
-use App\Kernels\Http\Controllers\ControllerBase;
+use Phalcon\Mvc\View;
 
 /**
  * Class IndexController
@@ -13,6 +13,12 @@ class IndexController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->render('index', 'index');
+        $this->tag->setTitle('Nucleon Frontend');
+        $this->assets->addCss("css/home.css");
+        $this->assets->addCss("https://fonts.googleapis.com/css?family=Raleway:100,600");
+
+        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
+        $this->view->setTemplateAfter('main_light');
+        $this->view->render('front/index', 'index');
     }
 }

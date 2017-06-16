@@ -21,6 +21,5 @@ class Module extends NeutrinoModule
 
     public function initialise(DiInterface $di)
     {
-        $this->view->setViewsDir($this->config->view->views_dir . DIRECTORY_SEPARATOR . 'front');
     }
 }

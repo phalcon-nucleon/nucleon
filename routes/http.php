@@ -28,6 +28,12 @@ $router->addGet('/', [
     'action'     => 'index'
 ]);
 
+
+$router->addGet('/exception-test', [
+    'controller' => 'errors',
+    'action'     => 'throwException'
+]);
+
 $frontend = new \Phalcon\Mvc\Router\Group([
     'namespace' => 'App\Kernels\Http\Modules\Frontend\Controllers',
     'module'     => 'Frontend'
