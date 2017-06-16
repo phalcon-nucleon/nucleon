@@ -90,11 +90,11 @@ class Kernel extends HttpKernel
     protected $modules = [
         'Frontend' => [
             'className' => FrontendModule::class,
-            'path'      => __DIR__ . '/Modules/Frontend/Module.php'
+            'path'      => BASE_PATH . '/app/Kernels/Http/Modules/Frontend/Module.php'
         ],
         'Backend' => [
-          'className' => BackendModule::class,
-          'path'      => __DIR__ . '/Modules/Backend/Module.php'
+            'className' => BackendModule::class,
+            'path'      => BASE_PATH . '/app/Kernels/Http/Modules/Backend/Module.php'
         ]
     ];
 }
