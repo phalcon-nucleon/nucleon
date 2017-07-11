@@ -51,7 +51,7 @@ class ExampleTask extends Task
         if ($this->confirm('Are you humain ?', true)) {
             $this->info('Yes you are !');
 
-            switch ($this->choices('You are a male, a female, or just human ?', ['male', 'female', 'human'], 'human')) {
+            switch ($this->choices('You are a male, a female, or just human ?', ['male', 'female', 'human'], 'human', 1)) {
                 case 'male':
                 case 'female':
                     $this->line('Ok');
