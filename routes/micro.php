@@ -13,7 +13,6 @@
 |   [
 |     'controller' => \App\Kernels\Micro\Controllers\IndexController::class,
 |   ]
-| </code>
 | or
 | <code>
 |   use \App\Kernels\Micro\Controllers;
@@ -21,7 +20,7 @@
 |   [
 |     'controller' => Controllers\IndexController::class,
 |   ]
-| </code>
+| <code>
 // Via the Facade
 use Neutrino\Support\Facades\Micro\Router;
 
@@ -32,10 +31,10 @@ Router::addGet('test', [
 
 */
 // Via the Dependency Injector
-/** @var \Neutrino\Foundation\Micro\Kernel $application */
-$application = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::APP);
+/** @var \Neutrino\Micro\Router $router */
+$router = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::MICRO_ROUTER);
 
-$application->get('/api/test', function () {
+$router->addGet('/api/test', function () {
     /** @var \App\Kernels\Micro\Kernel $this */
     $this->response->setStatusCode(200);
 
@@ -44,12 +43,12 @@ $application->get('/api/test', function () {
     return $this->response;
 });
 
-$application->get('/api/index', [
+$router->addGet('/api/index', [
     'controller' => \App\Kernels\Micro\Controllers\MicroController::class,
     'action' => 'indexAction'
 ]);
 
-$application->notFound(function () {
+$router->notFound(function () {
     /** @var \App\Kernels\Micro\Kernel $this */
     $this->response->setStatusCode(404);
 

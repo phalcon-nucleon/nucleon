@@ -9,7 +9,7 @@ use Neutrino\Providers\Cache as CacheProvider;
 use Neutrino\Providers\Database as DatabaseProvider;
 use Neutrino\Providers\Http\Dispatcher as DispatcherProvider;
 use Neutrino\Providers\Http\Router as RouterProvider;
-//use Neutrino\Providers\Micro\Router as MicroRouterProvider;
+use Neutrino\Providers\Micro\Router as MicroRouterProvider;
 use Neutrino\Providers\Logger as LoggerProvider;
 use Neutrino\Providers\Session as SessionProvider;
 use Neutrino\Providers\Url as UrlProvider;
@@ -33,10 +33,7 @@ class Kernel extends MicroKernel implements Kernelable
         DatabaseProvider::class,
         CacheProvider::class,
 
-        // Used only for the Facades\Micro\Router.
-        // This concat application method for routing & router method available for micro kernel.
-        //MicroRouterProvider::class,
-
+        MicroRouterProvider::class,
         /*
          * Service provided by the Phalcon\Di\FactoryDefault
          *
