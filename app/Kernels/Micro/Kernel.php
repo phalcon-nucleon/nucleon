@@ -7,14 +7,12 @@ use Neutrino\Foundation\Micro\Kernel as MicroKernel;
 use Neutrino\Interfaces\Kernelable;
 use Neutrino\Providers\Cache as CacheProvider;
 use Neutrino\Providers\Database as DatabaseProvider;
-use Neutrino\Providers\Flash as FlashProvider;
 use Neutrino\Providers\Http\Dispatcher as DispatcherProvider;
 use Neutrino\Providers\Http\Router as RouterProvider;
 use Neutrino\Providers\Micro\Router as MicroRouterProvider;
 use Neutrino\Providers\Logger as LoggerProvider;
 use Neutrino\Providers\Session as SessionProvider;
 use Neutrino\Providers\Url as UrlProvider;
-use Neutrino\Providers\View as ViewProvider;
 
 class Kernel extends MicroKernel implements Kernelable
 {
@@ -29,10 +27,8 @@ class Kernel extends MicroKernel implements Kernelable
      */
     LoggerProvider::class,
     UrlProvider::class,
-    FlashProvider::class,
     SessionProvider::class,
     RouterProvider::class,
-    ViewProvider::class,
     DispatcherProvider::class,
     DatabaseProvider::class,
     CacheProvider::class,
