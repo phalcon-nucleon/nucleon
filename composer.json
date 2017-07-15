@@ -4,7 +4,8 @@
   "keywords": [
     "framework",
     "phalcon",
-    "nucleon"
+    "nucleon",
+    "skeleton"
   ],
   "minimum-stability": "dev",
   "license": "MIT",
@@ -19,7 +20,7 @@
     "ext-phalcon": ">=3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "nucleon/framework": "1.0.x"
+    "nucleon/framework": "~1.0"
   },
   "require-dev": {
     "phalcon/ide-stubs": "dev-master",
