@@ -11,10 +11,8 @@ Our philosophy is to make the web faster, with enjoyable development.
 
 # Install
 ```
-\> git clone https://github.com/phalcon-nucleon/nucleon.git
-\> composer install
+\> composer create-project nucleon/nucleon app-root
 ```
-_After first beta release, the_ `composer create-project` _command will be available_
 
 # Require
 * PHP >= 5.6
@@ -603,8 +601,6 @@ You can output any string with a style / coloration :
 | error    | Write a error                        |
 | question | Write a question                     |
 
-__/!\\__ For now, "question" is not interactive. This will be added later.
-
 #### Table
 
 ```php
@@ -628,6 +624,26 @@ Will Output :
 +-------+-------+
 ```
 
+#### Block
+
+```php
+public function mainAction()
+{
+    $this->block([
+        'Hey',
+        'I\'m a block'
+    ], 'notice');
+}
+```
+
+Will Output : ("notice" colorized)
+
+```
+  
+  Hey !
+  I'm a block
+
+```
 
 ### Description & Helpers
 Any task could be document via the phpdoc block : 
@@ -657,8 +673,28 @@ Options :
 ```
 
 ### Not Found Task/Action
-Neutrino\Cli don't use "symfony\console". It's based on Phalcon\Cli, to preserve performance.
+When a task is not found, an attempt is made to find the closest match to the task list.
 
-For now, when a cmd is't found, the list task is called. 
+If one or more matches are found, they are displayed:
 
-Later, it will be improved.
+```
+/> php quark llist
+
+  Command "llist" not found.
+  Did you mean this?
+    list
+```
+
+# Config and Environment
+
+To work, nucleon, and neutrino, need to have 3 constants defined :
+- BASE_PATH : Application base path
+- APP_DEBUG : Application debug mode
+- APP_ENV : Application environment (debug, test, staging, production)
+
+Neutrino introduce Dotconst. It allow load any constants from .ini files. 
+
+It work like Dotenv, the constants can be erased (at the load) with the "APP_ENV" variable. See [neutrino\dotconst](https://github.com/pn-neutrino/dotconst)
+
+You are not obliged to use dotconst. You can very well define its variables yourself, and use Dotenv, or something else to manage your environment variables.
+
