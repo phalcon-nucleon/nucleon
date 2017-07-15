@@ -29,10 +29,10 @@ return [
         'mysql' => [
             'adapter' => \Phalcon\Db\Adapter\Pdo\Mysql::class,
             'config'  => [
-                'host'     => 'localhost',
+                'host'     => DB_HOST,
                 'username' => DB_USER,
                 'password' => DB_PASSWORD,
-                'dbname'   => 'nucleon-test',
+                'dbname'   => DB_NAME,
                 'charset'  => 'utf8',
             ]
         ]
