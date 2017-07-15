@@ -4,14 +4,14 @@ namespace App\Core\Providers;
 
 use App\Core\Services\Example as ExampleService;
 use App\Core\Constants\Services;
-use Neutrino\Providers\BasicProvider;
+use Neutrino\Support\SimpleProvider;
 
 /**
  * Class SomeApi
  *
  * @package App\Core\Providers
  */
-class Example extends BasicProvider
+class Example extends SimpleProvider
 {
     protected $name = Services::EXAMPLE;
 

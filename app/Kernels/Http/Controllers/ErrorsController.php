@@ -2,8 +2,7 @@
 
 namespace App\Kernels\Http\Controllers;
 
-use App\Kernels\Http\Controllers\ControllerBase;
-use Neutrino\Error\Handler;
+use Phalcon\Mvc\View;
 
 /**
  * Class ErrorsController
@@ -12,23 +11,32 @@ use Neutrino\Error\Handler;
  */
 class ErrorsController extends ControllerBase
 {
+    public function initialize()
+    {
+        $this->assets->addCss('css/bootstrap.min.css');
+    }
+
     public function indexAction()
     {
         /* @var \Neutrino\Error\Error $error */
         $error = $this->dispatcher->getParam('error');
 
-        $this->view->error = [
-            'type'    => Handler::getErrorType($error->type),
-            'message' => $error->message,
-            'file'    => $error->file,
-            'line'    => $error->line,
-        ];
+        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
+        $this->view->error = $error;
 
+        $this->view->setTemplateAfter('main');
         $this->view->render('errors', 'index');
     }
 
     public function http404Action()
     {
+        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
+        $this->view->setTemplateAfter('main');
         $this->view->render('errors', 'http404');
+    }
+
+    public function throwExceptionAction()
+    {
+        throw new \Exception('An uncaught exception');
     }
 }

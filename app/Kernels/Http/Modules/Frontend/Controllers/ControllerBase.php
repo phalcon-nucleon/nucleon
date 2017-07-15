@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Kernels\Http\Controllers;
+namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
 use Neutrino\Http\Controller;
-use Phalcon\Mvc\View;
 
 /**
  * Class ControllerBase
  *
- * @package Controllers
+ * @package     App\Kernels\Http\Modules\Frontend\Controllers
  */
 class ControllerBase extends Controller
 {
@@ -19,14 +18,6 @@ class ControllerBase extends Controller
      */
     public function initialize()
     {
-    }
-
-    /**
-     * Event called on controller construction
-     *
-     * Register middleware here.
-     */
-    protected function onConstruct()
-    {
+        $this->assets->addCss('css/bootstrap.min.css');
     }
 }

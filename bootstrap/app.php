@@ -6,9 +6,14 @@
 require __DIR__ . '/autoload.php';
 
 /**
+ * Global Error & Exception Handler
+ */
+\Neutrino\Error\Handler::register();
+
+/**
  * Run \Neutrino\Dotenv
  */
-\Neutrino\Dotenv\Loader::load(__DIR__.'/../');
+\Neutrino\Dotconst\Loader::load(__DIR__.'/../', __DIR__.'/../bootstrap/compile');
 
 /**
  * Read the configuration

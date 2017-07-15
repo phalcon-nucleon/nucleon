@@ -3,20 +3,16 @@
 namespace App\Kernels\Micro;
 
 use App\Core\Providers\Example as ExampleProvider;
-use Neutrino\Dotenv;
 use Neutrino\Foundation\Micro\Kernel as MicroKernel;
 use Neutrino\Interfaces\Kernelable;
-use Neutrino\Providers\Auth as AuthProvider;
 use Neutrino\Providers\Cache as CacheProvider;
 use Neutrino\Providers\Database as DatabaseProvider;
-use Neutrino\Providers\Flash as FlashProvider;
 use Neutrino\Providers\Http\Dispatcher as DispatcherProvider;
 use Neutrino\Providers\Http\Router as RouterProvider;
 use Neutrino\Providers\Micro\Router as MicroRouterProvider;
 use Neutrino\Providers\Logger as LoggerProvider;
 use Neutrino\Providers\Session as SessionProvider;
 use Neutrino\Providers\Url as UrlProvider;
-use Neutrino\Providers\View as ViewProvider;
 
 class Kernel extends MicroKernel implements Kernelable
 {
@@ -31,10 +27,8 @@ class Kernel extends MicroKernel implements Kernelable
          */
         LoggerProvider::class,
         UrlProvider::class,
-        FlashProvider::class,
         SessionProvider::class,
         RouterProvider::class,
-        ViewProvider::class,
         DispatcherProvider::class,
         DatabaseProvider::class,
         CacheProvider::class,
@@ -51,11 +45,6 @@ class Kernel extends MicroKernel implements Kernelable
         \Neutrino\Providers\Crypt::class,
         \Neutrino\Providers\Annotations::class,
         /**/
-
-        /*
-         * Auth Provider
-         */
-        AuthProvider::class,
 
         /*
          * Application Services
@@ -78,16 +67,6 @@ class Kernel extends MicroKernel implements Kernelable
      * @var string[]
      */
     protected $listeners = [];
-
-    /**
-     * Register the routes.
-     *
-     * @return void
-     */
-    public function registerRoutes()
-    {
-        require Dotenv::env('BASE_PATH') . '/routes/micro.php';
-    }
 
     /**
      * @return void

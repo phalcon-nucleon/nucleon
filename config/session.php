@@ -26,5 +26,5 @@ return [
      | \Phalcon\Session\Adapter\Mongo
      */
     'adapter' => 'Files',
-    'id'      => 'phalcon-nucleon'
+    'id'      => SESSION_ID
 ];

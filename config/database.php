@@ -24,10 +24,17 @@ return [
      | \Phalcon\Db\Adapter\Pdo\Oracle
      | \Phalcon\Db\Adapter\Mongo\Db
      */
-    'adapter'  => \Phalcon\Db\Adapter\Pdo\Mysql::class,
-    'host'     => 'localhost',
-    'username' => 'root',
-    'password' => '',
-    'dbname'   => 'nucleon-test',
-    'charset'  => 'utf8',
+    'default'     => 'mysql',
+    'connections' => [
+        'mysql' => [
+            'adapter' => \Phalcon\Db\Adapter\Pdo\Mysql::class,
+            'config'  => [
+                'host'     => DB_HOST,
+                'username' => DB_USER,
+                'password' => DB_PASSWORD,
+                'dbname'   => DB_NAME,
+                'charset'  => 'utf8',
+            ]
+        ]
+    ],
 ];

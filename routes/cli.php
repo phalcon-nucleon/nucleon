@@ -13,11 +13,13 @@
 use Neutrino\Support\Facades\Router;
 
 Router::add('some', [
-    'task' => \App\Kernels\Cli\Tasks\SomeTask::class
+    'task' => \App\Kernels\Cli\Tasks\ExampleTask::class
 ]);
-Router::add('some:test (\w+)(?: (\w+))', [
-  'task'    => \App\Kernels\Cli\Tasks\SomeTask::class,
-  'action'  => 'test',
-  'param_1' => 1,
-  'param_2' => 2
+Router::add('show:up', [
+    'task'    => \App\Kernels\Cli\Tasks\ExampleTask::class,
+    'action'  => 'showup',
+]);
+Router::add('some:test {param_1} {param_2}', [
+    'task'    => \App\Kernels\Cli\Tasks\ExampleTask::class,
+    'action'  => 'test',
 ]);

@@ -4,6 +4,7 @@ namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
 use App\Kernels\Http\Controllers\ControllerBase;
 use App\Kernels\Http\Modules\Frontend\Middleware\Guest as GuestMiddleware;
+use Neutrino\Constants\Services;
 use Neutrino\Support\Facades\Auth;
 
 /**
@@ -28,7 +29,7 @@ class AuthController extends ControllerBase
      */
     public function registerAction()
     {
-        $this->view->render('auth', 'register');
+        $this->view->render('front/auth', 'register');
     }
 
     /**
@@ -111,7 +112,7 @@ class AuthController extends ControllerBase
      */
     public function loginAction()
     {
-        $this->view->render('auth', 'login');
+        $this->view->render('front/auth', 'login');
     }
 
     /**
@@ -125,7 +126,7 @@ class AuthController extends ControllerBase
         $email    = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
-        $user = Auth::attempt([
+        $user = $this->auth->attempt([
             'email'    => $email,
             'password' => $password,
         ]);

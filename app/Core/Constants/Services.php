@@ -9,5 +9,5 @@ namespace App\Core\Constants;
  */
 final class Services
 {
-    const EXAMPLE = 'srv.example';
+    const EXAMPLE = 'example';
 }
