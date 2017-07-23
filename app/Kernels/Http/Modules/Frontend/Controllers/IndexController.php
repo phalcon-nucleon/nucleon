@@ -17,7 +17,6 @@ class IndexController extends ControllerBase
         $this->assets->addCss("css/home.css");
         $this->assets->addCss("https://fonts.googleapis.com/css?family=Raleway:100,600");
 
-        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
         $this->view->setTemplateAfter('main_light');
         $this->view->render('front/index', 'index');
     }
