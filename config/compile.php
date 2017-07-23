@@ -15,5 +15,6 @@ return [
 
     /* HTTP KERNEL - MODULE FRONTEND */
     __DIR__ . '/../app/Kernels/Http/Modules/Frontend/Module.php',
+    __DIR__ . '/../app/Kernels/Http/Modules/Frontend/ControllerBase.php',
     __DIR__ . '/../app/Kernels/Http/Modules/Frontend/Controllers/IndexController.php',
 ];
