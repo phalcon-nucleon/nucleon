@@ -10,16 +10,11 @@
 |
 */
 
+use App\Kernels\Cli\Tasks;
 use Neutrino\Support\Facades\Router;
 
-Router::add('some', [
-    'task' => \App\Kernels\Cli\Tasks\ExampleTask::class
-]);
-Router::add('show:up', [
-    'task'    => \App\Kernels\Cli\Tasks\ExampleTask::class,
-    'action'  => 'showup',
-]);
-Router::add('some:test {param_1} {param_2}', [
-    'task'    => \App\Kernels\Cli\Tasks\ExampleTask::class,
-    'action'  => 'test',
-]);
+Router::addTask('some', Tasks\ExampleTask::class);
+
+Router::addTask('show:up', Tasks\ExampleTask::class, 'showup');
+
+Router::addTask('some:test {param_1} {param_2}', Tasks\ExampleTask::class, 'test');

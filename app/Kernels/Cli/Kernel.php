@@ -4,12 +4,12 @@ namespace App\Kernels\Cli;
 
 use App\Core\Providers\Example as ExampleProvider;
 use Neutrino\Foundation\Cli\Kernel as CliKernel;
-use Neutrino\Foundation\Middleware\Debug as DebugMiddleware;
 use Neutrino\Providers\Cli\Dispatcher as DispatcherProvider;
 use Neutrino\Providers\Cli\Router as RouterProvider;
 use Neutrino\Providers\Database as DatabaseProvider;
 use Neutrino\Providers\Logger as LoggerProvider;
 use Neutrino\Providers\Cli\Output as OutputProvider;
+use Neutrino\Database\Providers\MigrationsServicesProvider;
 
 /**
  * Class Kernel
@@ -32,6 +32,7 @@ class Kernel extends CliKernel
         RouterProvider::class,
         DispatcherProvider::class,
         DatabaseProvider::class,
+        MigrationsServicesProvider::class,
         /*
          * Service provided by the Phalcon\Di\FactoryDefault
          *
