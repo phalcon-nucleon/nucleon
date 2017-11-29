@@ -15,7 +15,7 @@
             Nucl&eacute;on
         </div>
         <div>
-            <h3>[NoModule] Home</h3>
+            <h3><small>[NoModule]</small> Home</h3>
         </div>
         <div>
             {{ (microtime(true) - _SERVER['REQUEST_TIME_FLOAT']) * 1000 }} ms
