@@ -18,7 +18,7 @@ Our philosophy is to make the web faster, with enjoyable development.
 * PHP >= 5.6
 * ext-mbstring
 * ext-openssl
-* Phalcon >= 3.1
+* Phalcon >= 3.0
 
 # Composer & Autoloading
 Nucleon uses composer. So you can use all your libraries prefer as you wish!
