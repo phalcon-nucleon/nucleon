@@ -1,4 +1,7 @@
 <?php
+
+use Neutrino\View\Engines\Volt;
+
 /*
  +-------------------------------------------------------------------
  | View configuration
@@ -20,7 +23,7 @@ return [
      |
      | Relative path from view_dir to partials directory
      */
-    'partials_dir' => 'partials/',
+    'partials_dir' => null /* 'partials/' */,
     /*
      +---------------------------------------------------------------
      | layout_dir
@@ -28,7 +31,7 @@ return [
      |
      | Relative path from view_dir to layouts directory
      */
-    'layouts_dir' => 'layouts/',
+    'layouts_dir' => null /* 'layouts/' */,
     /*
      +---------------------------------------------------------------
      | compiled_path
@@ -47,4 +50,38 @@ return [
      | Default : false, no implicit view
      */
     'implicit'      => false,
+
+    /*
+     +---------------------------------------------------------------
+     | Engines
+     +---------------------------------------------------------------
+     |
+     | This value define the engines to use for generate templates
+     */
+    'engines' => [
+        '.volt' => Volt\VoltEngineRegister::class,
+    ],
+
+    /*
+     +---------------------------------------------------------------
+     | Extensions
+     +---------------------------------------------------------------
+     |
+     | This value define the extensions to add to the volt compiler
+     */
+    'extensions' => [
+        Volt\Compiler\Extensions\PhpFunctionExtension::class,
+        Volt\Compiler\Extensions\StrExtension::class,
+    ],
+
+    /*
+     +---------------------------------------------------------------
+     | Filters
+     +---------------------------------------------------------------
+     |
+     | This value define the filters to add to the volt compiler
+     */
+    'filters' => [
+        'round' => Volt\Compiler\Filters\RoundFilter::class,
+    ],
 ];
