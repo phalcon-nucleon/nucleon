@@ -13,7 +13,7 @@ require __DIR__ . '/autoload.php';
 /**
  * Run \Neutrino\Dotenv
  */
-\Neutrino\Dotconst\Loader::load(__DIR__.'/../', __DIR__.'/../bootstrap/compile');
+\Neutrino\Dotconst::load(__DIR__.'/../', __DIR__.'/../bootstrap/compile');
 
 /**
  * Read the configuration
