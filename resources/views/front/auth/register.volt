@@ -1,39 +1,38 @@
-{# auth\signin.volt #}
+{% extends 'layouts/template.volt' %}
 
-<div class="container">
-  <h1>Register</h1>
-  {{ form('/register', 'method': 'post', 'class' : 'form-horizontal') }}
-  <fieldset>
-    <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Username</label>
-      <div class="col-sm-10">
-        {{ text_field('name', 'class' :'form-control', 'placeholder': 'Username', 'required': 'true') }}
+{% block body %}
+  <div class="container">
+    <h1>Register</h1>
+    {{ form('/register', 'method': 'post', 'class' : 'form-horizontal') }}
+    <div class="row">
+      <div class="input-field col s12">
+        {{ text_field('name', 'class' :'form-control', 'required': 'true') }}
+        <label for="email">Username</label>
       </div>
     </div>
-    <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Email</label>
-      <div class="col-sm-10">
-        {{ text_field('email', 'type': 'email', 'class' :'form-control', 'placeholder': 'Email', 'required': 'true') }}
+    <div class="row">
+      <div class="input-field col s12">
+        {{ text_field('email', 'type': 'email', 'class' :'form-control', 'required': 'true') }}
+        <label for="email">Email</label>
       </div>
     </div>
-    <div class="form-group">
-      <label for="password" class="col-sm-2 control-label">Password</label>
-      <div class="col-sm-10">
-        {{ password_field('password',  'class' :'form-control', 'placeholder': '******', 'required': 'true') }}
+    <div class="row">
+      <div class="input-field col s12">
+        {{ password_field('password',  'class' :'form-control', 'required': 'true') }}
+        <label for="password">Password</label>
       </div>
     </div>
-    <div class="form-group">
-      <label for="confirm" class="col-sm-2 control-label">Confirm
-        Password</label>
-      <div class="col-sm-10">
+    <div class="row">
+      <div class="input-field col s12">
         {{ password_field('confirm',  'class' :'form-control', 'required': 'true') }}
+        <label for="confirm">Confirm Password</label>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+    <div class="row">
+      <div class="input-field col s12">
         {{ submit_button('Register',  'class' :'btn btn-default') }}
       </div>
     </div>
-  </fieldset>
-  {{ end_form() }}
-</div>
+    {{ end_form() }}
+  </div>
+{% endblock %}

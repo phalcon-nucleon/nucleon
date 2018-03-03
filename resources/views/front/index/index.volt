@@ -1,5 +1,7 @@
 {% extends 'layouts/template.volt' %}
 
+{% block body_class %}grey lighten-3{% endblock %}
+
 {% block body %}
 <div class="flex-center position-ref full-height">
     <div class="top-right links">

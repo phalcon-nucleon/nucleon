@@ -1,26 +1,26 @@
-{# auth\signin.volt #}
+{% extends 'layouts/template.volt' %}
 
-<div class="container">
-  <h1>Login</h1>
-  {{ form('/login', 'method': 'post', 'class' : 'form-horizontal') }}
-  <fieldset>
-    <div class="form-group">
-      <label for="email" class="col-sm-2 control-label">Email</label>
-      <div class="col-sm-10">
-        {{ text_field('email', 'class' :'form-control', 'placeholder': 'Email', 'required': 'true') }}
+{% block body %}
+  <div class="container">
+    <h1>Login</h1>
+    {{ form('/login', 'method': 'post', 'class' : 'form-horizontal') }}
+    <div class="row">
+      <div class="input-field col s12">
+        {{ text_field('email', 'class' :'form-control', 'required': 'true') }}
+        <label for="email">Email</label>
       </div>
     </div>
-    <div class="form-group">
-      <label for="password" class="col-sm-2 control-label">Password</label>
-      <div class="col-sm-10">
-        {{ password_field('password',  'class' :'form-control', 'placeholder': 'Password', 'required': 'true') }}
+    <div class="row">
+      <div class="input-field col s12">
+        {{ password_field('password',  'class' :'form-control', 'required': 'true') }}
+        <label for="password">Password</label>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+    <div class="row">
+      <div class="input-field col s12">
         {{ submit_button('Login',  'class' :'btn btn-default') }}
       </div>
     </div>
-  </fieldset>
-  {{ end_form() }}
-</div>
+    {{ end_form() }}
+  </div>
+{% endblock %}

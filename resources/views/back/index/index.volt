@@ -1,4 +1,6 @@
-{% extends 'back/template.volt' %}
+{% extends 'layouts/template.volt' %}
+
+{% block body_class %}grey darken-4 grey-text text-lighten-5{% endblock %}
 
 {% block body %}
 <div class="flex-center position-ref full-height">

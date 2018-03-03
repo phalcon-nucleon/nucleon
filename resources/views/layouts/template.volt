@@ -20,10 +20,9 @@
   {# Let browser know website is optimized for mobile #}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body>
-<div class="container">
-  {% block body %}{% endblock %}
-</div>
+<body class="{% block body_class %}{% endblock %}">
+
+{% block body %}{% endblock %}
 
 {# Import library js #}
 {% do assets.collection('common.js').addJs('https://code.jquery.com/jquery-3.3.1.min.js') %}

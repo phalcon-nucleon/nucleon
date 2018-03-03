@@ -18,7 +18,6 @@ class AuthController extends ControllerBase
         parent::onConstruct();
 
         $this->middleware(GuestMiddleware::class)->except(['logout']);
-        $this->view->setTemplateAfter('main');
     }
 
     /**
@@ -28,8 +27,6 @@ class AuthController extends ControllerBase
      */
     public function registerAction()
     {
-        $this->tag->setTitle('Nucleon Register');
-        $this->view->setTemplateAfter('main');
         $this->view->render('front/auth', 'register');
     }
 
@@ -113,7 +110,6 @@ class AuthController extends ControllerBase
      */
     public function loginAction()
     {
-        $this->tag->setTitle('Nucleon Login');
         $this->view->render('front/auth', 'login');
     }
 
