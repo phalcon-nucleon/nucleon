@@ -1,0 +1,25 @@
+.errors {
+  .alert {
+    font-family: monospace, monospace;
+    font-size: 1em;
+
+    padding: 10px 15px;
+    margin-bottom: 10px;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+
+    &.alert-danger {
+      @extend .red, .accent-1;
+    }
+    &.alert-warning {
+      @extend .orange, .accent-1;
+    }
+    &.alert-info {
+      @extend .light-blue, .accent-1;
+    }
+    &.alert-success {
+      @extend .light-green, .accent-1;
+    }
+  }
+}
