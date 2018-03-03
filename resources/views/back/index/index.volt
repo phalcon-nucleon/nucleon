@@ -1,3 +1,6 @@
+{% extends 'back/template.volt' %}
+
+{% block body %}
 <div class="flex-center position-ref full-height">
     <div class="top-right links">
         {% if (auth.check()) %}
@@ -25,3 +28,4 @@
         </div>
     </div>
 </div>
+{% endblock %}
