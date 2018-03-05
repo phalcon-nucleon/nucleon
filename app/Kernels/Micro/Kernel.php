@@ -67,12 +67,4 @@ class Kernel extends MicroKernel implements Kernelable
      * @var string[]
      */
     protected $listeners = [];
-
-    /**
-     * @return void
-     */
-    public function boot()
-    {
-        // TODO: Implement boot() method.
-    }
 }
