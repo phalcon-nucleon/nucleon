@@ -11,8 +11,6 @@ class HomeController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->assets->addCss("css/home.css");
-
         $this->view->render('home', 'index');
     }
 }

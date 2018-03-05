@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="{{ url('favicon.ico') }}"/>
   {# Import Fonts #}
   {% do assets.collection('common.css').addCss('https://fonts.googleapis.com/icon?family=Material+Icons') %}
-  {% do assets.collection('common.css').addCss('https://fonts.googleapis.com/css?family=Raleway:100,600') %}
+  {% do assets.collection('common.css').addCss('https://fonts.googleapis.com/css?family=Raleway:100,300,600') %}
   {# Import app.css #}
   {% do assets.collection('common.css').addCss('css/app.css') %}
   {# Output common.css #}
@@ -22,7 +22,15 @@
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
+{% block header %}
+  {% include 'partials/header.volt' %}
+{% endblock %}
+
 {% block body %}{% endblock %}
+
+{% block footer %}
+  {% include 'partials/footer.volt' %}
+{% endblock %}
 
 {# Import library js #}
 {% do assets.collection('common.js').addJs('https://code.jquery.com/jquery-3.3.1.min.js') %}

@@ -1,19 +1,11 @@
 {% extends 'layouts/template.volt' %}
 
-{% block body %}
-  <div class="flex-center position-ref full-height">
-    <div class="top-right links">
-      {% if (auth.check()) %}
-        <a href="{{ url('/') }}">Home</a>
-        <a href="{{ url('/logout') }}">Logout</a>
-      {% else %}
-        <a href="{{ url('login') }}">Login</a>
-        <a href="{{ url('register') }}">Register</a>
-      {% endif %}
-    </div>
+{% block body_class %}home{% endblock %}
 
-    <div class="content">
-      <div class="title m-b-md">
+{% block body %}
+  <div class="page-content">
+    <div class="center-align">
+      <div class="title">
         <img class="logo" src="{{ url('img/nucleon.svg') }}"/>
         Nucl&eacute;on
       </div>
@@ -22,12 +14,6 @@
           <small>[NoModule]</small>
           Home
         </h3>
-      </div>
-      <div>
-        {{ (microtime(true) - _SERVER['REQUEST_TIME_FLOAT']) * 1000 }} ms
-      </div>
-      <div>
-        {{ memory_get_peak_usage() }}
       </div>
     </div>
   </div>

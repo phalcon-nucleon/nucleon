@@ -10,16 +10,16 @@
     word-break: break-all;
 
     &.alert-danger {
-      @extend .red, .accent-1;
+      @extend .red, .accent-1, .grey-text, .text-darken-3;
     }
     &.alert-warning {
-      @extend .orange, .accent-1;
+      @extend .orange, .accent-1, .grey-text, .text-darken-3;
     }
     &.alert-info {
-      @extend .light-blue, .accent-1;
+      @extend .light-blue, .accent-1, .grey-text, .text-darken-3;
     }
     &.alert-success {
-      @extend .light-green, .accent-1;
+      @extend .light-green, .accent-1, .grey-text, .text-darken-3;
     }
   }
 }

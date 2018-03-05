@@ -1,0 +1,55 @@
+body {
+  color: $primary-color;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  margin: 0;
+
+  header, footer {
+    height: 3em;
+    line-height: 3em;
+    text-align: right;
+  }
+
+  header {
+    a {
+      color: $primary-color;
+      padding: 0 25px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  footer {
+    span {
+      color: $primary-color;
+      padding: 0 25px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem;
+    }
+  }
+
+  .page-content {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 6em);
+
+    .logo{
+      display: block;
+      margin: auto;
+      max-width: 96px;
+      max-height: 96px;
+    }
+
+    .title {
+      font-weight: 100;
+      font-size: 84px;
+      margin-bottom: 30px;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 {% extends 'layouts/template.volt' %}
 
 {% block body %}
+<div class="page-content">
   <div class="container">
     <h1>Login</h1>
     {{ form('/login', 'method': 'post', 'class' : 'form-horizontal') }}
@@ -23,4 +24,5 @@
     </div>
     {{ end_form() }}
   </div>
+</div>
 {% endblock %}
