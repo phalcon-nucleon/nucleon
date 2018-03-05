@@ -49,7 +49,7 @@
 .materialize-red.darken-3 {
   background-color: #a21318 !important; }
 
-.materialize-red-text.text-darken-3, .errors .materialize-red-text.alert.alert-danger, .errors .materialize-red-text.alert.alert-warning, .errors .materialize-red-text.alert.alert-info, .errors .materialize-red-text.alert.alert-success {
+.materialize-red-text.text-darken-3, .errors-debug .materialize-red-text.alert.alert-danger, .errors-debug .materialize-red-text.alert.alert-warning, .errors-debug .materialize-red-text.alert.alert-info, .errors-debug .materialize-red-text.alert.alert-success {
   color: #a21318 !important; }
 
 .materialize-red.darken-4 {
@@ -58,85 +58,85 @@
 .materialize-red-text.text-darken-4 {
   color: #8b1014 !important; }
 
-.red, .errors .alert.alert-danger {
+.red, .errors-debug .alert.alert-danger {
   background-color: #F44336 !important; }
 
 .red-text {
   color: #F44336 !important; }
 
-.red.lighten-5, .errors .lighten-5.alert.alert-danger {
+.red.lighten-5, .errors-debug .lighten-5.alert.alert-danger {
   background-color: #FFEBEE !important; }
 
 .red-text.text-lighten-5 {
   color: #FFEBEE !important; }
 
-.red.lighten-4, .errors .lighten-4.alert.alert-danger {
+.red.lighten-4, .errors-debug .lighten-4.alert.alert-danger {
   background-color: #FFCDD2 !important; }
 
 .red-text.text-lighten-4 {
   color: #FFCDD2 !important; }
 
-.red.lighten-3, .errors .lighten-3.alert.alert-danger {
+.red.lighten-3, .errors-debug .lighten-3.alert.alert-danger {
   background-color: #EF9A9A !important; }
 
 .red-text.text-lighten-3 {
   color: #EF9A9A !important; }
 
-.red.lighten-2, .errors .lighten-2.alert.alert-danger {
+.red.lighten-2, .errors-debug .lighten-2.alert.alert-danger {
   background-color: #E57373 !important; }
 
 .red-text.text-lighten-2 {
   color: #E57373 !important; }
 
-.red.lighten-1, .errors .lighten-1.alert.alert-danger {
+.red.lighten-1, .errors-debug .lighten-1.alert.alert-danger {
   background-color: #EF5350 !important; }
 
 .red-text.text-lighten-1 {
   color: #EF5350 !important; }
 
-.red.darken-1, .errors .darken-1.alert.alert-danger {
+.red.darken-1, .errors-debug .darken-1.alert.alert-danger {
   background-color: #E53935 !important; }
 
 .red-text.text-darken-1 {
   color: #E53935 !important; }
 
-.red.darken-2, .errors .darken-2.alert.alert-danger {
+.red.darken-2, .errors-debug .darken-2.alert.alert-danger {
   background-color: #D32F2F !important; }
 
 .red-text.text-darken-2 {
   color: #D32F2F !important; }
 
-.red.darken-3, .errors .darken-3.alert.alert-danger {
+.red.darken-3, .errors-debug .darken-3.alert.alert-danger {
   background-color: #C62828 !important; }
 
-.red-text.text-darken-3, .errors .red-text.alert.alert-danger, .errors .red-text.alert.alert-warning, .errors .red-text.alert.alert-info, .errors .red-text.alert.alert-success {
+.red-text.text-darken-3, .errors-debug .red-text.alert.alert-danger, .errors-debug .red-text.alert.alert-warning, .errors-debug .red-text.alert.alert-info, .errors-debug .red-text.alert.alert-success {
   color: #C62828 !important; }
 
-.red.darken-4, .errors .darken-4.alert.alert-danger {
+.red.darken-4, .errors-debug .darken-4.alert.alert-danger {
   background-color: #B71C1C !important; }
 
 .red-text.text-darken-4 {
   color: #B71C1C !important; }
 
-.red.accent-1, .errors .alert.alert-danger, .errors .red.alert.alert-warning, .errors .red.alert.alert-info, .errors .red.alert.alert-success {
+.red.accent-1, .errors-debug .alert.alert-danger, .errors-debug .red.alert.alert-warning, .errors-debug .red.alert.alert-info, .errors-debug .red.alert.alert-success {
   background-color: #FF8A80 !important; }
 
 .red-text.text-accent-1 {
   color: #FF8A80 !important; }
 
-.red.accent-2, .errors .accent-2.alert.alert-danger {
+.red.accent-2, .errors-debug .accent-2.alert.alert-danger {
   background-color: #FF5252 !important; }
 
 .red-text.text-accent-2 {
   color: #FF5252 !important; }
 
-.red.accent-3, .errors .accent-3.alert.alert-danger {
+.red.accent-3, .errors-debug .accent-3.alert.alert-danger {
   background-color: #FF1744 !important; }
 
 .red-text.text-accent-3 {
   color: #FF1744 !important; }
 
-.red.accent-4, .errors .accent-4.alert.alert-danger {
+.red.accent-4, .errors-debug .accent-4.alert.alert-danger {
   background-color: #D50000 !important; }
 
 .red-text.text-accent-4 {
@@ -193,7 +193,7 @@
 .pink.darken-3 {
   background-color: #ad1457 !important; }
 
-.pink-text.text-darken-3, .errors .pink-text.alert.alert-danger, .errors .pink-text.alert.alert-warning, .errors .pink-text.alert.alert-info, .errors .pink-text.alert.alert-success {
+.pink-text.text-darken-3, .errors-debug .pink-text.alert.alert-danger, .errors-debug .pink-text.alert.alert-warning, .errors-debug .pink-text.alert.alert-info, .errors-debug .pink-text.alert.alert-success {
   color: #ad1457 !important; }
 
 .pink.darken-4 {
@@ -202,7 +202,7 @@
 .pink-text.text-darken-4 {
   color: #880e4f !important; }
 
-.pink.accent-1, .errors .pink.alert.alert-danger, .errors .pink.alert.alert-warning, .errors .pink.alert.alert-info, .errors .pink.alert.alert-success {
+.pink.accent-1, .errors-debug .pink.alert.alert-danger, .errors-debug .pink.alert.alert-warning, .errors-debug .pink.alert.alert-info, .errors-debug .pink.alert.alert-success {
   background-color: #ff80ab !important; }
 
 .pink-text.text-accent-1 {
@@ -277,7 +277,7 @@
 .purple.darken-3 {
   background-color: #6a1b9a !important; }
 
-.purple-text.text-darken-3, .errors .purple-text.alert.alert-danger, .errors .purple-text.alert.alert-warning, .errors .purple-text.alert.alert-info, .errors .purple-text.alert.alert-success {
+.purple-text.text-darken-3, .errors-debug .purple-text.alert.alert-danger, .errors-debug .purple-text.alert.alert-warning, .errors-debug .purple-text.alert.alert-info, .errors-debug .purple-text.alert.alert-success {
   color: #6a1b9a !important; }
 
 .purple.darken-4 {
@@ -286,7 +286,7 @@
 .purple-text.text-darken-4 {
   color: #4a148c !important; }
 
-.purple.accent-1, .errors .purple.alert.alert-danger, .errors .purple.alert.alert-warning, .errors .purple.alert.alert-info, .errors .purple.alert.alert-success {
+.purple.accent-1, .errors-debug .purple.alert.alert-danger, .errors-debug .purple.alert.alert-warning, .errors-debug .purple.alert.alert-info, .errors-debug .purple.alert.alert-success {
   background-color: #ea80fc !important; }
 
 .purple-text.text-accent-1 {
@@ -361,7 +361,7 @@
 .deep-purple.darken-3 {
   background-color: #4527a0 !important; }
 
-.deep-purple-text.text-darken-3, .errors .deep-purple-text.alert.alert-danger, .errors .deep-purple-text.alert.alert-warning, .errors .deep-purple-text.alert.alert-info, .errors .deep-purple-text.alert.alert-success {
+.deep-purple-text.text-darken-3, .errors-debug .deep-purple-text.alert.alert-danger, .errors-debug .deep-purple-text.alert.alert-warning, .errors-debug .deep-purple-text.alert.alert-info, .errors-debug .deep-purple-text.alert.alert-success {
   color: #4527a0 !important; }
 
 .deep-purple.darken-4 {
@@ -370,7 +370,7 @@
 .deep-purple-text.text-darken-4 {
   color: #311b92 !important; }
 
-.deep-purple.accent-1, .errors .deep-purple.alert.alert-danger, .errors .deep-purple.alert.alert-warning, .errors .deep-purple.alert.alert-info, .errors .deep-purple.alert.alert-success {
+.deep-purple.accent-1, .errors-debug .deep-purple.alert.alert-danger, .errors-debug .deep-purple.alert.alert-warning, .errors-debug .deep-purple.alert.alert-info, .errors-debug .deep-purple.alert.alert-success {
   background-color: #b388ff !important; }
 
 .deep-purple-text.text-accent-1 {
@@ -445,7 +445,7 @@
 .indigo.darken-3 {
   background-color: #283593 !important; }
 
-.indigo-text.text-darken-3, .errors .indigo-text.alert.alert-danger, .errors .indigo-text.alert.alert-warning, .errors .indigo-text.alert.alert-info, .errors .indigo-text.alert.alert-success {
+.indigo-text.text-darken-3, .errors-debug .indigo-text.alert.alert-danger, .errors-debug .indigo-text.alert.alert-warning, .errors-debug .indigo-text.alert.alert-info, .errors-debug .indigo-text.alert.alert-success {
   color: #283593 !important; }
 
 .indigo.darken-4 {
@@ -454,7 +454,7 @@
 .indigo-text.text-darken-4 {
   color: #1a237e !important; }
 
-.indigo.accent-1, .errors .indigo.alert.alert-danger, .errors .indigo.alert.alert-warning, .errors .indigo.alert.alert-info, .errors .indigo.alert.alert-success {
+.indigo.accent-1, .errors-debug .indigo.alert.alert-danger, .errors-debug .indigo.alert.alert-warning, .errors-debug .indigo.alert.alert-info, .errors-debug .indigo.alert.alert-success {
   background-color: #8c9eff !important; }
 
 .indigo-text.text-accent-1 {
@@ -529,7 +529,7 @@
 .blue.darken-3 {
   background-color: #1565C0 !important; }
 
-.blue-text.text-darken-3, .errors .blue-text.alert.alert-danger, .errors .blue-text.alert.alert-warning, .errors .blue-text.alert.alert-info, .errors .blue-text.alert.alert-success {
+.blue-text.text-darken-3, .errors-debug .blue-text.alert.alert-danger, .errors-debug .blue-text.alert.alert-warning, .errors-debug .blue-text.alert.alert-info, .errors-debug .blue-text.alert.alert-success {
   color: #1565C0 !important; }
 
 .blue.darken-4 {
@@ -538,7 +538,7 @@
 .blue-text.text-darken-4 {
   color: #0D47A1 !important; }
 
-.blue.accent-1, .errors .blue.alert.alert-danger, .errors .blue.alert.alert-warning, .errors .blue.alert.alert-info, .errors .blue.alert.alert-success {
+.blue.accent-1, .errors-debug .blue.alert.alert-danger, .errors-debug .blue.alert.alert-warning, .errors-debug .blue.alert.alert-info, .errors-debug .blue.alert.alert-success {
   background-color: #82B1FF !important; }
 
 .blue-text.text-accent-1 {
@@ -562,85 +562,85 @@
 .blue-text.text-accent-4 {
   color: #2962FF !important; }
 
-.light-blue, .errors .alert.alert-info {
+.light-blue, .errors-debug .alert.alert-info {
   background-color: #03a9f4 !important; }
 
 .light-blue-text {
   color: #03a9f4 !important; }
 
-.light-blue.lighten-5, .errors .lighten-5.alert.alert-info {
+.light-blue.lighten-5, .errors-debug .lighten-5.alert.alert-info {
   background-color: #e1f5fe !important; }
 
 .light-blue-text.text-lighten-5 {
   color: #e1f5fe !important; }
 
-.light-blue.lighten-4, .errors .lighten-4.alert.alert-info {
+.light-blue.lighten-4, .errors-debug .lighten-4.alert.alert-info {
   background-color: #b3e5fc !important; }
 
 .light-blue-text.text-lighten-4 {
   color: #b3e5fc !important; }
 
-.light-blue.lighten-3, .errors .lighten-3.alert.alert-info {
+.light-blue.lighten-3, .errors-debug .lighten-3.alert.alert-info {
   background-color: #81d4fa !important; }
 
 .light-blue-text.text-lighten-3 {
   color: #81d4fa !important; }
 
-.light-blue.lighten-2, .errors .lighten-2.alert.alert-info {
+.light-blue.lighten-2, .errors-debug .lighten-2.alert.alert-info {
   background-color: #4fc3f7 !important; }
 
 .light-blue-text.text-lighten-2 {
   color: #4fc3f7 !important; }
 
-.light-blue.lighten-1, .errors .lighten-1.alert.alert-info {
+.light-blue.lighten-1, .errors-debug .lighten-1.alert.alert-info {
   background-color: #29b6f6 !important; }
 
 .light-blue-text.text-lighten-1 {
   color: #29b6f6 !important; }
 
-.light-blue.darken-1, .errors .darken-1.alert.alert-info {
+.light-blue.darken-1, .errors-debug .darken-1.alert.alert-info {
   background-color: #039be5 !important; }
 
 .light-blue-text.text-darken-1 {
   color: #039be5 !important; }
 
-.light-blue.darken-2, .errors .darken-2.alert.alert-info {
+.light-blue.darken-2, .errors-debug .darken-2.alert.alert-info {
   background-color: #0288d1 !important; }
 
 .light-blue-text.text-darken-2 {
   color: #0288d1 !important; }
 
-.light-blue.darken-3, .errors .darken-3.alert.alert-info {
+.light-blue.darken-3, .errors-debug .darken-3.alert.alert-info {
   background-color: #0277bd !important; }
 
-.light-blue-text.text-darken-3, .errors .light-blue-text.alert.alert-danger, .errors .light-blue-text.alert.alert-warning, .errors .light-blue-text.alert.alert-info, .errors .light-blue-text.alert.alert-success {
+.light-blue-text.text-darken-3, .errors-debug .light-blue-text.alert.alert-danger, .errors-debug .light-blue-text.alert.alert-warning, .errors-debug .light-blue-text.alert.alert-info, .errors-debug .light-blue-text.alert.alert-success {
   color: #0277bd !important; }
 
-.light-blue.darken-4, .errors .darken-4.alert.alert-info {
+.light-blue.darken-4, .errors-debug .darken-4.alert.alert-info {
   background-color: #01579b !important; }
 
 .light-blue-text.text-darken-4 {
   color: #01579b !important; }
 
-.light-blue.accent-1, .errors .light-blue.alert.alert-danger, .errors .light-blue.alert.alert-warning, .errors .alert.alert-info, .errors .light-blue.alert.alert-success {
+.light-blue.accent-1, .errors-debug .light-blue.alert.alert-danger, .errors-debug .light-blue.alert.alert-warning, .errors-debug .alert.alert-info, .errors-debug .light-blue.alert.alert-success {
   background-color: #80d8ff !important; }
 
 .light-blue-text.text-accent-1 {
   color: #80d8ff !important; }
 
-.light-blue.accent-2, .errors .accent-2.alert.alert-info {
+.light-blue.accent-2, .errors-debug .accent-2.alert.alert-info {
   background-color: #40c4ff !important; }
 
 .light-blue-text.text-accent-2 {
   color: #40c4ff !important; }
 
-.light-blue.accent-3, .errors .accent-3.alert.alert-info {
+.light-blue.accent-3, .errors-debug .accent-3.alert.alert-info {
   background-color: #00b0ff !important; }
 
 .light-blue-text.text-accent-3 {
   color: #00b0ff !important; }
 
-.light-blue.accent-4, .errors .accent-4.alert.alert-info {
+.light-blue.accent-4, .errors-debug .accent-4.alert.alert-info {
   background-color: #0091ea !important; }
 
 .light-blue-text.text-accent-4 {
@@ -697,7 +697,7 @@
 .cyan.darken-3 {
   background-color: #00838f !important; }
 
-.cyan-text.text-darken-3, .errors .cyan-text.alert.alert-danger, .errors .cyan-text.alert.alert-warning, .errors .cyan-text.alert.alert-info, .errors .cyan-text.alert.alert-success {
+.cyan-text.text-darken-3, .errors-debug .cyan-text.alert.alert-danger, .errors-debug .cyan-text.alert.alert-warning, .errors-debug .cyan-text.alert.alert-info, .errors-debug .cyan-text.alert.alert-success {
   color: #00838f !important; }
 
 .cyan.darken-4 {
@@ -706,7 +706,7 @@
 .cyan-text.text-darken-4 {
   color: #006064 !important; }
 
-.cyan.accent-1, .errors .cyan.alert.alert-danger, .errors .cyan.alert.alert-warning, .errors .cyan.alert.alert-info, .errors .cyan.alert.alert-success {
+.cyan.accent-1, .errors-debug .cyan.alert.alert-danger, .errors-debug .cyan.alert.alert-warning, .errors-debug .cyan.alert.alert-info, .errors-debug .cyan.alert.alert-success {
   background-color: #84ffff !important; }
 
 .cyan-text.text-accent-1 {
@@ -781,7 +781,7 @@
 .teal.darken-3 {
   background-color: #00695c !important; }
 
-.teal-text.text-darken-3, .errors .teal-text.alert.alert-danger, .errors .teal-text.alert.alert-warning, .errors .teal-text.alert.alert-info, .errors .teal-text.alert.alert-success {
+.teal-text.text-darken-3, .errors-debug .teal-text.alert.alert-danger, .errors-debug .teal-text.alert.alert-warning, .errors-debug .teal-text.alert.alert-info, .errors-debug .teal-text.alert.alert-success {
   color: #00695c !important; }
 
 .teal.darken-4 {
@@ -790,7 +790,7 @@
 .teal-text.text-darken-4 {
   color: #004d40 !important; }
 
-.teal.accent-1, .errors .teal.alert.alert-danger, .errors .teal.alert.alert-warning, .errors .teal.alert.alert-info, .errors .teal.alert.alert-success {
+.teal.accent-1, .errors-debug .teal.alert.alert-danger, .errors-debug .teal.alert.alert-warning, .errors-debug .teal.alert.alert-info, .errors-debug .teal.alert.alert-success {
   background-color: #a7ffeb !important; }
 
 .teal-text.text-accent-1 {
@@ -865,7 +865,7 @@
 .green.darken-3 {
   background-color: #2E7D32 !important; }
 
-.green-text.text-darken-3, .errors .green-text.alert.alert-danger, .errors .green-text.alert.alert-warning, .errors .green-text.alert.alert-info, .errors .green-text.alert.alert-success {
+.green-text.text-darken-3, .errors-debug .green-text.alert.alert-danger, .errors-debug .green-text.alert.alert-warning, .errors-debug .green-text.alert.alert-info, .errors-debug .green-text.alert.alert-success {
   color: #2E7D32 !important; }
 
 .green.darken-4 {
@@ -874,7 +874,7 @@
 .green-text.text-darken-4 {
   color: #1B5E20 !important; }
 
-.green.accent-1, .errors .green.alert.alert-danger, .errors .green.alert.alert-warning, .errors .green.alert.alert-info, .errors .green.alert.alert-success {
+.green.accent-1, .errors-debug .green.alert.alert-danger, .errors-debug .green.alert.alert-warning, .errors-debug .green.alert.alert-info, .errors-debug .green.alert.alert-success {
   background-color: #B9F6CA !important; }
 
 .green-text.text-accent-1 {
@@ -898,85 +898,85 @@
 .green-text.text-accent-4 {
   color: #00C853 !important; }
 
-.light-green, .errors .alert.alert-success {
+.light-green, .errors-debug .alert.alert-success {
   background-color: #8bc34a !important; }
 
 .light-green-text {
   color: #8bc34a !important; }
 
-.light-green.lighten-5, .errors .lighten-5.alert.alert-success {
+.light-green.lighten-5, .errors-debug .lighten-5.alert.alert-success {
   background-color: #f1f8e9 !important; }
 
 .light-green-text.text-lighten-5 {
   color: #f1f8e9 !important; }
 
-.light-green.lighten-4, .errors .lighten-4.alert.alert-success {
+.light-green.lighten-4, .errors-debug .lighten-4.alert.alert-success {
   background-color: #dcedc8 !important; }
 
 .light-green-text.text-lighten-4 {
   color: #dcedc8 !important; }
 
-.light-green.lighten-3, .errors .lighten-3.alert.alert-success {
+.light-green.lighten-3, .errors-debug .lighten-3.alert.alert-success {
   background-color: #c5e1a5 !important; }
 
 .light-green-text.text-lighten-3 {
   color: #c5e1a5 !important; }
 
-.light-green.lighten-2, .errors .lighten-2.alert.alert-success {
+.light-green.lighten-2, .errors-debug .lighten-2.alert.alert-success {
   background-color: #aed581 !important; }
 
 .light-green-text.text-lighten-2 {
   color: #aed581 !important; }
 
-.light-green.lighten-1, .errors .lighten-1.alert.alert-success {
+.light-green.lighten-1, .errors-debug .lighten-1.alert.alert-success {
   background-color: #9ccc65 !important; }
 
 .light-green-text.text-lighten-1 {
   color: #9ccc65 !important; }
 
-.light-green.darken-1, .errors .darken-1.alert.alert-success {
+.light-green.darken-1, .errors-debug .darken-1.alert.alert-success {
   background-color: #7cb342 !important; }
 
 .light-green-text.text-darken-1 {
   color: #7cb342 !important; }
 
-.light-green.darken-2, .errors .darken-2.alert.alert-success {
+.light-green.darken-2, .errors-debug .darken-2.alert.alert-success {
   background-color: #689f38 !important; }
 
 .light-green-text.text-darken-2 {
   color: #689f38 !important; }
 
-.light-green.darken-3, .errors .darken-3.alert.alert-success {
+.light-green.darken-3, .errors-debug .darken-3.alert.alert-success {
   background-color: #558b2f !important; }
 
-.light-green-text.text-darken-3, .errors .light-green-text.alert.alert-danger, .errors .light-green-text.alert.alert-warning, .errors .light-green-text.alert.alert-info, .errors .light-green-text.alert.alert-success {
+.light-green-text.text-darken-3, .errors-debug .light-green-text.alert.alert-danger, .errors-debug .light-green-text.alert.alert-warning, .errors-debug .light-green-text.alert.alert-info, .errors-debug .light-green-text.alert.alert-success {
   color: #558b2f !important; }
 
-.light-green.darken-4, .errors .darken-4.alert.alert-success {
+.light-green.darken-4, .errors-debug .darken-4.alert.alert-success {
   background-color: #33691e !important; }
 
 .light-green-text.text-darken-4 {
   color: #33691e !important; }
 
-.light-green.accent-1, .errors .light-green.alert.alert-danger, .errors .light-green.alert.alert-warning, .errors .light-green.alert.alert-info, .errors .alert.alert-success {
+.light-green.accent-1, .errors-debug .light-green.alert.alert-danger, .errors-debug .light-green.alert.alert-warning, .errors-debug .light-green.alert.alert-info, .errors-debug .alert.alert-success {
   background-color: #ccff90 !important; }
 
 .light-green-text.text-accent-1 {
   color: #ccff90 !important; }
 
-.light-green.accent-2, .errors .accent-2.alert.alert-success {
+.light-green.accent-2, .errors-debug .accent-2.alert.alert-success {
   background-color: #b2ff59 !important; }
 
 .light-green-text.text-accent-2 {
   color: #b2ff59 !important; }
 
-.light-green.accent-3, .errors .accent-3.alert.alert-success {
+.light-green.accent-3, .errors-debug .accent-3.alert.alert-success {
   background-color: #76ff03 !important; }
 
 .light-green-text.text-accent-3 {
   color: #76ff03 !important; }
 
-.light-green.accent-4, .errors .accent-4.alert.alert-success {
+.light-green.accent-4, .errors-debug .accent-4.alert.alert-success {
   background-color: #64dd17 !important; }
 
 .light-green-text.text-accent-4 {
@@ -1033,7 +1033,7 @@
 .lime.darken-3 {
   background-color: #9e9d24 !important; }
 
-.lime-text.text-darken-3, .errors .lime-text.alert.alert-danger, .errors .lime-text.alert.alert-warning, .errors .lime-text.alert.alert-info, .errors .lime-text.alert.alert-success {
+.lime-text.text-darken-3, .errors-debug .lime-text.alert.alert-danger, .errors-debug .lime-text.alert.alert-warning, .errors-debug .lime-text.alert.alert-info, .errors-debug .lime-text.alert.alert-success {
   color: #9e9d24 !important; }
 
 .lime.darken-4 {
@@ -1042,7 +1042,7 @@
 .lime-text.text-darken-4 {
   color: #827717 !important; }
 
-.lime.accent-1, .errors .lime.alert.alert-danger, .errors .lime.alert.alert-warning, .errors .lime.alert.alert-info, .errors .lime.alert.alert-success {
+.lime.accent-1, .errors-debug .lime.alert.alert-danger, .errors-debug .lime.alert.alert-warning, .errors-debug .lime.alert.alert-info, .errors-debug .lime.alert.alert-success {
   background-color: #f4ff81 !important; }
 
 .lime-text.text-accent-1 {
@@ -1117,7 +1117,7 @@
 .yellow.darken-3 {
   background-color: #f9a825 !important; }
 
-.yellow-text.text-darken-3, .errors .yellow-text.alert.alert-danger, .errors .yellow-text.alert.alert-warning, .errors .yellow-text.alert.alert-info, .errors .yellow-text.alert.alert-success {
+.yellow-text.text-darken-3, .errors-debug .yellow-text.alert.alert-danger, .errors-debug .yellow-text.alert.alert-warning, .errors-debug .yellow-text.alert.alert-info, .errors-debug .yellow-text.alert.alert-success {
   color: #f9a825 !important; }
 
 .yellow.darken-4 {
@@ -1126,7 +1126,7 @@
 .yellow-text.text-darken-4 {
   color: #f57f17 !important; }
 
-.yellow.accent-1, .errors .yellow.alert.alert-danger, .errors .yellow.alert.alert-warning, .errors .yellow.alert.alert-info, .errors .yellow.alert.alert-success {
+.yellow.accent-1, .errors-debug .yellow.alert.alert-danger, .errors-debug .yellow.alert.alert-warning, .errors-debug .yellow.alert.alert-info, .errors-debug .yellow.alert.alert-success {
   background-color: #ffff8d !important; }
 
 .yellow-text.text-accent-1 {
@@ -1201,7 +1201,7 @@
 .amber.darken-3 {
   background-color: #ff8f00 !important; }
 
-.amber-text.text-darken-3, .errors .amber-text.alert.alert-danger, .errors .amber-text.alert.alert-warning, .errors .amber-text.alert.alert-info, .errors .amber-text.alert.alert-success {
+.amber-text.text-darken-3, .errors-debug .amber-text.alert.alert-danger, .errors-debug .amber-text.alert.alert-warning, .errors-debug .amber-text.alert.alert-info, .errors-debug .amber-text.alert.alert-success {
   color: #ff8f00 !important; }
 
 .amber.darken-4 {
@@ -1210,7 +1210,7 @@
 .amber-text.text-darken-4 {
   color: #ff6f00 !important; }
 
-.amber.accent-1, .errors .amber.alert.alert-danger, .errors .amber.alert.alert-warning, .errors .amber.alert.alert-info, .errors .amber.alert.alert-success {
+.amber.accent-1, .errors-debug .amber.alert.alert-danger, .errors-debug .amber.alert.alert-warning, .errors-debug .amber.alert.alert-info, .errors-debug .amber.alert.alert-success {
   background-color: #ffe57f !important; }
 
 .amber-text.text-accent-1 {
@@ -1234,85 +1234,85 @@
 .amber-text.text-accent-4 {
   color: #ffab00 !important; }
 
-.orange, .errors .alert.alert-warning {
+.orange, .errors-debug .alert.alert-warning {
   background-color: #ff9800 !important; }
 
 .orange-text {
   color: #ff9800 !important; }
 
-.orange.lighten-5, .errors .lighten-5.alert.alert-warning {
+.orange.lighten-5, .errors-debug .lighten-5.alert.alert-warning {
   background-color: #fff3e0 !important; }
 
 .orange-text.text-lighten-5 {
   color: #fff3e0 !important; }
 
-.orange.lighten-4, .errors .lighten-4.alert.alert-warning {
+.orange.lighten-4, .errors-debug .lighten-4.alert.alert-warning {
   background-color: #ffe0b2 !important; }
 
 .orange-text.text-lighten-4 {
   color: #ffe0b2 !important; }
 
-.orange.lighten-3, .errors .lighten-3.alert.alert-warning {
+.orange.lighten-3, .errors-debug .lighten-3.alert.alert-warning {
   background-color: #ffcc80 !important; }
 
 .orange-text.text-lighten-3 {
   color: #ffcc80 !important; }
 
-.orange.lighten-2, .errors .lighten-2.alert.alert-warning {
+.orange.lighten-2, .errors-debug .lighten-2.alert.alert-warning {
   background-color: #ffb74d !important; }
 
 .orange-text.text-lighten-2 {
   color: #ffb74d !important; }
 
-.orange.lighten-1, .errors .lighten-1.alert.alert-warning {
+.orange.lighten-1, .errors-debug .lighten-1.alert.alert-warning {
   background-color: #ffa726 !important; }
 
 .orange-text.text-lighten-1 {
   color: #ffa726 !important; }
 
-.orange.darken-1, .errors .darken-1.alert.alert-warning {
+.orange.darken-1, .errors-debug .darken-1.alert.alert-warning {
   background-color: #fb8c00 !important; }
 
 .orange-text.text-darken-1 {
   color: #fb8c00 !important; }
 
-.orange.darken-2, .errors .darken-2.alert.alert-warning {
+.orange.darken-2, .errors-debug .darken-2.alert.alert-warning {
   background-color: #f57c00 !important; }
 
 .orange-text.text-darken-2 {
   color: #f57c00 !important; }
 
-.orange.darken-3, .errors .darken-3.alert.alert-warning {
+.orange.darken-3, .errors-debug .darken-3.alert.alert-warning {
   background-color: #ef6c00 !important; }
 
-.orange-text.text-darken-3, .errors .orange-text.alert.alert-danger, .errors .orange-text.alert.alert-warning, .errors .orange-text.alert.alert-info, .errors .orange-text.alert.alert-success {
+.orange-text.text-darken-3, .errors-debug .orange-text.alert.alert-danger, .errors-debug .orange-text.alert.alert-warning, .errors-debug .orange-text.alert.alert-info, .errors-debug .orange-text.alert.alert-success {
   color: #ef6c00 !important; }
 
-.orange.darken-4, .errors .darken-4.alert.alert-warning {
+.orange.darken-4, .errors-debug .darken-4.alert.alert-warning {
   background-color: #e65100 !important; }
 
 .orange-text.text-darken-4 {
   color: #e65100 !important; }
 
-.orange.accent-1, .errors .orange.alert.alert-danger, .errors .alert.alert-warning, .errors .orange.alert.alert-info, .errors .orange.alert.alert-success {
+.orange.accent-1, .errors-debug .orange.alert.alert-danger, .errors-debug .alert.alert-warning, .errors-debug .orange.alert.alert-info, .errors-debug .orange.alert.alert-success {
   background-color: #ffd180 !important; }
 
 .orange-text.text-accent-1 {
   color: #ffd180 !important; }
 
-.orange.accent-2, .errors .accent-2.alert.alert-warning {
+.orange.accent-2, .errors-debug .accent-2.alert.alert-warning {
   background-color: #ffab40 !important; }
 
 .orange-text.text-accent-2 {
   color: #ffab40 !important; }
 
-.orange.accent-3, .errors .accent-3.alert.alert-warning {
+.orange.accent-3, .errors-debug .accent-3.alert.alert-warning {
   background-color: #ff9100 !important; }
 
 .orange-text.text-accent-3 {
   color: #ff9100 !important; }
 
-.orange.accent-4, .errors .accent-4.alert.alert-warning {
+.orange.accent-4, .errors-debug .accent-4.alert.alert-warning {
   background-color: #ff6d00 !important; }
 
 .orange-text.text-accent-4 {
@@ -1369,7 +1369,7 @@
 .deep-orange.darken-3 {
   background-color: #d84315 !important; }
 
-.deep-orange-text.text-darken-3, .errors .deep-orange-text.alert.alert-danger, .errors .deep-orange-text.alert.alert-warning, .errors .deep-orange-text.alert.alert-info, .errors .deep-orange-text.alert.alert-success {
+.deep-orange-text.text-darken-3, .errors-debug .deep-orange-text.alert.alert-danger, .errors-debug .deep-orange-text.alert.alert-warning, .errors-debug .deep-orange-text.alert.alert-info, .errors-debug .deep-orange-text.alert.alert-success {
   color: #d84315 !important; }
 
 .deep-orange.darken-4 {
@@ -1378,7 +1378,7 @@
 .deep-orange-text.text-darken-4 {
   color: #bf360c !important; }
 
-.deep-orange.accent-1, .errors .deep-orange.alert.alert-danger, .errors .deep-orange.alert.alert-warning, .errors .deep-orange.alert.alert-info, .errors .deep-orange.alert.alert-success {
+.deep-orange.accent-1, .errors-debug .deep-orange.alert.alert-danger, .errors-debug .deep-orange.alert.alert-warning, .errors-debug .deep-orange.alert.alert-info, .errors-debug .deep-orange.alert.alert-success {
   background-color: #ff9e80 !important; }
 
 .deep-orange-text.text-accent-1 {
@@ -1453,7 +1453,7 @@
 .brown.darken-3 {
   background-color: #4e342e !important; }
 
-.brown-text.text-darken-3, .errors .brown-text.alert.alert-danger, .errors .brown-text.alert.alert-warning, .errors .brown-text.alert.alert-info, .errors .brown-text.alert.alert-success {
+.brown-text.text-darken-3, .errors-debug .brown-text.alert.alert-danger, .errors-debug .brown-text.alert.alert-warning, .errors-debug .brown-text.alert.alert-info, .errors-debug .brown-text.alert.alert-success {
   color: #4e342e !important; }
 
 .brown.darken-4 {
@@ -1513,7 +1513,7 @@
 .blue-grey.darken-3 {
   background-color: #37474f !important; }
 
-.blue-grey-text.text-darken-3, .errors .blue-grey-text.alert.alert-danger, .errors .blue-grey-text.alert.alert-warning, .errors .blue-grey-text.alert.alert-info, .errors .blue-grey-text.alert.alert-success {
+.blue-grey-text.text-darken-3, .errors-debug .blue-grey-text.alert.alert-danger, .errors-debug .blue-grey-text.alert.alert-warning, .errors-debug .blue-grey-text.alert.alert-info, .errors-debug .blue-grey-text.alert.alert-success {
   color: #37474f !important; }
 
 .blue-grey.darken-4 {
@@ -1525,61 +1525,61 @@
 .grey {
   background-color: #9e9e9e !important; }
 
-.grey-text, .errors .alert.alert-danger, .errors .alert.alert-warning, .errors .alert.alert-info, .errors .alert.alert-success {
+.grey-text, .errors-debug .alert.alert-danger, .errors-debug .alert.alert-warning, .errors-debug .alert.alert-info, .errors-debug .alert.alert-success {
   color: #9e9e9e !important; }
 
 .grey.lighten-5 {
   background-color: #fafafa !important; }
 
-.grey-text.text-lighten-5, .errors .text-lighten-5.alert.alert-danger, .errors .text-lighten-5.alert.alert-warning, .errors .text-lighten-5.alert.alert-info, .errors .text-lighten-5.alert.alert-success {
+.grey-text.text-lighten-5, .errors-debug .text-lighten-5.alert.alert-danger, .errors-debug .text-lighten-5.alert.alert-warning, .errors-debug .text-lighten-5.alert.alert-info, .errors-debug .text-lighten-5.alert.alert-success {
   color: #fafafa !important; }
 
 .grey.lighten-4 {
   background-color: #f5f5f5 !important; }
 
-.grey-text.text-lighten-4, .errors .text-lighten-4.alert.alert-danger, .errors .text-lighten-4.alert.alert-warning, .errors .text-lighten-4.alert.alert-info, .errors .text-lighten-4.alert.alert-success {
+.grey-text.text-lighten-4, .errors-debug .text-lighten-4.alert.alert-danger, .errors-debug .text-lighten-4.alert.alert-warning, .errors-debug .text-lighten-4.alert.alert-info, .errors-debug .text-lighten-4.alert.alert-success {
   color: #f5f5f5 !important; }
 
 .grey.lighten-3 {
   background-color: #eeeeee !important; }
 
-.grey-text.text-lighten-3, .errors .text-lighten-3.alert.alert-danger, .errors .text-lighten-3.alert.alert-warning, .errors .text-lighten-3.alert.alert-info, .errors .text-lighten-3.alert.alert-success {
+.grey-text.text-lighten-3, .errors-debug .text-lighten-3.alert.alert-danger, .errors-debug .text-lighten-3.alert.alert-warning, .errors-debug .text-lighten-3.alert.alert-info, .errors-debug .text-lighten-3.alert.alert-success {
   color: #eeeeee !important; }
 
 .grey.lighten-2 {
   background-color: #e0e0e0 !important; }
 
-.grey-text.text-lighten-2, .errors .text-lighten-2.alert.alert-danger, .errors .text-lighten-2.alert.alert-warning, .errors .text-lighten-2.alert.alert-info, .errors .text-lighten-2.alert.alert-success {
+.grey-text.text-lighten-2, .errors-debug .text-lighten-2.alert.alert-danger, .errors-debug .text-lighten-2.alert.alert-warning, .errors-debug .text-lighten-2.alert.alert-info, .errors-debug .text-lighten-2.alert.alert-success {
   color: #e0e0e0 !important; }
 
 .grey.lighten-1 {
   background-color: #bdbdbd !important; }
 
-.grey-text.text-lighten-1, .errors .text-lighten-1.alert.alert-danger, .errors .text-lighten-1.alert.alert-warning, .errors .text-lighten-1.alert.alert-info, .errors .text-lighten-1.alert.alert-success {
+.grey-text.text-lighten-1, .errors-debug .text-lighten-1.alert.alert-danger, .errors-debug .text-lighten-1.alert.alert-warning, .errors-debug .text-lighten-1.alert.alert-info, .errors-debug .text-lighten-1.alert.alert-success {
   color: #bdbdbd !important; }
 
 .grey.darken-1 {
   background-color: #757575 !important; }
 
-.grey-text.text-darken-1, .errors .text-darken-1.alert.alert-danger, .errors .text-darken-1.alert.alert-warning, .errors .text-darken-1.alert.alert-info, .errors .text-darken-1.alert.alert-success {
+.grey-text.text-darken-1, .errors-debug .text-darken-1.alert.alert-danger, .errors-debug .text-darken-1.alert.alert-warning, .errors-debug .text-darken-1.alert.alert-info, .errors-debug .text-darken-1.alert.alert-success {
   color: #757575 !important; }
 
 .grey.darken-2 {
   background-color: #616161 !important; }
 
-.grey-text.text-darken-2, .errors .text-darken-2.alert.alert-danger, .errors .text-darken-2.alert.alert-warning, .errors .text-darken-2.alert.alert-info, .errors .text-darken-2.alert.alert-success {
+.grey-text.text-darken-2, .errors-debug .text-darken-2.alert.alert-danger, .errors-debug .text-darken-2.alert.alert-warning, .errors-debug .text-darken-2.alert.alert-info, .errors-debug .text-darken-2.alert.alert-success {
   color: #616161 !important; }
 
 .grey.darken-3 {
   background-color: #424242 !important; }
 
-.grey-text.text-darken-3, .errors .alert.alert-danger, .errors .alert.alert-warning, .errors .alert.alert-info, .errors .alert.alert-success {
+.grey-text.text-darken-3, .errors-debug .alert.alert-danger, .errors-debug .alert.alert-warning, .errors-debug .alert.alert-info, .errors-debug .alert.alert-success {
   color: #424242 !important; }
 
 .grey.darken-4 {
   background-color: #212121 !important; }
 
-.grey-text.text-darken-4, .errors .text-darken-4.alert.alert-danger, .errors .text-darken-4.alert.alert-warning, .errors .text-darken-4.alert.alert-info, .errors .text-darken-4.alert.alert-success {
+.grey-text.text-darken-4, .errors-debug .text-darken-4.alert.alert-danger, .errors-debug .text-darken-4.alert.alert-warning, .errors-debug .text-darken-4.alert.alert-info, .errors-debug .text-darken-4.alert.alert-success {
   color: #212121 !important; }
 
 .black {
@@ -1968,7 +1968,7 @@ ul:not(.browser-default) {
     list-style-type: none; }
 
 a {
-  color: #636b6f;
+  color: #039be5;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent; }
 
@@ -2181,11 +2181,11 @@ ul.staggered-list li {
   .center-on-small-only {
     text-align: center; } }
 
-.page-footer {
+.page-footer, body footer {
   padding-top: 20px;
   color: #fff;
   background-color: #636b6f; }
-  .page-footer .footer-copyright {
+  .page-footer .footer-copyright, body footer .footer-copyright {
     overflow: hidden;
     min-height: 50px;
     display: flex;
@@ -3204,14 +3204,14 @@ nav {
 
 @media only screen and (min-width: 601px) {
   nav.nav-extended .nav-wrapper {
-    min-height: 3em; }
+    min-height: 48px; }
 
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 3em;
-    line-height: 3em; }
+    height: 48px;
+    line-height: 48px; }
 
   .navbar-fixed {
-    height: 3em; } }
+    height: 48px; } }
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/fonts/roboto/Roboto-Thin.woff") format("woff");
@@ -3296,7 +3296,7 @@ strong {
 small {
   font-size: 75%; }
 
-.light, .page-footer .footer-copyright {
+.light, .page-footer .footer-copyright, body footer .footer-copyright {
   font-weight: 300; }
 
 .thin {
@@ -6835,7 +6835,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   stroke-linecap: round;
   /*shape-rendering: crispEdges;*/ }
 
-.errors .alert {
+.errors-debug .alert {
   font-family: monospace, monospace;
   font-size: 1em;
   padding: 10px 15px;
@@ -6849,29 +6849,36 @@ body {
   font-weight: 300;
   min-height: 100vh;
   margin: 0; }
-  body header, body footer {
-    height: 3em;
-    line-height: 3em;
+  body nav, body header {
+    box-shadow: none;
+    height: 48px;
+    line-height: 48px;
     text-align: right; }
-  body header a {
-    color: #636b6f;
-    padding: 0 25px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .1rem;
-    text-decoration: none;
-    text-transform: uppercase; }
-  body footer span {
-    color: #636b6f;
-    padding: 0 25px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .1rem; }
+    body nav a, body header a {
+      padding: 0 25px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      text-decoration: none;
+      text-transform: uppercase; }
+  body footer {
+    height: 36px;
+    line-height: 36px;
+    padding: 0;
+    text-align: right; }
+    body footer span {
+      padding: 0 25px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem; }
   body .page-content {
-    align-items: center;
+    min-height: calc(100vh - 48px - 36px);
     display: flex;
-    justify-content: center;
-    min-height: calc(100vh - 6em); }
+    flex-shrink: 0; }
+    body .page-content.h-center {
+      justify-content: center; }
+    body .page-content.v-center {
+      align-items: center; }
     body .page-content .logo {
       display: block;
       margin: auto;

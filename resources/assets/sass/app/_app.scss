@@ -5,15 +5,15 @@ body {
   min-height: 100vh;
   margin: 0;
 
-  header, footer {
-    height: 3em;
-    line-height: 3em;
-    text-align: right;
-  }
+  nav, header {
+    box-shadow: none;
 
-  header {
+    height: $navbar-height;
+    line-height: $navbar-height;
+
+    text-align: right;
+
     a {
-      color: $primary-color;
       padding: 0 25px;
       font-size: 12px;
       font-weight: 600;
@@ -24,8 +24,16 @@ body {
   }
 
   footer {
+    @extend .page-footer;
+
+    height: $footer-height;
+    line-height: $footer-height;
+
+    padding: 0;
+
+    text-align: right;
+
     span {
-      color: $primary-color;
       padding: 0 25px;
       font-size: 12px;
       font-weight: 600;
@@ -34,10 +42,16 @@ body {
   }
 
   .page-content {
-    align-items: center;
+    min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
     display: flex;
-    justify-content: center;
-    min-height: calc(100vh - 6em);
+    flex-shrink: 0;
+
+    &.h-center {
+      justify-content: center;
+    }
+    &.v-center {
+      align-items: center;
+    }
 
     .logo{
       display: block;

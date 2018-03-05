@@ -18,6 +18,5 @@ class ControllerBase extends Controller
      */
     public function initialize()
     {
-        $this->assets->addCss('css/bootstrap.min.css');
     }
 }

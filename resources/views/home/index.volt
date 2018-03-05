@@ -1,9 +1,7 @@
 {% extends 'layouts/template.volt' %}
 
-{% block body_class %}home{% endblock %}
-
 {% block body %}
-  <div class="page-content">
+  <div class="page-content h-center v-center">
     <div class="center-align">
       <div class="title">
         <img class="logo" src="{{ url('img/nucleon.svg') }}"/>

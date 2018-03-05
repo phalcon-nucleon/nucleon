@@ -22,11 +22,13 @@ class ErrorsController extends ControllerBase
         /* @var \Neutrino\Error\Error $error */
         $error = $this->dispatcher->getParam('error');
 
-        return $this->view->render('errors', 'debug', [
+        $this->view->setVars([
           'error' => $error,
           'isException' => $error->isException,
           'traces' => $error->isException ? Helper::formatExceptionTrace($error->exception) : [],
         ]);
+
+        return $this->view->render('errors', 'debug');
     }
 
     public function http404Action()
