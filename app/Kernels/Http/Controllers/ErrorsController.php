@@ -22,10 +22,27 @@ class ErrorsController extends ControllerBase
         /* @var \Neutrino\Error\Error $error */
         $error = $this->dispatcher->getParam('error');
 
+        $exceptions = [];
+
+        if ($isException = $error->isException) {
+            $exception = $error->exception;
+
+            do {
+                $exceptions[] = [
+                  'class' => get_class($exception),
+                  'code' => $exception->getCode(),
+                  'message' => $exception->getMessage(),
+                  'file' => $exception->getFile(),
+                  'line' => $exception->getLine(),
+                  'traces' => Helper::formatExceptionTrace($exception),
+                ];
+            } while ($exception = $exception->getPrevious());
+        }
+
         $this->view->setVars([
           'error' => $error,
-          'isException' => $error->isException,
-          'traces' => $error->isException ? Helper::formatExceptionTrace($error->exception) : [],
+          'isException' => $isException,
+          'exceptions' => $exceptions,
         ]);
 
         return $this->view->render('errors', 'debug');
@@ -46,6 +63,10 @@ class ErrorsController extends ControllerBase
 
         trigger_error('warning', E_USER_WARNING);
 
-        throw new \Exception('An uncaught exception');
+        try {
+            throw new \Exception('A catched exception');
+        } catch (\Exception $e) {
+            throw new \Phalcon\Exception('An uncaught exception', $e->getCode(), $e);
+        }
     }
 }

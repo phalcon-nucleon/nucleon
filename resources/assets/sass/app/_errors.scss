@@ -20,4 +20,23 @@
       @extend .light-green, .accent-1, .grey-text, .text-darken-3;
     }
   }
+
+  .card {
+    .card-title {
+
+      small {
+        font-size: 60%;
+      }
+
+      pre {
+        word-break: break-all;
+        max-width:  100%;
+        margin: 0;
+        overflow: hidden;
+        white-space: pre-line;
+        font-size: 1.1em;
+        line-height: 1.5;
+      }
+    }
+  }
 }

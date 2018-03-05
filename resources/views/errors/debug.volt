@@ -8,8 +8,14 @@
       <div class="col s12">
         <ul class="tabs">
           <li class="tab col s3">
-            <a class="active"
-               href="#error">{{ isException ? 'Exception' : 'Fatal error' }}</a>
+            <a class="active" href="#error">
+              {% if isException %}
+                Exception{{ exceptions | length > 1 ? 's' : '' }}
+                <span class="chip">{{ exceptions | length }}</span>
+              {% else %}
+                Fatal error
+              {% endif %}
+            </a>
           </li>
           <li class="tab col s3">
             <a href="#list">Flash messages</a>

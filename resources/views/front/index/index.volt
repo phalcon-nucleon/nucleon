@@ -1,6 +1,4 @@
-{% extends 'layouts/template.volt' %}
-
-{% block body_class %}grey lighten-3{% endblock %}
+{% extends 'front/layouts/template.volt' %}
 
 {% block body %}
   <div class="page-content h-center v-center">
