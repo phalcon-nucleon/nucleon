@@ -2,8 +2,6 @@
 
 namespace App\Kernels\Http\Controllers;
 
-use Neutrino\Error\Helper;
-
 /**
  * Class ErrorsController
  *
@@ -15,37 +13,7 @@ class ErrorsController extends ControllerBase
     {
         $this->response->setStatusCode(500);
 
-        if (!APP_DEBUG) {
-            return $this->view->render('errors', 'http5xx');
-        }
-
-        /* @var \Neutrino\Error\Error $error */
-        $error = $this->dispatcher->getParam('error');
-
-        $exceptions = [];
-
-        if ($isException = $error->isException) {
-            $exception = $error->exception;
-
-            do {
-                $exceptions[] = [
-                  'class' => get_class($exception),
-                  'code' => $exception->getCode(),
-                  'message' => $exception->getMessage(),
-                  'file' => $exception->getFile(),
-                  'line' => $exception->getLine(),
-                  'traces' => Helper::formatExceptionTrace($exception),
-                ];
-            } while ($exception = $exception->getPrevious());
-        }
-
-        $this->view->setVars([
-          'error' => $error,
-          'isException' => $isException,
-          'exceptions' => $exceptions,
-        ]);
-
-        return $this->view->render('errors', 'debug');
+        return $this->view->render('errors', 'http5xx');
     }
 
     public function http404Action()
