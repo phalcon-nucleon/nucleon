@@ -70,7 +70,23 @@ return [
      | This value define the extensions to add to the volt compiler
      */
     'extensions' => [
+        /*
+         +---------------------------------------------------------------
+         | Php Functions
+         +---------------------------------------------------------------
+         |
+         | Allow to use all php functions in volt.
+         */
         Volt\Compiler\Extensions\PhpFunctionExtension::class,
+        /*
+         +---------------------------------------------------------------
+         | Str Functions
+         +---------------------------------------------------------------
+         |
+         | Allow to use all Neutrino\Support\Str functions in volt.
+         |
+         | Add slug, limits & word filters
+         */
         Volt\Compiler\Extensions\StrExtension::class,
     ],
 

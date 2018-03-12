@@ -11,11 +11,15 @@ class RoutesTest extends RoutesTestCase
 {
     protected static function kernelClassInstance()
     {
-        return \App\Kernels\Http\Modules\Frontend\Module::class;
+        return \App\Kernels\Http\Kernel::class;
     }
 
     protected function setUp()
     {
+        global $config;
+
+        self::setConfig($config);
+
         parent::setUp();
     }
 
@@ -26,7 +30,7 @@ class RoutesTest extends RoutesTestCase
     {
         return [
             /* path, http_method, excepted, [ctrl, [action, [params]]] */
-            ['', 'GET', true, 'index', 'index'],
+            ['', 'GET', true, 'home', 'index'],
             ['/login', 'GET', true, 'auth', 'login'],
             ['/login', 'POST', true, 'auth', 'postLogin'],
             ['/register', 'GET', true, 'auth', 'register'],

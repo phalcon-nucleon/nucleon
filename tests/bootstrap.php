@@ -4,11 +4,10 @@ ini_set('display_errors', 1);
 
 error_reporting(E_ALL);
 
-define('APP_ENV', 'testing');
-
-set_include_path(
-   __DIR__ . PATH_SEPARATOR . get_include_path()
-);
+/**
+ * Read the configuration
+ */
+\Neutrino\Dotconst::load(__DIR__.'/../');
 
 /**
  * Read the configuration
