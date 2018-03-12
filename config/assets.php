@@ -2,8 +2,40 @@
 
 return [
     'sass' => [
-        'app_file' => 'resources/assets/sass/app.scss',
-        'output_file' => 'public/css/app.css'
+        /*
+         +---------------------------------------------------------------
+         | Sass files
+         +---------------------------------------------------------------
+         | {src file} => {dest file}
+         |
+         */
+        'files' => [
+            'resources/assets/sass/app/app.scss' => 'public/css/app.css',
+            'resources/assets/sass/frontend/frontend.scss' => 'public/css/frontend.css',
+            'resources/assets/sass/backend/backend.scss' => 'public/css/backend.css',
+        ],
+        /*
+         +---------------------------------------------------------------
+         | Sass Options
+         +---------------------------------------------------------------
+         |
+         */
+        'options' => [
+            /*
+             +---------------------------------------------------------------
+             | Output style
+             +---------------------------------------------------------------
+             | compressed, compact, nested, expanded
+             */
+            'style' => 'compressed',
+            /*
+             +---------------------------------------------------------------
+             | Sourcemap
+             +---------------------------------------------------------------
+             | none, inline
+             */
+            'sourcemap' => 'none'
+        ]
     ],
     'js' => [
         /*
