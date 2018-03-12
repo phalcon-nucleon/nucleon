@@ -19,5 +19,6 @@ class ControllerBase extends Controller
      */
     public function initialize()
     {
+        $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 }

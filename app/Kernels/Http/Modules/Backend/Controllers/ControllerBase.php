@@ -3,6 +3,7 @@
 namespace App\Kernels\Http\Modules\Backend\Controllers;
 
 use Neutrino\Http\Controller;
+use Phalcon\Mvc\View;
 
 /**
  * Class ControllerBase
@@ -18,5 +19,6 @@ class ControllerBase extends Controller
      */
     public function initialize()
     {
+        $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 }
