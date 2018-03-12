@@ -10,6 +10,7 @@
       <div>
         <h3><small>[Frontend]</small> Index</h3>
       </div>
+      {% include 'partials/flash.volt' %}
     </div>
   </div>
 {% endblock %}
