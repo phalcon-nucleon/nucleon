@@ -1,5 +1,12 @@
+@import "variables";
+
+@import "../components/materialize/materialize";
+
+@import "errors";
+
 body {
-  color: $primary-color;
+  background-color: $body-bg-color;
+  color: $body-font-color;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   min-height: 100vh;

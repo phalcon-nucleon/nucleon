@@ -1,3 +1,5 @@
 {% extends 'layouts/template.volt' %}
 
-{% block body_class %}grey lighten-3{% endblock %}
+{% block stylesheets %}
+  {% do assets.addCss('/css/frontend.css') %}
+{% endblock %}

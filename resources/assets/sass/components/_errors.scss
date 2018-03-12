@@ -1,0 +1,18 @@
+.alert {
+  font-size: 1em;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+
+  &.alert-danger {
+    @extend .red, .accent-1, .grey-text, .text-darken-3;
+  }
+  &.alert-warning {
+    @extend .orange, .accent-1, .grey-text, .text-darken-3;
+  }
+  &.alert-info {
+    @extend .light-blue, .accent-1, .grey-text, .text-darken-3;
+  }
+  &.alert-success {
+    @extend .light-green, .accent-1, .grey-text, .text-darken-3;
+  }
+}
