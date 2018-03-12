@@ -83,5 +83,8 @@ return [
      */
     'filters' => [
         'round' => Volt\Compiler\Filters\RoundFilter::class,
+        'merge' => Volt\Compiler\Filters\MergeFilter::class,
+        'split' => Volt\Compiler\Filters\SplitFilter::class,
+        'slice' => Volt\Compiler\Filters\SliceFilter::class,
     ],
 ];
