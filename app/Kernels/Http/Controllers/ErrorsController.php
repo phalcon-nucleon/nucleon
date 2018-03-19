@@ -2,8 +2,6 @@
 
 namespace App\Kernels\Http\Controllers;
 
-use Phalcon\Mvc\View;
-
 /**
  * Class ErrorsController
  *
@@ -11,32 +9,32 @@ use Phalcon\Mvc\View;
  */
 class ErrorsController extends ControllerBase
 {
-    public function initialize()
-    {
-        $this->assets->addCss('css/bootstrap.min.css');
-    }
-
     public function indexAction()
     {
-        /* @var \Neutrino\Error\Error $error */
-        $error = $this->dispatcher->getParam('error');
+        $this->response->setStatusCode(500);
 
-        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
-        $this->view->error = $error;
-
-        $this->view->setTemplateAfter('main');
-        $this->view->render('errors', 'index');
+        return $this->view->render('errors', 'http5xx');
     }
 
     public function http404Action()
     {
-        $this->view->setRenderLevel(View::LEVEL_MAIN_LAYOUT);
-        $this->view->setTemplateAfter('main');
-        $this->view->render('errors', 'http404');
+        $this->response->setStatusCode(404);
+
+        return $this->view->render('errors', 'http404');
     }
 
     public function throwExceptionAction()
     {
-        throw new \Exception('An uncaught exception');
+        $this->flash->success('success');
+
+        trigger_error('notice', E_USER_NOTICE);
+
+        trigger_error('warning', E_USER_WARNING);
+
+        try {
+            throw new \Exception('A catched exception');
+        } catch (\Exception $e) {
+            throw new \Phalcon\Exception('An uncaught exception', $e->getCode(), $e);
+        }
     }
 }

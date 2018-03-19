@@ -18,7 +18,6 @@ class AuthController extends ControllerBase
         parent::onConstruct();
 
         $this->middleware(GuestMiddleware::class)->except(['logout']);
-        $this->view->setTemplateAfter('main');
     }
 
     /**
@@ -28,8 +27,6 @@ class AuthController extends ControllerBase
      */
     public function registerAction()
     {
-        $this->tag->setTitle('Nucleon Register');
-        $this->view->setTemplateAfter('main');
         $this->view->render('front/auth', 'register');
     }
 
@@ -98,9 +95,9 @@ class AuthController extends ControllerBase
             return;
         }
 
-        $this->flash->success('User create successful !');
+        $this->flashSession->success('User create successful !');
 
-        $this->response->redirect('/');
+        $this->response->redirect('/index');
         $this->view->disable();
 
         return;
@@ -113,7 +110,6 @@ class AuthController extends ControllerBase
      */
     public function loginAction()
     {
-        $this->tag->setTitle('Nucleon Login');
         $this->view->render('front/auth', 'login');
     }
 
@@ -145,10 +141,10 @@ class AuthController extends ControllerBase
             return;
         }
 
-        $this->flash->success('Welcome ' . $user->name);
+        $this->flashSession->success('Welcome ' . $user->name);
 
         // Forward to the 'invoices' controller if the user is valid
-        $this->response->redirect('/');
+        $this->response->redirect('/index');
         $this->view->disable();
 
         return;
@@ -158,7 +154,7 @@ class AuthController extends ControllerBase
     {
         Auth::logout();
 
-        $this->response->redirect('/');
+        $this->response->redirect('/index');
         $this->view->disable();
 
         return;

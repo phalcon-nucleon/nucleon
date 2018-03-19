@@ -1,0 +1,76 @@
+@import "variables";
+
+@import "../components/materialize/materialize";
+
+@import "flash";
+
+body {
+  background-color: $body-bg-color;
+  color: $body-font-color;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  margin: 0;
+
+  nav, header {
+    box-shadow: none;
+
+    height: $navbar-height;
+    line-height: $navbar-height;
+
+    text-align: right;
+
+    a {
+      padding: 0 25px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  footer {
+    @extend .page-footer;
+
+    height: $footer-height;
+    line-height: $footer-height;
+
+    padding: 0;
+
+    text-align: right;
+
+    span {
+      padding: 0 25px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1rem;
+    }
+  }
+
+  .page-content {
+    min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
+    display: flex;
+    flex-shrink: 0;
+
+    &.h-center {
+      justify-content: center;
+    }
+    &.v-center {
+      align-items: center;
+    }
+
+    .logo{
+      display: block;
+      margin: auto;
+      max-width: 96px;
+      max-height: 96px;
+    }
+
+    .title {
+      font-weight: 100;
+      font-size: 84px;
+      margin-bottom: 30px;
+    }
+  }
+}

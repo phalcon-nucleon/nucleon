@@ -385,6 +385,110 @@ class ExampleMiddleware extends ControllerMiddleware implements BeforeInterface
 }
 ```
 
+## View
+### Added Functions 
+`dump` : Dump a variable via `Neutrino\Debug\VarDump::dump`
+
+### Added Extensions 
+#### PhpFunctionExtension 
+Add to compilation all php functions.
+
+#### StrExtension 
+Add to compilation all functions in `Neutrino\Support\Str`.  
+Called via `str_{func}`
+
+### Added Filters 
+| filter   | do :                                 |
+|----------|--------------------------------------|
+| `merge`  | `array_merge`                        |
+| `split`  | `str_split` \ `explode`              |
+| `slice`  | `array_slice`                        |
+| `round`  | `round` \ `floor` \ `ceil`           |
+| `slug`   | `Neutrino\Support\Str::slug`         |
+| `limit`  | `Neutrino\Support\Str::limit`        |
+| `words`  | `Neutrino\Support\Str::words`        |
+
+### Customize
+#### Filters 
+You can simply add your own filter to volt engine. 
+
+First : Create a filter Class :  
+```php
+class MyFilter extends \Neutrino\View\Engines\Volt\Compiler\FilterExtend {
+
+    public function compileFilter($resolvedArgs, $exprArgs)
+    {
+        return "array_pop($resolvedArgs)";
+    }
+}
+```
+
+Then : register your extension in `config\view.php`  
+```php
+    // ...
+    'filters' => [
+        'pop' => MyFilter::class
+    ]
+];
+```
+
+#### Functions 
+You can simply add your own function to volt engine. 
+
+First : Create a filter Class :  
+```php
+class MyFunction extends \Neutrino\View\Engines\Volt\Compiler\FunctionExtend{
+
+    public function compileFunction($resolvedArgs, $exprArgs)
+    {
+        return "str_replace($resolvedArgs)";
+    }
+}
+```
+
+Then : register your extension in `config\view.php`  
+```php
+    // ...
+    'functions' => [
+        'replace' => MyFunction::class
+    ]
+];
+```
+
+#### Extensions 
+You can simply add your own extensions to volt engine. 
+
+First : Create a extension Class :  
+```php
+class MyExtension extends Neutrino\View\Engines\Volt\Compiler\ExtensionExtend {
+
+    public function compileFunction($name, $arguments, $funcArguments) {
+        // Compile a function 
+    }
+
+    public function compileFilter($name, $arguments, $funcArguments) {
+        // Compile a filter 
+    }
+
+    public function resolveExpression($expr) {
+        // Resolve an expression
+    }
+
+    public function compileStatement($statement) {
+        // Compile a statement
+    }
+}
+```
+
+Then : register your extension in `config\view.php`  
+```php
+    // ...
+    'extensions' => [
+        MyExtension::class
+    ]
+];
+```
+
 ## Modules (HMVC)
 Modules is optional, and only available for the Http Kernels.
 
@@ -1059,6 +1163,9 @@ $builder->enableForeignKeyConstraints();
 
 $builder->disableForeignKeyConstraints();
 ```
+
+# Built-In Server
+Use `php quark server:run` to run php built-in server on your application.
 
 # Config and Environment
 

@@ -1,0 +1,19 @@
+.flash {
+  > div {
+    font-size: 1em;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+  .errorMessage {
+    @extend .red, .accent-1, .grey-text, .text-darken-3;
+  }
+  .warningMessage {
+    @extend .orange, .accent-1, .grey-text, .text-darken-3;
+  }
+  .noticeMessage {
+    @extend .light-blue, .accent-1, .grey-text, .text-darken-3;
+  }
+  .successMessage {
+    @extend .light-green, .accent-1, .grey-text, .text-darken-3;
+  }
+}

@@ -20,7 +20,7 @@
     "ext-phalcon": ">=3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "nucleon/framework": "~1.1"
+    "nucleon/framework": "~1.2"
   },
   "require-dev": {
     "phalcon/ide-stubs": "dev-master",
@@ -32,12 +32,12 @@
       "App\\": "app"
     }
   },
-  "scripts" : {
-    "post-install-cmd" : [
+  "scripts": {
+    "post-install-cmd": [
       "Neutrino\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
       "php quark optimize --memory"
     ],
-    "post-update-cmd" : [
+    "post-update-cmd": [
       "Neutrino\\Foundation\\Cli\\Tasks\\ClearCompiledTask::composerClearCompiled",
       "php quark optimize --memory"
     ]

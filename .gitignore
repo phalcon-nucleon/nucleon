@@ -1,4 +1,5 @@
 /.idea
+/.sass-cache
 /vendor
 composer.phar
 composer.lock

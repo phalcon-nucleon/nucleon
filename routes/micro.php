@@ -34,6 +34,11 @@ Router::addGet('test', [
 /** @var \Neutrino\Micro\Router $router */
 $router = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::MICRO_ROUTER);
 
+/*
+|--------------------------------------------------------------------------
+| Api - Routes
+|--------------------------------------------------------------------------
+*/
 $router->addGet('/api/test', function () {
     /** @var \App\Kernels\Micro\Kernel $this */
     $this->response->setStatusCode(200);
@@ -48,6 +53,11 @@ $router->addGet('/api/index', [
     'action' => 'indexAction'
 ]);
 
+/*
+|--------------------------------------------------------------------------
+| Api - NotFound
+|--------------------------------------------------------------------------
+*/
 $router->notFound(function () {
     /** @var \App\Kernels\Micro\Kernel $this */
     $this->response->setStatusCode(404);
@@ -55,4 +65,33 @@ $router->notFound(function () {
     $this->response->setJsonContent(['status' => 'not found', 'code' => 404]);
 
     return $this->response;
+});
+
+/*
+|--------------------------------------------------------------------------
+| Api - Error
+|--------------------------------------------------------------------------
+*/
+/** @var \Phalcon\Mvc\Micro $app */
+$app = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::APP);
+
+$app->error(function ($exception) {
+    /** @var \App\Kernels\Micro\Kernel $this */
+    if ($exception instanceof \Neutrino\Exceptions\TokenMismatchException) {
+        return $this->response
+          ->setStatusCode(401, 'Unauthorized')
+          ->setJsonContent([
+            'error' => 'Token mismatch',
+          ]);
+    }
+
+    if (APP_DEBUG) {
+        throw $exception;
+    }
+
+    return $this->response
+      ->setStatusCode(500, 'Internal Server Error')
+      ->setJsonContent([
+        'error' => 'Internal Server Error',
+      ]);
 });

@@ -16,6 +16,11 @@ $di = \Phalcon\Di::getDefault();
 /** @var \Phalcon\Mvc\Router $router */
 $router = $di->getShared(\Neutrino\Constants\Services::ROUTER);
 
+/*
+|--------------------------------------------------------------------------
+| Base Routes
+|--------------------------------------------------------------------------
+*/
 $router->setDefaultNamespace('App\Kernels\Http\Controllers');
 
 $router->notFound([
@@ -28,12 +33,16 @@ $router->addGet('/', [
     'action'     => 'index'
 ]);
 
-
 $router->addGet('/exception-test', [
     'controller' => 'errors',
     'action'     => 'throwException'
 ]);
 
+/*
+|--------------------------------------------------------------------------
+| Front Routes
+|--------------------------------------------------------------------------
+*/
 $frontend = new \Phalcon\Mvc\Router\Group([
     'namespace' => 'App\Kernels\Http\Modules\Frontend\Controllers',
     'module'     => 'Frontend'
@@ -42,6 +51,12 @@ $frontend->addGet('/index', [
     'controller' => 'index',
     'action'     => 'index',
 ]);
+
+/*
+|--------------------------------------------------------------------------
+| Front - Auth
+|--------------------------------------------------------------------------
+*/
 $frontend->addGet('/register', [
     'controller' => 'auth',
     'action'     => 'register',
@@ -69,7 +84,11 @@ $frontend->addGet('/logout', [
 
 $router->mount($frontend);
 
-
+/*
+|--------------------------------------------------------------------------
+| Back Routes
+|--------------------------------------------------------------------------
+*/
 $backend = new \Phalcon\Mvc\Router\Group([
     'namespace' => 'App\Kernels\Http\Modules\Backend\Controllers',
     'module'     => 'Backend'

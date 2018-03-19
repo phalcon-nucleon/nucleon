@@ -20,6 +20,6 @@ return [
     ],
     'view'       => [
         'path' => 'errors',
-        'file' => 'errors'
+        'file' => 'http5xx'
     ]
 ];
