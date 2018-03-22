@@ -15,7 +15,7 @@ return [
      |
      | This value define where the view are stored
      */
-    'views_dir'     => __DIR__ . '/../resources/views/',
+    'views_dir'     => BASE_PATH . '/resources/views/',
     /*
      +---------------------------------------------------------------
      | partial_dir
@@ -39,7 +39,7 @@ return [
      |
      | This value define the store of compiled view
      */
-    'compiled_path' => __DIR__ . '/../storage/views/',
+    'compiled_path' => BASE_PATH . '/storage/views/',
     /*
      +---------------------------------------------------------------
      | implicit

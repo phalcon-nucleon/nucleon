@@ -54,7 +54,7 @@ return [
     'file' => [
       'driver'  => 'File',
       'adapter' => 'Data',
-      'options' => ['cacheDir' => __DIR__ . '/../storage/caches/'],
+      'options' => ['cacheDir' => BASE_PATH . '/storage/caches/'],
     ],
   ]
 ];
