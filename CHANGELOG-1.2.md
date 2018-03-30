@@ -1,4 +1,4 @@
-#Release Note
+# Release Note
 
 ## v1.2.0
 
