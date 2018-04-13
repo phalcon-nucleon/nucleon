@@ -2,8 +2,8 @@
 
 namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
-use App\Kernels\Http\Modules\Frontend\Middleware\Guest as GuestMiddleware;
-use Neutrino\Support\Facades\Auth;
+use App\Kernels\Http\Middleware\RedirectIfAuthenticated;
+use Neutrino\Http\Middleware\Csrf;
 
 /**
  * Class AuthController
@@ -17,7 +17,8 @@ class AuthController extends ControllerBase
     {
         parent::onConstruct();
 
-        $this->middleware(GuestMiddleware::class)->except(['logout']);
+        $this->middleware(RedirectIfAuthenticated::class)->except(['logout']);
+        $this->middleware(Csrf::class)->only(['postRegister', 'postLogin']);
     }
 
     /**
@@ -152,7 +153,7 @@ class AuthController extends ControllerBase
 
     public function logoutAction()
     {
-        Auth::logout();
+        $this->auth->logout();
 
         $this->response->redirect('/index');
         $this->view->disable();

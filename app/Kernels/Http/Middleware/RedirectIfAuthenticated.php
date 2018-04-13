@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Kernels\Http\Modules\Frontend\Middleware;
+namespace App\Kernels\Http\Middleware;
 
+use Neutrino\Constants\Services;
 use Neutrino\Foundation\Middleware\Controller as ControllerMiddleware;
 use Neutrino\Interfaces\Middleware\BeforeInterface;
-use Neutrino\Support\Facades\Auth;
 use Phalcon\Events\Event;
 
 /**
@@ -12,7 +12,7 @@ use Phalcon\Events\Event;
  *
  * @package App\Kernels\Http\Modules\Frontend\Middleware
  */
-class Guest extends ControllerMiddleware implements BeforeInterface
+class RedirectIfAuthenticated extends ControllerMiddleware implements BeforeInterface
 {
     /**
      * Called before the execution of handler
@@ -22,12 +22,13 @@ class Guest extends ControllerMiddleware implements BeforeInterface
      * @param mixed|null                  $data
      *
      * @return bool
-     * @throws \RuntimeException
      */
     public function before(Event $event, $source, $data = null)
     {
-        if (Auth::check()) {
-            throw new \RuntimeException('User already logged in.');
+        if ($this->{Services::AUTH}->check()) {
+            $this->response->redirect('/');
+
+            return false;
         }
 
         return true;
