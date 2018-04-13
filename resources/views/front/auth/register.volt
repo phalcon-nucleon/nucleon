@@ -6,6 +6,7 @@
       <h1>Register</h1>
       {% include 'partials/flash.volt' %}
       {{ form('/register', 'method': 'post') }}
+      {{ csrf_field() }}
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">face</i>
