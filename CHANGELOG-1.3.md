@@ -3,5 +3,11 @@
 ## v1.3.0
 
 ### Added
-- Compilation / Optimization: 
-  - Compile files (compile, const, config, loader), are now able to be commited & shared
+- Task RouteCache (route:cache) : Cache http route file
+- Task Optimization (optimize) : Add route:cache
+- Compile files (compile, const, config, loader), are now able to be commited & shared
+- Volt: Add csrf extension (csrf_field & csrf_token function)
+- Volt: Add route function
+
+### Changed
+- Rename Middleware\Guest to Middleware\RedirectIfAuthenticated.
