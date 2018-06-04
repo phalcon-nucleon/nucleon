@@ -122,5 +122,7 @@ return [
      |
      | This value define the functions to add to the volt compiler
      */
-    'functions' => [],
+    'functions' => [
+        'route' => Volt\Compiler\Functions\RouteFunction::class
+    ],
 ];
