@@ -9,6 +9,15 @@ Nucleon is a web application that uses [Phalcon](https://www.phalconphp.com/)
 .
 Our philosophy is to make the web faster, with enjoyable development.
 
+Nucleon, with [Phalcon](https://www.phalconphp.com/), attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+
+- [Simple, fast routing engine.](https://phalcon-nucleon.github.io/#!basics/routing.html)
+- [Powerful dependency injection container, and simple service registration.](https://phalcon-nucleon.github.io/#!architecture-concepts/dependency-injection.html)
+- Multiple back-ends for session and cache storage.
+- Database agnostic [schema migration](https://phalcon-nucleon.github.io/#!database/migrations.html).
+- [HMVC Structure](https://phalcon-nucleon.github.io/#!architecture-concepts/modules-concepts.html).
+- [Micro & Fullstack kernel](https://phalcon-nucleon.github.io/#!architecture-concepts/kernels-concepts.html).
+
 # Install
 ```
 \> composer create-project nucleon/nucleon app-root
