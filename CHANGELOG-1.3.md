@@ -11,3 +11,4 @@
 
 ### Changed
 - Rename Middleware\Guest to Middleware\RedirectIfAuthenticated.
+- Config::Session : Allow to describe multiple store for session
