@@ -63,10 +63,10 @@ class User extends \Neutrino\Foundation\Auth\User
         $this->column('remember_token', Column::TYPE_VARCHAR, [
             'nullable' => true,
         ]);
-        $this->column('created_at', Column::TYPE_TIMESTAMP, [
+        $this->column('created_at', Column::TYPE_DATETIME, [
             'autoInsert' => true,
         ]);
-        $this->column('updated_at', Column::TYPE_TIMESTAMP, [
+        $this->column('updated_at', Column::TYPE_DATETIME, [
             'autoInsert' => true,
             'autoUpdate' => true,
         ]);
