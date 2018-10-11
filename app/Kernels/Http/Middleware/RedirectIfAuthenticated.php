@@ -26,7 +26,7 @@ class RedirectIfAuthenticated extends ControllerMiddleware implements BeforeInte
     public function before(Event $event, $source, $data = null)
     {
         if ($this->{Services::AUTH}->check()) {
-            $this->response->redirect('/');
+            $this->response->redirect('');
 
             return false;
         }

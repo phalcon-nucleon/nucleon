@@ -5,7 +5,7 @@
     <div class="container">
       <h1>Login</h1>
       {% include 'partials/flash.volt' %}
-      {{ form('/login', 'method': 'post') }}
+      {{ form('login', 'method': 'post') }}
       {{ csrf_field() }}
       <div class="row">
         <div class="input-field col s12">

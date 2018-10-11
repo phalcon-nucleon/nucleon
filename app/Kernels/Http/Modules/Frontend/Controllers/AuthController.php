@@ -98,7 +98,7 @@ class AuthController extends ControllerBase
 
         $this->flashSession->success('User create successful !');
 
-        $this->response->redirect('/index');
+        $this->response->redirect('index');
         $this->view->disable();
 
         return;
@@ -145,7 +145,7 @@ class AuthController extends ControllerBase
         $this->flashSession->success('Welcome ' . $user->name);
 
         // Forward to the 'invoices' controller if the user is valid
-        $this->response->redirect('/index');
+        $this->response->redirect('index');
         $this->view->disable();
 
         return;
@@ -160,7 +160,7 @@ class AuthController extends ControllerBase
     {
         $this->auth->logout();
 
-        $this->response->redirect('/index');
+        $this->response->redirect('index');
         $this->view->disable();
 
         return;

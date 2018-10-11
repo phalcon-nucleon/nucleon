@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <title>{% block title %}Welcome!{% endblock %}</title>
-  <link rel="icon" type="image/x-icon" href="{{ url('favicon.ico') }}"/>
+  <link rel="icon" type="image/x-icon" href="{{ static_url('favicon.ico') }}"/>
   {# Import Fonts & Icons #}
   {% do assets.collection('common.css').addCss('https://fonts.googleapis.com/icon?family=Material+Icons') %}
   {% do assets.collection('common.css').addCss('https://fonts.googleapis.com/css?family=Raleway:100,300,400') %}
