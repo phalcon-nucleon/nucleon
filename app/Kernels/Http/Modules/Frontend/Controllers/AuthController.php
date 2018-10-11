@@ -22,7 +22,7 @@ class AuthController extends ControllerBase
     }
 
     /**
-     * The Register action.
+     * Register view.
      *
      * url (get) : /register
      */
@@ -32,24 +32,24 @@ class AuthController extends ControllerBase
     }
 
     /**
-     * The Register action.
+     * Register action.
      *
      * url (post) : /register
      */
     public function postRegisterAction()
     {
         // Get the data from the user
-        $email    = $this->request->getPost('email');
-        $name     = $this->request->getPost('name');
+        $email = $this->request->getPost('email');
+        $name = $this->request->getPost('name');
         $password = $this->request->getPost('password');
-        $confirm  = $this->request->getPost('confirm');
+        $confirm = $this->request->getPost('confirm');
 
         if ($password !== $confirm) {
             $this->flash->error('Password & confirm are different');
 
             $this->dispatcher->forward([
                 'controller' => 'auth',
-                'action'     => 'register'
+                'action' => 'register',
             ]);
 
             return;
@@ -61,8 +61,8 @@ class AuthController extends ControllerBase
         $user = $userClass::findFirst([
             $userClass::getAuthIdentifierName() . ' = :auth_identifier:',
             'bind' => [
-                'auth_identifier' => $email
-            ]
+                'auth_identifier' => $email,
+            ],
         ]);
 
         if (!empty($user)) {
@@ -70,7 +70,7 @@ class AuthController extends ControllerBase
 
             $this->dispatcher->forward([
                 'controller' => 'auth',
-                'action'     => 'register'
+                'action' => 'register',
             ]);
 
             return;
@@ -79,9 +79,9 @@ class AuthController extends ControllerBase
         /** @var \App\Core\Models\User $user */
         $user = new $userClass;
 
-        $user->name                                  = $name;
+        $user->name = $name;
         $user->{$userClass::getAuthIdentifierName()} = $email;
-        $user->{$userClass::getAuthPasswordName()}   = $this->security->hash($password);
+        $user->{$userClass::getAuthPasswordName()} = $this->security->hash($password);
 
         if ($user->save() === false) {
             $messages = array_merge(['Failed save user.'], $user->getMessages());
@@ -90,7 +90,7 @@ class AuthController extends ControllerBase
 
             $this->dispatcher->forward([
                 'controller' => 'auth',
-                'action'     => 'register'
+                'action' => 'register',
             ]);
 
             return;
@@ -105,9 +105,9 @@ class AuthController extends ControllerBase
     }
 
     /**
-     * The Register action.
+     * Login view.
      *
-     * url (get) : /register
+     * url (get) : /login
      */
     public function loginAction()
     {
@@ -115,18 +115,18 @@ class AuthController extends ControllerBase
     }
 
     /**
-     * The Login action.
+     * Login action.
      *
-     * http://localhost/phalcon-lust/auth/login
+     * url (post) : /login
      */
     public function postLoginAction()
     {
         // Get the data from the user
-        $email    = $this->request->getPost('email');
+        $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
         $user = $this->auth->attempt([
-            'email'    => $email,
+            'email' => $email,
             'password' => $password,
         ]);
 
@@ -136,7 +136,7 @@ class AuthController extends ControllerBase
             // Forward to the login form again
             $this->dispatcher->forward([
                 'controller' => 'auth',
-                'action'     => 'login'
+                'action' => 'login',
             ]);
 
             return;
@@ -151,6 +151,11 @@ class AuthController extends ControllerBase
         return;
     }
 
+    /**
+     * Logout action.
+     *
+     * url (get) : /logout
+     */
     public function logoutAction()
     {
         $this->auth->logout();

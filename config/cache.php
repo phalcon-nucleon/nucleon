@@ -49,12 +49,50 @@ return [
    | \Phalcon\Cache\Frontend\None
    |
    */
-  'default' => 'file',
+  'default' => CACHE_DRIVER,
   'stores' => [
     'file' => [
-      'driver'  => 'File',
+      'driver' => 'File',
       'adapter' => 'Data',
       'options' => ['cacheDir' => BASE_PATH . '/storage/caches/'],
     ],
-  ]
+
+    /*
+     +---------------------------------------------------------------
+     | Libmemcached Adapter - Example
+     +---------------------------------------------------------------
+     *
+    'memcache' => [
+      'driver' => 'Libmemcached',
+      'adapter' => 'None',
+      'options' => [
+        'servers' => [
+          [
+            'host' => '127.0.0.1',
+            'port' => 11211,
+            'weight' => 0,
+          ],
+        ],
+      ],
+    ],
+    /**/
+
+    /*
+     +---------------------------------------------------------------
+     | Redis Adapter - Example
+     +---------------------------------------------------------------
+     *
+    'redis' => [
+      'driver' => 'Redis',
+      'adapter' => 'Data',
+      'options' => [
+        'host' => REDIS_HOST,
+        'user' => REDIS_USER,
+        'port' => REDIS_PORT,
+        "auth" => REDIS_PASSWORD,
+        "index" => 0,
+      ],
+    ],
+    /**/
+  ],
 ];

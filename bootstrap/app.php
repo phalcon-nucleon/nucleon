@@ -11,7 +11,7 @@ require __DIR__ . '/autoload.php';
 \Neutrino\Error\Handler::register();
 
 /**
- * Run \Neutrino\Dotenv
+ * Run \Neutrino\Dotconst
  */
 \Neutrino\Dotconst::load(__DIR__.'/../', __DIR__.'/../bootstrap/compile');
 

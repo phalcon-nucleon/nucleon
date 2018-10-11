@@ -22,12 +22,14 @@ class ControllerBase extends Controller
         $this->view->setRenderLevel(View::LEVEL_ACTION_VIEW);
     }
 
-    /**
+    /*
      * Event called on controller construction
      *
      * Register middleware here.
-     */
+     *
     protected function onConstruct()
     {
+    ;
     }
+    /**/
 }

@@ -9,7 +9,7 @@ return [
    | This value define the application base uri.
    | It is useful for router & url service.
    */
-  'base_uri' => '/',
+  'base_uri' => APP_URL . '/',
 
   /*
    +---------------------------------------------------------------
@@ -20,7 +20,7 @@ return [
    | It allow to specify a different domain for static
    | resource (like a cdn).
    */
-  'static_base_uri' => '/',
+  'static_base_uri' => APP_STATIC_URL . '/',
 
   /*
    +--------------------------------------------------------------------------

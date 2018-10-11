@@ -17,13 +17,14 @@ class ControllerJson extends Controller
         $this->view->setRenderLevel(View::LEVEL_NO_RENDER);
     }
 
-    /**
+    /*
      * Event called on controller construction
      *
      * Register middleware here.
-     */
+     *
     protected function onConstruct()
     {
         ;
     }
+    /**/
 }

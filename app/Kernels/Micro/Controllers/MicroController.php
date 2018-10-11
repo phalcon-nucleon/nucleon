@@ -7,12 +7,12 @@ use Phalcon\Mvc\Controller;
 
 class MicroController extends Controller
 {
-  public function indexAction()
-  {
-    $this->response->setStatusCode(200);
+    public function indexAction()
+    {
+        $this->response->setStatusCode(200);
 
-    $this->response->setJsonContent(['action' => 'index']);
+        $this->response->setJsonContent(['action' => 'index']);
 
-    return $this->response;
-  }
+        return $this->response;
+    }
 }
