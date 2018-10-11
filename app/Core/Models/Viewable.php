@@ -2,6 +2,8 @@
 
 namespace App\Core\Models;
 
+use Neutrino\Support\Str;
+
 /**
  * Class Viewable
  *
@@ -19,7 +21,7 @@ trait Viewable
         if (property_exists($this, $name)) {
             return $this->$name;
         }
-        $func = str_studly($name);
+        $func = Str::studly($name);
         if (method_exists($this, 'get' . $func)) {
             return $this->{'get' . $func};
         }

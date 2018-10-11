@@ -11,8 +11,6 @@ use Phalcon\Db\Column;
  */
 class User extends \Neutrino\Foundation\Auth\User
 {
-    use Viewable;
-
     /**
      * @var integer
      */
@@ -39,6 +37,16 @@ class User extends \Neutrino\Foundation\Auth\User
     public $remember_token;
 
     /**
+     * @var string
+     */
+    public $created_at;
+
+    /**
+     * @var string
+     */
+    public $updated_at;
+
+    /**
      * Initializes metaDatas & columnsMap if they are not.
      */
     public function initialize()
@@ -53,7 +61,14 @@ class User extends \Neutrino\Foundation\Auth\User
         $this->column('email', Column::TYPE_VARCHAR);
         $this->column('password', Column::TYPE_VARCHAR);
         $this->column('remember_token', Column::TYPE_VARCHAR, [
-            'nullable' => true
+            'nullable' => true,
+        ]);
+        $this->column('created_at', Column::TYPE_TIMESTAMP, [
+            'autoInsert' => true,
+        ]);
+        $this->column('updated_at', Column::TYPE_TIMESTAMP, [
+            'autoInsert' => true,
+            'autoUpdate' => true,
         ]);
     }
 }
