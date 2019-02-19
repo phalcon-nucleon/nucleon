@@ -43,6 +43,7 @@ class Kernel extends HttpKernel
         DispatcherProvider::class,
         DatabaseProvider::class,
         CacheProvider::class,
+        CryptProvider::class,
 
         /*
          * Service provided by the Phalcon\Di\FactoryDefault
@@ -58,10 +59,7 @@ class Kernel extends HttpKernel
 
         /*
          * Auth Service
-         *
-         * require Neutrino\Providers\Crypt
          */
-        CryptProvider::class,
         AuthProvider::class,
 
         /*
@@ -71,16 +69,14 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * Return the Middleware List to load.
+     * List of Global Middleware to attach onto the application.
      *
      * @var string[]
      */
-    protected $middlewares = [
-        // DebugMiddleware::class
-    ];
+    protected $middlewares = [];
 
     /**
-     * Return the Events Listeners to attach onto the application.
+     * List of Events Listeners to attach onto the application.
      *
      * @var string[]
      */
