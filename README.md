@@ -26,10 +26,10 @@ Nucleon, with [Phalcon](https://www.phalconphp.com/), attempts to take the pain 
 [Read installation documentation](https://phalcon-nucleon.github.io/#!getting-started/installation.html)
 
 # Require
-* PHP >= 5.6
+* PHP 5.6 - 7.2 _(>= 5.6 & <7.3)_
+* Phalcon 3 _(~3.0)_
 * ext-mbstring
 * ext-openssl
-* Phalcon >= 3.0
 
 # Composer & Autoloading
 Nucleon uses composer. So you can use all your libraries prefer as you wish!
