@@ -60,21 +60,35 @@ $frontend->addGet('/index', [
 $frontend->addGet('/register', [
     'controller' => 'auth',
     'action'     => 'register',
+    'middleware' => [
+        \App\Kernels\Http\Middleware\RedirectIfAuthenticated::class
+    ]
 ]);
 
 $frontend->addPost('/register', [
     'controller' => 'auth',
     'action'     => 'postRegister',
+    'middleware' => [
+        \App\Kernels\Http\Middleware\RedirectIfAuthenticated::class,
+        \Neutrino\Http\Middleware\Csrf::class
+    ]
 ]);
 
 $frontend->addGet('/login', [
     'controller' => 'auth',
     'action'     => 'login',
+    'middleware' => [
+        \App\Kernels\Http\Middleware\RedirectIfAuthenticated::class
+    ]
 ]);
 
 $frontend->addPost('/login', [
     'controller' => 'auth',
     'action'     => 'postLogin',
+    'middleware' => [
+        \App\Kernels\Http\Middleware\RedirectIfAuthenticated::class,
+        \Neutrino\Http\Middleware\Csrf::class
+    ]
 ]);
 
 $frontend->addGet('/logout', [

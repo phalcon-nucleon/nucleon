@@ -11,7 +11,7 @@
   {% do assets.outputCss('common.css') %}
 
   {# Block for specific css #}
-  {% do assets.addCss('/css/app.css') %}
+  {% do assets.addCss('css/app.css') %}
   {% block stylesheets %}
   {% endblock %}
   {# Output other css #}

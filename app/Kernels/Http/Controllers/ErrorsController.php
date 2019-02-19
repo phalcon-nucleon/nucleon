@@ -11,14 +11,14 @@ class ErrorsController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->response->setStatusCode(500);
+        $this->response->setStatusCode(500, 'Internal Server Error');
 
         return $this->view->render('errors', 'http5xx');
     }
 
     public function http404Action()
     {
-        $this->response->setStatusCode(404);
+        $this->response->setStatusCode(404, 'Not Found');
 
         return $this->view->render('errors', 'http404');
     }
@@ -32,9 +32,9 @@ class ErrorsController extends ControllerBase
         trigger_error('warning', E_USER_WARNING);
 
         try {
-            throw new \Exception('A catched exception');
+            throw new \Phalcon\Exception('A catched exception', 159);
         } catch (\Exception $e) {
-            throw new \Phalcon\Exception('An uncaught exception', $e->getCode(), $e);
+            throw new \RuntimeException("that's a white rabbit", 0, $e);
         }
     }
 }

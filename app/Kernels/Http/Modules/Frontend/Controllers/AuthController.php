@@ -13,14 +13,6 @@ use Neutrino\Http\Middleware\Csrf;
 class AuthController extends ControllerBase
 {
 
-    protected function onConstruct()
-    {
-        parent::onConstruct();
-
-        $this->middleware(RedirectIfAuthenticated::class)->except(['logout']);
-        $this->middleware(Csrf::class)->only(['postRegister', 'postLogin']);
-    }
-
     /**
      * Register view.
      *

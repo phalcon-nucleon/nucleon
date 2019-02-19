@@ -2,7 +2,6 @@
 
 namespace App\Kernels\Micro\Controllers;
 
-//use Neutrino\Http\Controller;
 use Phalcon\Mvc\Controller;
 
 class MicroController extends Controller
