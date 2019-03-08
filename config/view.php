@@ -15,7 +15,7 @@ return [
      |
      | This value define where the view are stored
      */
-    'views_dir'     => __DIR__ . '/../resources/views/',
+    'views_dir'     => BASE_PATH . '/resources/views/',
     /*
      +---------------------------------------------------------------
      | partial_dir
@@ -39,7 +39,7 @@ return [
      |
      | This value define the store of compiled view
      */
-    'compiled_path' => __DIR__ . '/../storage/views/',
+    'compiled_path' => BASE_PATH . '/storage/views/',
     /*
      +---------------------------------------------------------------
      | implicit
@@ -88,6 +88,17 @@ return [
          | Add slug, limits & word filters
          */
         Volt\Compiler\Extensions\StrExtension::class,
+        /*
+         +---------------------------------------------------------------
+         | Csrf Functions
+         +---------------------------------------------------------------
+         |
+         | Add CSRF functions.
+         |  csrf_field() : Generate the csrf field
+         |  csrf_key()   : Get the CSRF key
+         |  csrf_token() : Get the CSRF token
+         */
+        Volt\Compiler\Extensions\CsrfExtension::class,
     ],
 
     /*
@@ -102,5 +113,16 @@ return [
         'merge' => Volt\Compiler\Filters\MergeFilter::class,
         'split' => Volt\Compiler\Filters\SplitFilter::class,
         'slice' => Volt\Compiler\Filters\SliceFilter::class,
+    ],
+
+    /*
+     +---------------------------------------------------------------
+     | Functions
+     +---------------------------------------------------------------
+     |
+     | This value define the functions to add to the volt compiler
+     */
+    'functions' => [
+        'route' => Volt\Compiler\Functions\RouteFunction::class
     ],
 ];

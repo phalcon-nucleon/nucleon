@@ -6,6 +6,7 @@ use App\Core\Providers\Example as ExampleProvider;
 use Neutrino\Foundation\Micro\Kernel as MicroKernel;
 use Neutrino\Interfaces\Kernelable;
 use Neutrino\Providers\Cache as CacheProvider;
+use Neutrino\Providers\Crypt as CryptProvider;
 use Neutrino\Providers\Database as DatabaseProvider;
 use Neutrino\Providers\Http\Dispatcher as DispatcherProvider;
 use Neutrino\Providers\Http\Router as RouterProvider;
@@ -32,6 +33,7 @@ class Kernel extends MicroKernel implements Kernelable
         DispatcherProvider::class,
         DatabaseProvider::class,
         CacheProvider::class,
+        CryptProvider::class,
 
         MicroRouterProvider::class,
         /*
@@ -53,16 +55,14 @@ class Kernel extends MicroKernel implements Kernelable
     ];
 
     /**
-     * Return the Middleware List to load.
+     * List of Global Middleware to attach onto the application.
      *
      * @var string[]
      */
-    protected $middlewares = [
-        // DebugMiddleware::class
-    ];
+    protected $middlewares = [];
 
     /**
-     * Return the Events Listeners to attach onto the application.
+     * List of Events Listeners to attach onto the application.
      *
      * @var string[]
      */

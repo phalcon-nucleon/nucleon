@@ -16,7 +16,7 @@ class ThrottledController extends ControllerJson
     {
         parent::onConstruct();
 
-        $this->middleware(new ThrottleRequest(60, 60));
+        $this->middleware(ThrottleRequest::class, [60, 60]);
     }
 
     public function indexAction()

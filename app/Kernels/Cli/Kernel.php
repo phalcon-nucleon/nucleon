@@ -52,11 +52,9 @@ class Kernel extends CliKernel
     ];
 
     /**
-     * Return the Middleware List to load.
+     * List of Global Middleware to attach onto the application.
      *
      * @var string[]
      */
-    protected $middlewares = [
-        // DebugMiddleware::class
-    ];
+    protected $middlewares = [];
 }

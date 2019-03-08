@@ -39,19 +39,20 @@ $router = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::MIC
 | Api - Routes
 |--------------------------------------------------------------------------
 */
+$router->addGet('/api/index', [
+  'controller' => \App\Kernels\Micro\Controllers\MicroController::class,
+  'action' => 'indexAction'
+]);
+
 $router->addGet('/api/test', function () {
     /** @var \App\Kernels\Micro\Kernel $this */
-    $this->response->setStatusCode(200);
-
-    $this->response->setJsonContent(['status' => 'found', 'code' => 200]);
-
-    return $this->response;
+    return $this->response
+      ->setStatusCode(200, 'OK')
+      ->setJsonContent([
+        'status' => 'found',
+        'code' => 200
+      ]);
 });
-
-$router->addGet('/api/index', [
-    'controller' => \App\Kernels\Micro\Controllers\MicroController::class,
-    'action' => 'indexAction'
-]);
 
 /*
 |--------------------------------------------------------------------------
@@ -60,11 +61,12 @@ $router->addGet('/api/index', [
 */
 $router->notFound(function () {
     /** @var \App\Kernels\Micro\Kernel $this */
-    $this->response->setStatusCode(404);
-
-    $this->response->setJsonContent(['status' => 'not found', 'code' => 404]);
-
-    return $this->response;
+    return $this->response
+      ->setStatusCode(404, 'Not Found')
+      ->setJsonContent([
+        'status' => 'not found',
+        'code' => 404
+      ]);
 });
 
 /*
@@ -81,6 +83,8 @@ $app->error(function ($exception) {
         return $this->response
           ->setStatusCode(401, 'Unauthorized')
           ->setJsonContent([
+            'status' => 'Unauthorized',
+            'code' => 401,
             'error' => 'Token mismatch',
           ]);
     }
@@ -92,6 +96,7 @@ $app->error(function ($exception) {
     return $this->response
       ->setStatusCode(500, 'Internal Server Error')
       ->setJsonContent([
-        'error' => 'Internal Server Error',
+        'status' => 'Internal Server Error',
+        'code' => 500,
       ]);
 });

@@ -24,6 +24,6 @@ return [
      | \Phalcon\Logger\Adapter\Firelogger
      */
     'adapter' => 'File',
-    'path'    => __DIR__ . '/../storage/logs/nucleon.log',
+    'path'    => BASE_PATH . '/storage/logs/nucleon.log',
     'options' => []
 ];
