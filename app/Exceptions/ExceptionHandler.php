@@ -27,7 +27,7 @@ class ExceptionHandler extends BaseExceptionHandler
         if ($throwable instanceof TokenMismatchException ||
             $throwable instanceof AjaxMismatchException ||
             $throwable instanceof AlreadyAuthenticatedException) {
-            // don't report token/ajax mismatch, already authenticated exception
+            // don't report token/ajax mismatch, already authenticated, exceptions
             return;
         }
 
