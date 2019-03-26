@@ -3,6 +3,7 @@
 
 namespace App\Exceptions;
 
+use Neutrino\Exceptions\AjaxMismatchException;
 use Neutrino\Exceptions\TokenMismatchException;
 use Neutrino\Foundation\Debug\Exceptions\ExceptionHandler as BaseExceptionHandler;
 use Phalcon\Http\Response;
@@ -23,8 +24,10 @@ class ExceptionHandler extends BaseExceptionHandler
      */
     public function report($throwable)
     {
-        if ($throwable instanceof TokenMismatchException) {
-            // don't report token mismatch
+        if ($throwable instanceof TokenMismatchException ||
+            $throwable instanceof AjaxMismatchException ||
+            $throwable instanceof AlreadyAuthenticatedException) {
+            // don't report token/ajax mismatch, already authenticated exception
             return;
         }
 
@@ -41,7 +44,7 @@ class ExceptionHandler extends BaseExceptionHandler
      *
      * @return \Phalcon\Http\ResponseInterface
      */
-    public function render($throwable, $request)
+    public function render($throwable, $request = null)
     {
         if ($throwable instanceof TokenMismatchException) {
             if ($request->isAjax()) {
@@ -50,6 +53,14 @@ class ExceptionHandler extends BaseExceptionHandler
             }
 
             // redirect any token mismatch to home.
+            return (new Response)->redirect('/');
+        }
+
+        if ($throwable instanceof AjaxMismatchException) {
+            return new Response(null, 400, 'Bad Request');
+        }
+
+        if ($throwable instanceof AlreadyAuthenticatedException) {
             return (new Response)->redirect('/');
         }
 
