@@ -20,7 +20,7 @@
     "ext-phalcon": "~3.0",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "nucleon/framework": "~1.3"
+    "nucleon/framework": "~1.4"
   },
   "require-dev": {
     "phalcon/ide-stubs": "dev-master",
