@@ -4,12 +4,15 @@
 namespace App\Exceptions;
 
 use Neutrino\Exceptions\TokenMismatchException;
+use Neutrino\Foundation\Debug\Exceptions\ExceptionHandler as BaseExceptionHandler;
+use Phalcon\Http\Response;
 
 /**
  * Class ExceptionHandler
+ *
  * @package App\Exceptions
  */
-class ExceptionHandler extends \Neutrino\Foundation\Debug\Exceptions\ExceptionHandler
+class ExceptionHandler extends BaseExceptionHandler
 {
     /**
      * Report any exception/error.
@@ -41,13 +44,13 @@ class ExceptionHandler extends \Neutrino\Foundation\Debug\Exceptions\ExceptionHa
     public function render($throwable, $request)
     {
         if ($throwable instanceof TokenMismatchException) {
-            // redirect any token mismatch to home.
             if ($request->isAjax()) {
                 // according to laravel token mismatch, return custom HTTP code <419 Token Mismatch>
-                return $this->response->setStatusCode(419, 'Token Mismatch');
+                return new Response(null, 419, 'Token Mismatch');
             }
 
-            return $this->response->redirect('/');
+            // redirect any token mismatch to home.
+            return (new Response)->redirect('/');
         }
 
         return parent::render($throwable, $request);

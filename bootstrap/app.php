@@ -8,7 +8,7 @@ require __DIR__ . '/autoload.php';
 /**
  * Global Error & Exception Handler
  */
-Neutrino\Debug\Exceptions\Register::register(App\Exceptions\ExceptionHandler::class);
+Neutrino\Debug\Exceptions\Handler::register(App\Exceptions\ExceptionHandler::class);
 
 /**
  * Run \Neutrino\Dotconst
