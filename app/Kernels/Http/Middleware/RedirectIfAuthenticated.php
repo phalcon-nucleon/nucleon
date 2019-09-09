@@ -2,6 +2,7 @@
 
 namespace App\Kernels\Http\Middleware;
 
+use App\Exceptions\AlreadyAuthenticatedException;
 use Neutrino\Constants\Services;
 use Neutrino\Foundation\Middleware\Controller as ControllerMiddleware;
 use Neutrino\Interfaces\Middleware\BeforeInterface;
@@ -22,13 +23,12 @@ class RedirectIfAuthenticated extends ControllerMiddleware implements BeforeInte
      * @param mixed|null                  $data
      *
      * @return bool
+     * @throws \App\Exceptions\AlreadyAuthenticatedException
      */
     public function before(Event $event, $source, $data = null)
     {
         if ($this->{Services::AUTH}->check()) {
-            $this->response->redirect('');
-
-            return false;
+            throw new AlreadyAuthenticatedException;
         }
 
         return true;
