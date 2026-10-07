@@ -1,29 +1,19 @@
 <?php
+
 /*
  +-------------------------------------------------------------------
  | Logger configuration
  +-------------------------------------------------------------------
+ |
+ | The `logger` service (Phalcon\Logger\Logger) writes to every adapter.
+ |  - adapter: stream (`path`), syslog (`name`), noop, or a class implementing Phalcon\Logger\Adapter\AdapterInterface
+ |  - formatter: line (default), json, a class, or ['formatter' => 'line', 'format' => '…', 'date_format' => '…']
  */
 return [
-    /*
-     +---------------------------------------------------------------
-     | Logger Adapter
-     +---------------------------------------------------------------
-     |
-     | This value define the logger adapter
-     |
-     | Available Logger Adapter :
-     | \Phalcon\Logger\Adapter\File
-     | \Phalcon\Logger\Adapter\Stream
-     | \Phalcon\Logger\Adapter\Syslog
-     |
-     | (phalcon/incubator)
-     | \Phalcon\Logger\Adapter\File\Multiple
-     | \Phalcon\Logger\Adapter\Udplogger
-     | \Phalcon\Logger\Adapter\Database
-     | \Phalcon\Logger\Adapter\Firelogger
-     */
-    'adapter' => 'File',
-    'path'    => BASE_PATH . '/storage/logs/nucleon.log',
-    'options' => []
+    'level'     => APP_DEBUG ? 'debug' : 'info',
+    'formatter' => ['formatter' => 'line', 'format' => '[%date%][%level%] %message%', 'date_format' => 'Y-m-d H:i:s O'],
+    'adapters'  => [
+        'main' => ['adapter' => 'stream', 'path' => BASE_PATH . '/storage/logs/nucleon.log'],
+        // 'syslog' => ['adapter' => 'syslog', 'name' => 'nucleon', 'formatter' => 'json'],
+    ],
 ];

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Kernels\Http\Middleware;
 
 use Neutrino\Constants\Services;
@@ -8,24 +10,13 @@ use Neutrino\Interfaces\Middleware\BeforeInterface;
 use Phalcon\Events\Event;
 
 /**
- * Class Guest
- *
- * @package App\Kernels\Http\Modules\Frontend\Middleware
+ * Redirects the authenticated users to the home page (login and register pages).
  */
 class RedirectIfAuthenticated extends ControllerMiddleware implements BeforeInterface
 {
-    /**
-     * Called before the execution of handler
-     *
-     * @param \Phalcon\Events\Event|mixed $event
-     * @param \Phalcon\Dispatcher|mixed   $source
-     * @param mixed|null                  $data
-     *
-     * @return bool
-     */
-    public function before(Event $event, $source, $data = null)
+    public function before(Event $event, object $source, mixed $data = null)
     {
-        if ($this->{Services::AUTH}->check()) {
+        if ($this->getDI()->getShared(Services::AUTH)->check()) {
             $this->response->redirect('');
 
             return false;

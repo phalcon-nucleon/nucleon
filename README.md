@@ -2,7 +2,7 @@
 
 Nucleon : Phalcon extended framework. (App)
 ===========================================
-[![Build Status](https://travis-ci.org/phalcon-nucleon/framework.svg?branch=master)](https://travis-ci.org/phalcon-nucleon/framework) 
+[![CI](https://github.com/phalcon-nucleon/nucleon/actions/workflows/ci.yml/badge.svg?branch=2.x)](https://github.com/phalcon-nucleon/nucleon/actions/workflows/ci.yml)
 
 # About
 Nucleon is a web application that uses [Phalcon](https://www.phalconphp.com/)
@@ -26,15 +26,30 @@ Nucleon, with [Phalcon](https://www.phalconphp.com/), attempts to take the pain 
 [Read installation documentation](https://phalcon-nucleon.github.io/#!getting-started/installation.html)
 
 # Require
-* PHP 5.6 - 7.2 _(>= 5.6 & <7.3)_
-* Phalcon 3 _(~3.0)_
+* PHP >= 8.3
+* Phalcon >= 5.22 (the `phalcon` extension)
 * ext-mbstring
 * ext-openssl
 
-# Composer & Autoloading
-Nucleon uses composer. So you can use all your libraries prefer as you wish!
+# Development
+```
+php quark server:run          # PHP built-in server on public/app_dev.php
+php quark migrate             # database migrations (config/database.php)
+php quark ide-helper          # IDE helpers of the Facades and services
+vendor/bin/phpunit
+```
 
-The `php quark optimize` command will optimize autoloading using the phalcon loader (best performing autoloader !)
+With `APP_DEBUG` (`.const.ini`), the errors show the debug error page, and `phalcon/debugbar` (a development
+dependency) its bar on the HTML pages.
+
+# Production
+`php quark optimize --no-dev` compiles the constants, the configuration, the routes and the views, dumps an
+authoritative Composer classmap and writes the OPcache preload script `bootstrap/compile/preload.php`
+(`opcache.preload`). The `Dockerfile` builds a PHP-FPM image this way (`APP_ENV=production`, `.const.production.ini`).
+
+# Upgrading from 1.3
+See [`UPGRADING.md`](UPGRADING.md) and the
+[upgrade guide of the framework](https://github.com/phalcon-nucleon/framework/blob/2.x/UPGRADING-2.0.md).
 
 # Documentation
 [Read the full documentation](https://phalcon-nucleon.github.io)

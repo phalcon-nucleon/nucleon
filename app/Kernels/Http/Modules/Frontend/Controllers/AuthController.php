@@ -1,157 +1,78 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
-/**
- * Class AuthController
- *
- * @package App\Kernels\Http\Modules\Frontend\Controllers
- */
+use App\Core\Models\User;
+
 class AuthController extends ControllerBase
 {
-
-    /**
-     * Register view.
-     *
-     * url (get) : /register
-     */
     public function registerAction()
     {
         $this->view->render('front/auth', 'register');
     }
 
-    /**
-     * Register action.
-     *
-     * url (post) : /register
-     */
     public function postRegisterAction()
     {
-        // Get the data from the user
-        $email = $this->request->getPost('email');
-        $name = $this->request->getPost('name');
-        $password = $this->request->getPost('password');
-        $confirm = $this->request->getPost('confirm');
+        $email = (string) $this->request->getPost('email', 'email');
+        $name = (string) $this->request->getPost('name', 'string');
+        $password = (string) $this->request->getPost('password');
 
-        if ($password !== $confirm) {
-            $this->flash->error('Password & confirm are different');
-
-            $this->dispatcher->forward([
-                'controller' => 'auth',
-                'action' => 'register',
-            ]);
-
-            return;
+        if ($password !== $this->request->getPost('confirm')) {
+            return $this->failed('Password & confirm are different', 'register');
         }
 
-        /** @var \App\Core\Models\User $userClass */
-        $userClass = $this->config->auth->model;
-
-        $user = $userClass::findFirst([
-            $userClass::getAuthIdentifierName() . ' = :auth_identifier:',
-            'bind' => [
-                'auth_identifier' => $email,
-            ],
-        ]);
-
-        if (!empty($user)) {
-            $this->flash->error('User already exist');
-
-            $this->dispatcher->forward([
-                'controller' => 'auth',
-                'action' => 'register',
-            ]);
-
-            return;
+        if (User::findFirst(['email = :email:', 'bind' => ['email' => $email]]) !== null) {
+            return $this->failed('User already exist', 'register');
         }
 
-        /** @var \App\Core\Models\User $user */
-        $user = new $userClass;
-
+        $user = new User();
         $user->name = $name;
-        $user->{$userClass::getAuthIdentifierName()} = $email;
-        $user->{$userClass::getAuthPasswordName()} = $this->security->hash($password);
+        $user->email = $email;
+        $user->password = $this->security->hash($password);
 
-        if ($user->save() === false) {
-            $messages = array_merge(['Failed save user.'], $user->getMessages());
-
-            $this->flash->error(implode(' - ', $messages));
-
-            $this->dispatcher->forward([
-                'controller' => 'auth',
-                'action' => 'register',
-            ]);
-
-            return;
+        if (!$user->save()) {
+            return $this->failed(implode(' - ', ['Failed save user.', ...array_map(strval(...), $user->getMessages())]), 'register');
         }
 
-        $this->flashSession->success('User create successful !');
+        $this->flashSession->success('User created!');
 
-        $this->response->redirect('index');
-        $this->view->disable();
-
-        return;
+        return $this->response->redirect('index');
     }
 
-    /**
-     * Login view.
-     *
-     * url (get) : /login
-     */
     public function loginAction()
     {
         $this->view->render('front/auth', 'login');
     }
 
-    /**
-     * Login action.
-     *
-     * url (post) : /login
-     */
     public function postLoginAction()
     {
-        // Get the data from the user
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
+        $credentials = [
+            'email'    => (string) $this->request->getPost('email', 'email'),
+            'password' => (string) $this->request->getPost('password'),
+        ];
 
-        $user = $this->auth->attempt([
-            'email' => $email,
-            'password' => $password,
-        ]);
-
-        if (is_null($user)) {
-            $this->flash->error('Wrong email/password');
-
-            // Forward to the login form again
-            $this->dispatcher->forward([
-                'controller' => 'auth',
-                'action' => 'login',
-            ]);
-
-            return;
+        // 2.0: attempt() returns a bool, the user is read with user().
+        if (!$this->auth->attempt($credentials)) {
+            return $this->failed('Wrong email/password', 'login');
         }
 
-        $this->flashSession->success('Welcome ' . $user->name);
+        $this->flashSession->success('Welcome ' . $this->auth->user()?->name);
 
-        // Forward to the 'invoices' controller if the user is valid
-        $this->response->redirect('index');
-        $this->view->disable();
-
-        return;
+        return $this->response->redirect('index');
     }
 
-    /**
-     * Logout action.
-     *
-     * url (get) : /logout
-     */
     public function logoutAction()
     {
         $this->auth->logout();
 
-        $this->response->redirect('index');
-        $this->view->disable();
+        return $this->response->redirect('index');
+    }
 
-        return;
+    private function failed(string $message, string $action): void
+    {
+        $this->flash->error($message);
+        $this->dispatcher->forward(['controller' => 'auth', 'action' => $action]);
     }
 }

@@ -1,100 +1,59 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Kernels\Http;
 
 use App\Core\Providers\Example as ExampleProvider;
 use App\Kernels\Http\Modules\Backend\Module as BackendModule;
 use App\Kernels\Http\Modules\Frontend\Module as FrontendModule;
 use Neutrino\Foundation\Http\Kernel as HttpKernel;
-use Neutrino\Providers\Auth as AuthProvider;
-use Neutrino\Providers\Cache as CacheProvider;
-use Neutrino\Providers\Crypt as CryptProvider;
-use Neutrino\Providers\Database as DatabaseProvider;
-use Neutrino\Providers\Flash as FlashProvider;
-use Neutrino\Providers\Http\Dispatcher as DispatcherProvider;
-use Neutrino\Providers\Http\Router as RouterProvider;
-use Neutrino\Providers\Logger as LoggerProvider;
-use Neutrino\Providers\Session as SessionProvider;
-use Neutrino\Providers\Url as UrlProvider;
-use Neutrino\Providers\View as ViewProvider;
+use Neutrino\Providers;
 
-/**
- * Class Kernel
- *
- * @package App\Kernels\Http\Modules\Frontend\Controllers
- */
 class Kernel extends HttpKernel
 {
     /**
-     * Return the Provider List to load.
-     *
-     * @var string[]
+     * The providers: their services are built on first use.
      */
     protected array $providers = [
-        /*
-         * Basic Configuration
-         */
-        LoggerProvider::class,
-        UrlProvider::class,
-        FlashProvider::class,
-        SessionProvider::class,
-        RouterProvider::class,
-        ViewProvider::class,
-        DispatcherProvider::class,
-        DatabaseProvider::class,
-        CacheProvider::class,
-        CryptProvider::class,
+        Providers\Logger::class,
+        Providers\Url::class,
+        Providers\Flash::class,
+        Providers\FlashSession::class,
+        Providers\Session::class,
+        Providers\Http\Router::class,
+        Providers\View::class,
+        Providers\Http\Dispatcher::class,
+        Providers\Database::class,
+        Providers\Model::class,
+        Providers\Cache::class,
+        Providers\Crypt::class,
+        Providers\Security::class,
+        Providers\HttpClient::class,
+        Providers\Auth::class,
 
-        /*
-         * Service provided by the Phalcon\Di\FactoryDefault
-         *
-        \Neutrino\Providers\Models::class,
-        \Neutrino\Providers\Cookies::class,
-        \Neutrino\Providers\Filter::class,
-        \Neutrino\Providers\Escaper::class,
-        \Neutrino\Providers\Security::class,
-        \Neutrino\Providers\Crypt::class,
-        \Neutrino\Providers\Annotations::class,
-        /**/
-
-        /*
-         * Auth Service
-         */
-        AuthProvider::class,
-
-        /*
-         * Application Services
-         */
+        // Application services
         ExampleProvider::class,
     ];
 
     /**
-     * List of Global Middleware to attach onto the application.
-     *
-     * @var string[]
+     * The global middlewares, attached to the application.
      */
     protected array $middlewares = [];
 
     /**
-     * List of Events Listeners to attach onto the application.
-     *
-     * @var string[]
+     * The events listeners, attached to the application.
      */
     protected array $listeners = [];
 
-    /**
-     * List of modules
-     *
-     * @var array
-     */
     protected array $modules = [
         'Frontend' => [
             'className' => FrontendModule::class,
-            'path' => BASE_PATH . '/app/Kernels/Http/Modules/Frontend/Module.php',
+            'path'      => BASE_PATH . '/app/Kernels/Http/Modules/Frontend/Module.php',
         ],
         'Backend' => [
             'className' => BackendModule::class,
-            'path' => BASE_PATH . '/app/Kernels/Http/Modules/Backend/Module.php',
+            'path'      => BASE_PATH . '/app/Kernels/Http/Modules/Backend/Module.php',
         ],
     ];
 }

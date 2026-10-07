@@ -1,66 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Providers;
 
-use App\Core\Services\Example as ExampleService;
 use App\Core\Constants\Services;
+use App\Core\Services\Example as ExampleService;
 use Neutrino\Support\SimpleProvider;
 
 /**
- * Class SomeApi
- *
- * @package App\Core\Providers
+ * Registers ExampleService under the name `example` (and its class).
  */
 class Example extends SimpleProvider
 {
-    /**
-     * The name of the service.
-     *
-     * @var string
-     */
     protected string $name = Services::EXAMPLE;
 
     /**
-     * Specify if the service is shared (build as a singleton)
-     *
-     * @var string
+     * Shared: built once (a singleton).
      */
     protected bool $shared = false;
 
-    /**
-     * Specify the class of the service.
-     *
-     * @var string
-     */
     protected string $class = ExampleService::class;
 
-    /**
-     * Specify the aliases of the service, if needed.
-     *
-     * @var array
-     */
     protected array $aliases = [ExampleService::class];
 
     /**
-     * Options to pass to the definition
-     *
-     * ex:
-     * $options = [
-     *  [
-     *    'type' => 'service',
-     *    'name' => 'cache'
-     *  ],
-     *  [
-     *    'type' => 'instance',
-     *    'className' => MyClass::class
-     *  ],
-     *  [
-     *    'type' => 'parameter',
-     *    'value' => true // false
-     *  ],
-     * ]
-     *
-     * @var array
+     * Arguments of the constructor, as Phalcon service definitions:
+     * ['type' => 'service', 'name' => 'cache'], ['type' => 'instance', 'className' => MyClass::class],
+     * ['type' => 'parameter', 'value' => true].
      */
     protected array $options = [];
 }

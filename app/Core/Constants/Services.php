@@ -1,13 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Constants;
 
 /**
- * Class Services
- *
- * @package App\Core\Constants
+ * The names of the application services.
  */
 final class Services
 {
-    const EXAMPLE = 'example';
+    public const string EXAMPLE = 'example';
 }

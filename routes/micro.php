@@ -32,7 +32,7 @@ Router::addGet('test', [
 */
 // Via the Dependency Injector
 /** @var \Neutrino\Micro\Router $router */
-$router = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::MICRO_ROUTER);
+$router = \Phalcon\Di\Di::getDefault()->getShared(\Neutrino\Constants\Services::MICRO_ROUTER);
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +75,7 @@ $router->notFound(function () {
 |--------------------------------------------------------------------------
 */
 /** @var \Phalcon\Mvc\Micro $app */
-$app = \Phalcon\Di::getDefault()->getShared(\Neutrino\Constants\Services::APP);
+$app = \Phalcon\Di\Di::getDefault()->getShared(\Neutrino\Constants\Services::APP);
 
 $app->error(function ($exception) {
     /** @var \App\Kernels\Micro\Kernel $this */

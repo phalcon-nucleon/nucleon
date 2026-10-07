@@ -1,70 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Kernels\Micro;
 
 use App\Core\Providers\Example as ExampleProvider;
 use Neutrino\Foundation\Micro\Kernel as MicroKernel;
-use Neutrino\Interfaces\Kernelable;
-use Neutrino\Providers\Cache as CacheProvider;
-use Neutrino\Providers\Crypt as CryptProvider;
-use Neutrino\Providers\Database as DatabaseProvider;
-use Neutrino\Providers\Http\Dispatcher as DispatcherProvider;
-use Neutrino\Providers\Http\Router as RouterProvider;
-use Neutrino\Providers\Micro\Router as MicroRouterProvider;
-use Neutrino\Providers\Logger as LoggerProvider;
-use Neutrino\Providers\Session as SessionProvider;
-use Neutrino\Providers\Url as UrlProvider;
+use Neutrino\Providers;
 
-class Kernel extends MicroKernel implements Kernelable
+class Kernel extends MicroKernel
 {
     /**
-     * Return the Provider List to load.
-     *
-     * @var string[]
+     * The providers: their services are built on first use.
      */
     protected array $providers = [
-        /*
-         * Basic Configuration
-         */
-        LoggerProvider::class,
-        UrlProvider::class,
-        SessionProvider::class,
-        RouterProvider::class,
-        DispatcherProvider::class,
-        DatabaseProvider::class,
-        CacheProvider::class,
-        CryptProvider::class,
+        Providers\Logger::class,
+        Providers\Url::class,
+        Providers\Micro\Router::class,
+        Providers\Database::class,
+        Providers\Model::class,
+        Providers\Cache::class,
+        Providers\Crypt::class,
+        Providers\HttpClient::class,
 
-        MicroRouterProvider::class,
-        /*
-         * Service provided by the Phalcon\Di\FactoryDefault
-         *
-        \Neutrino\Providers\Models::class,
-        \Neutrino\Providers\Cookies::class,
-        \Neutrino\Providers\Filter::class,
-        \Neutrino\Providers\Escaper::class,
-        \Neutrino\Providers\Security::class,
-        \Neutrino\Providers\Crypt::class,
-        \Neutrino\Providers\Annotations::class,
-        /**/
-
-        /*
-         * Application Services
-         */
+        // Application services
         ExampleProvider::class,
     ];
 
     /**
-     * List of Global Middleware to attach onto the application.
-     *
-     * @var string[]
+     * The global middlewares, attached to the application.
      */
     protected array $middlewares = [];
 
     /**
-     * List of Events Listeners to attach onto the application.
-     *
-     * @var string[]
+     * The events listeners, attached to the application.
      */
     protected array $listeners = [];
 }
