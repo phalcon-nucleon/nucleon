@@ -3,7 +3,6 @@
 namespace App\Kernels\Http\Modules\Backend;
 
 use Neutrino\Module as NeutrinoModule;
-use Phalcon\DiInterface;
 
 class Module extends NeutrinoModule
 {
@@ -12,9 +11,9 @@ class Module extends NeutrinoModule
      *
      * @var string[]
      */
-    protected $providers = [];
+    protected array $providers = [];
 
-    public function initialise(DiInterface $di)
+    public function initialise(\Phalcon\Di\DiInterface $di): void
     {
     }
 }

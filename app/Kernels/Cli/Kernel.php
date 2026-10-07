@@ -23,7 +23,7 @@ class Kernel extends CliKernel
      *
      * @var string[]
      */
-    protected $providers = [
+    protected array $providers = [
         /*
          * Basic Configuration
          */
@@ -56,5 +56,5 @@ class Kernel extends CliKernel
      *
      * @var string[]
      */
-    protected $middlewares = [];
+    protected array $middlewares = [];
 }

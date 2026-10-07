@@ -9,12 +9,12 @@ use Neutrino\Test\RoutesTestCase;
  */
 class RoutesTest extends RoutesTestCase
 {
-    protected static function kernelClassInstance()
+    protected static function kernelClassInstance(): string
     {
         return \App\Kernels\Http\Kernel::class;
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         global $config;
 
@@ -26,7 +26,7 @@ class RoutesTest extends RoutesTestCase
     /**
      * @return array
      */
-    protected function routes()
+    protected static function routes(): array
     {
         return [
             /* path, http_method, excepted, [ctrl, [action, [params]]] */

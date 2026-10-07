@@ -2,9 +2,6 @@
 
 namespace App\Kernels\Http\Modules\Frontend\Controllers;
 
-use App\Kernels\Http\Middleware\RedirectIfAuthenticated;
-use Neutrino\Http\Middleware\Csrf;
-
 /**
  * Class AuthController
  *

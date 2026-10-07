@@ -30,7 +30,7 @@ class Kernel extends HttpKernel
      *
      * @var string[]
      */
-    protected $providers = [
+    protected array $providers = [
         /*
          * Basic Configuration
          */
@@ -73,21 +73,21 @@ class Kernel extends HttpKernel
      *
      * @var string[]
      */
-    protected $middlewares = [];
+    protected array $middlewares = [];
 
     /**
      * List of Events Listeners to attach onto the application.
      *
      * @var string[]
      */
-    protected $listeners = [];
+    protected array $listeners = [];
 
     /**
      * List of modules
      *
      * @var array
      */
-    protected $modules = [
+    protected array $modules = [
         'Frontend' => [
             'className' => FrontendModule::class,
             'path' => BASE_PATH . '/app/Kernels/Http/Modules/Frontend/Module.php',

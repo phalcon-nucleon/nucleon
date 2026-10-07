@@ -18,28 +18,28 @@ class Example extends SimpleProvider
      *
      * @var string
      */
-    protected $name = Services::EXAMPLE;
+    protected string $name = Services::EXAMPLE;
 
     /**
      * Specify if the service is shared (build as a singleton)
      *
      * @var string
      */
-    protected $shared = false;
+    protected bool $shared = false;
 
     /**
      * Specify the class of the service.
      *
      * @var string
      */
-    protected $class = ExampleService::class;
+    protected string $class = ExampleService::class;
 
     /**
      * Specify the aliases of the service, if needed.
      *
      * @var array
      */
-    protected $aliases = [ExampleService::class];
+    protected array $aliases = [ExampleService::class];
 
     /**
      * Options to pass to the definition
@@ -62,5 +62,5 @@ class Example extends SimpleProvider
      *
      * @var array
      */
-    protected $options;
+    protected array $options = [];
 }

@@ -32,7 +32,7 @@ class ErrorsController extends ControllerBase
         trigger_error('warning', E_USER_WARNING);
 
         try {
-            throw new \Phalcon\Exception('A catched exception', 159);
+            throw new \Exception('A catched exception', 159);
         } catch (\Exception $e) {
             throw new \RuntimeException("that's a white rabbit", 0, $e);
         }

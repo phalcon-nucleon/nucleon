@@ -22,7 +22,7 @@ class Kernel extends MicroKernel implements Kernelable
      *
      * @var string[]
      */
-    protected $providers = [
+    protected array $providers = [
         /*
          * Basic Configuration
          */
@@ -59,12 +59,12 @@ class Kernel extends MicroKernel implements Kernelable
      *
      * @var string[]
      */
-    protected $middlewares = [];
+    protected array $middlewares = [];
 
     /**
      * List of Events Listeners to attach onto the application.
      *
      * @var string[]
      */
-    protected $listeners = [];
+    protected array $listeners = [];
 }
