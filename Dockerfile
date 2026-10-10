@@ -18,6 +18,8 @@ COPY . .
 
 ENV APP_ENV=production
 
-# Authoritative classmap, compiled constants, configuration, routes and views, and bootstrap/compile/preload.php.
-RUN php quark optimize --no-dev \
+# A first autoloader to boot the console, then `optimize`: authoritative classmap, compiled constants,
+# configuration, routes and views, and bootstrap/compile/preload.php.
+RUN composer dump-autoload --no-dev --no-scripts --no-interaction \
+    && php quark optimize --no-dev \
     && chown -R www-data:www-data storage bootstrap/compile

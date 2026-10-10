@@ -16,7 +16,7 @@ class Example extends SimpleProvider
     protected string $name = Services::EXAMPLE;
 
     /**
-     * Shared: built once (a singleton).
+     * Shared: built once (a singleton). Here, a new instance on each resolution.
      */
     protected bool $shared = false;
 
