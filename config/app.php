@@ -37,11 +37,11 @@ return [
    +--------------------------------------------------------------------------
    | Encryption Algorithm
    +--------------------------------------------------------------------------
-   | The `aes-256-gcm' is the preferable cipher, but it is not usable until
-   | the openssl library is upgraded, which is available in PHP 7.1.
-   |
-   | The `aes-256-ctr' is arguably the best choice for cipher
-   | algorithm in these days.
+   | The cipher of the `crypt` service (Phalcon\Encryption\Crypt). Its messages
+   | are signed (HMAC). Data encrypted by Nucleon 1.3 was not: an app upgraded
+   | from 1.3 sets 'crypt_signing' => false until it is re-encrypted.
    */
-  'cipher' => 'aes-256-ctr'
+  'cipher' => 'aes-256-ctr',
+
+  // 'crypt_signing' => false,
 ];

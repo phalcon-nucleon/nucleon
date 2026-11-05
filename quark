@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+declare(strict_types=1);
+
 /*--------------------------------------------------------------*/
 /* Make Application                                             */
 /*--------------------------------------------------------------*/
@@ -8,15 +10,7 @@
 /** @var \Neutrino\Foundation\Bootstrap $bootstrap */
 $bootstrap = require_once __DIR__ . '/bootstrap/app.php';
 
-/** @var \App\Kernels\Cli\Kernel $kernel */
-$kernel = $bootstrap->make(App\Kernels\Cli\Kernel::class);
-
 /**
- * Parse the arguments pass to the cli
+ * Run the console kernel: it reads the command line.
  */
-$kernel->setArgument($argv);
-
-/**
- * Run kernel
- */
-$bootstrap->run($kernel);
+$bootstrap->run($bootstrap->make(App\Kernels\Cli\Kernel::class));

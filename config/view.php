@@ -8,121 +8,43 @@ use Neutrino\View\Engines\Volt;
  +-------------------------------------------------------------------
  */
 return [
-    /*
-     +---------------------------------------------------------------
-     | views_dir
-     +---------------------------------------------------------------
-     |
-     | This value define where the view are stored
-     */
+    // Where the views are stored, and the partials and layouts directories relative to it.
     'views_dir'     => BASE_PATH . '/resources/views/',
-    /*
-     +---------------------------------------------------------------
-     | partial_dir
-     +---------------------------------------------------------------
-     |
-     | Relative path from view_dir to partials directory
-     */
-    'partials_dir' => null /* 'partials/' */,
-    /*
-     +---------------------------------------------------------------
-     | layout_dir
-     +---------------------------------------------------------------
-     |
-     | Relative path from view_dir to layouts directory
-     */
-    'layouts_dir' => null /* 'layouts/' */,
-    /*
-     +---------------------------------------------------------------
-     | compiled_path
-     +---------------------------------------------------------------
-     |
-     | This value define the store of compiled view
-     */
+    'partials_dir'  => null,
+    'layouts_dir'   => null,
+
+    // Where the compiled views are stored (`php quark view:cache` compiles them all).
     'compiled_path' => BASE_PATH . '/storage/views/',
-    /*
-     +---------------------------------------------------------------
-     | implicit
-     +---------------------------------------------------------------
-     |
-     | This value define if your application
-     | should use implicit view.
-     | Default : false, no implicit view
-     */
+
+    // Volt options: path, separator, extension, always, stat. `stat` => false in production, after `view:cache`.
+    'options'       => ['stat' => APP_DEBUG],
+
+    // Implicit views (the action view is rendered without calling render()).
     'implicit'      => false,
 
-    /*
-     +---------------------------------------------------------------
-     | Engines
-     +---------------------------------------------------------------
-     |
-     | This value define the engines to use for generate templates
-     */
     'engines' => [
         '.volt' => Volt\VoltEngineRegister::class,
     ],
 
-    /*
-     +---------------------------------------------------------------
-     | Extensions
-     +---------------------------------------------------------------
-     |
-     | This value define the extensions to add to the volt compiler
-     */
     'extensions' => [
-        /*
-         +---------------------------------------------------------------
-         | Php Functions
-         +---------------------------------------------------------------
-         |
-         | Allow to use all php functions in volt.
-         */
+        // The PHP functions in Volt, except the dangerous ones (see `php_functions`).
         Volt\Compiler\Extensions\PhpFunctionExtension::class,
-        /*
-         +---------------------------------------------------------------
-         | Str Functions
-         +---------------------------------------------------------------
-         |
-         | Allow to use all Neutrino\Support\Str functions in volt.
-         |
-         | Add slug, limits & word filters
-         */
+        // The Neutrino\Support\Str functions, and the slug, limit and words filters.
         Volt\Compiler\Extensions\StrExtension::class,
-        /*
-         +---------------------------------------------------------------
-         | Csrf Functions
-         +---------------------------------------------------------------
-         |
-         | Add CSRF functions.
-         |  csrf_field() : Generate the csrf field
-         |  csrf_key()   : Get the CSRF key
-         |  csrf_token() : Get the CSRF token
-         */
+        // csrf_field(), csrf_key(), csrf_token().
         Volt\Compiler\Extensions\CsrfExtension::class,
     ],
 
-    /*
-     +---------------------------------------------------------------
-     | Filters
-     +---------------------------------------------------------------
-     |
-     | This value define the filters to add to the volt compiler
-     */
     'filters' => [
         'round' => Volt\Compiler\Filters\RoundFilter::class,
         'merge' => Volt\Compiler\Filters\MergeFilter::class,
         'split' => Volt\Compiler\Filters\SplitFilter::class,
-        'slice' => Volt\Compiler\Filters\SliceFilter::class,
     ],
 
-    /*
-     +---------------------------------------------------------------
-     | Functions
-     +---------------------------------------------------------------
-     |
-     | This value define the functions to add to the volt compiler
-     */
     'functions' => [
-        'route' => Volt\Compiler\Functions\RouteFunction::class
+        'route' => Volt\Compiler\Functions\RouteFunction::class,
     ],
+
+    // PhpFunctionExtension: functions allowed again (`allow`), or a list replacing the denied ones (`deny`).
+    // 'php_functions' => ['allow' => [], 'deny' => [...]],
 ];

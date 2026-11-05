@@ -1,25 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Kernels\Http\Modules\Frontend;
 
 use Neutrino\Module as NeutrinoModule;
-use Phalcon\DiInterface;
+use Phalcon\Di\DiInterface;
 
-/**
- * Class Kernel
- *
- * @package App\Kernels\Http\Modules\Frontend\Controllers
- */
 class Module extends NeutrinoModule
 {
     /**
-     * Return the Provider List to load.
-     *
-     * @var string[]
+     * The providers of the module.
      */
-    protected $providers = [];
+    protected array $providers = [];
 
-    public function initialise(DiInterface $di)
-    {
-    }
+    public function initialise(DiInterface $container): void {}
 }

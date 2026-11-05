@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="tests/bootstrap.php"
-         backupGlobals="false"
-         backupStaticAttributes="false"
-         verbose="true"
-         colors="false"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="true">
-  <testsuite name="Nucleon - Testsuite">
-    <directory>./tests/</directory>
-  </testsuite>
-  <filter>
-    <whitelist processUncoveredFilesFromWhitelist="false">
-      <directory suffix=".php">./app</directory>
-    </whitelist>
-  </filter>
-  <php>
-    <env name="APP_ENV" value="test"/>
-  </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+         failOnWarning="true"
+         failOnRisky="true">
+    <testsuites>
+        <testsuite name="Application">
+            <directory>tests/Test</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">app</directory>
+        </include>
+    </source>
+    <php>
+        <env name="APP_ENV" value="test"/>
+    </php>
 </phpunit>

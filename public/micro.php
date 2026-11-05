@@ -1,15 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 /*--------------------------------------------------------------*/
 /* Make Application                                             */
 /*--------------------------------------------------------------*/
+
 /** @var \Neutrino\Foundation\Bootstrap $bootstrap */
 $bootstrap = require_once __DIR__ . '/../bootstrap/app.php';
 
-/** @var \App\Kernels\Micro\Kernel $kernel */
-$kernel = $bootstrap->make(\App\Kernels\Micro\Kernel::class);
-
 /**
- * Run kernel
+ * Run the Micro kernel (the /api/ routes, see public/app_dev.php).
  */
-$bootstrap->run($kernel);
+$bootstrap->run($bootstrap->make(App\Kernels\Micro\Kernel::class));

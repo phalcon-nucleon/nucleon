@@ -1,74 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Models;
 
-use Phalcon\Db\Column;
+use Neutrino\Foundation\Auth\User as AuthUser;
+use Neutrino\Model\Attribute\Column;
+use Neutrino\Model\Attribute\Primary;
+use Neutrino\Model\Attribute\Timestamps;
+use Phalcon\Db\Column as Type;
 
 /**
- * Class User
- *
- * @package Models
+ * A user who can log in (see config/auth.php).
  */
-class User extends \Neutrino\Foundation\Auth\User
+#[Timestamps(format: 'Y-m-d H:i:s')]
+class User extends AuthUser
 {
-    /**
-     * @var integer
-     */
-    public $id;
+    #[Primary]
+    public ?int $id = null;
 
-    /**
-     * @var string
-     */
-    public $name;
+    #[Column(Type::TYPE_VARCHAR)]
+    public ?string $name = null;
 
-    /**
-     * @var string
-     */
-    public $email;
+    #[Column(Type::TYPE_VARCHAR)]
+    public ?string $email = null;
 
-    /**
-     * @var string
-     */
-    public $password;
+    #[Column(Type::TYPE_VARCHAR)]
+    public ?string $password = null;
 
-    /**
-     * @var string
-     */
-    public $remember_token;
+    #[Column(Type::TYPE_VARCHAR, nullable: true)]
+    public ?string $remember_token = null;
 
-    /**
-     * @var string
-     */
-    public $created_at;
+    public ?string $created_at = null;
 
-    /**
-     * @var string
-     */
-    public $updated_at;
+    public ?string $updated_at = null;
 
-    /**
-     * Initializes metaDatas & columnsMap if they are not.
-     */
-    public function initialize()
+    public function initialize(): void
     {
         parent::initialize();
 
-        $this->setSource("users");
-
-        $this->primary('id', Column::TYPE_INTEGER);
-
-        $this->column('name', Column::TYPE_VARCHAR);
-        $this->column('email', Column::TYPE_VARCHAR);
-        $this->column('password', Column::TYPE_VARCHAR);
-        $this->column('remember_token', Column::TYPE_VARCHAR, [
-            'nullable' => true,
-        ]);
-        $this->column('created_at', Column::TYPE_DATETIME, [
-            'autoInsert' => true,
-        ]);
-        $this->column('updated_at', Column::TYPE_DATETIME, [
-            'autoInsert' => true,
-            'autoUpdate' => true,
-        ]);
+        $this->setSource('users');
     }
 }

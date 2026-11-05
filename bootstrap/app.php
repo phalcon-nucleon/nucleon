@@ -1,26 +1,23 @@
 <?php
 
-/**
- * Register The Auto Loader
+declare(strict_types=1);
+
+/*
+ * Register the auto-loader.
  */
 require __DIR__ . '/autoload.php';
 
-/**
- * Global Error & Exception Handler
+/*
+ * Constants of .const.ini (compiled by `php quark dotconst:cache`).
  */
-\Neutrino\Error\Handler::register();
+\Neutrino\Dotconst::load(__DIR__ . '/../', __DIR__ . '/../bootstrap/compile');
 
-/**
- * Run \Neutrino\Dotconst
+/*
+ * Configuration of config/*.php (compiled by `php quark config:cache`).
  */
-\Neutrino\Dotconst::load(__DIR__.'/../', __DIR__.'/../bootstrap/compile');
+$config = \Neutrino\Config\Loader::load(__DIR__ . '/..');
 
-/**
- * Read the configuration
- */
-$config = \Neutrino\Config\Loader::load(__DIR__.'/../', ['compile']);
-
-/**
- * Creating the application
+/*
+ * Creating the application. Bootstrap::make() registers the error handler (config/error.php: `register`).
  */
 return new \Neutrino\Foundation\Bootstrap($config);

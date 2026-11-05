@@ -8,7 +8,7 @@
 | These routes are loaded by the HttpKernel
 |
 */
-$di = \Phalcon\Di::getDefault();
+$di = \Phalcon\Di\Di::getDefault();
 /** @var \Phalcon\Mvc\Dispatcher $dispatcher */
 //$dispatcher = $di->getShared(\Neutrino\Constants\Services::DISPATCHER);
 //$dispatcher->setControllerSuffix('');
@@ -108,6 +108,6 @@ $backend = new \Phalcon\Mvc\Router\Group([
     'module'     => 'Backend'
 ]);
 
-$backend->addGet('/back/:controller/:action');
+$backend->addGet('/back/:controller/:action', ['controller' => 1, 'action' => 2]);
 
 $router->mount($backend);

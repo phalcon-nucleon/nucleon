@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Kernels\Http\Modules\Backend\Controllers;
 
 use Neutrino\Http\Controller;

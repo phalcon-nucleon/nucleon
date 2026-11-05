@@ -1,22 +1,16 @@
 <?php
 
-use \Neutrino\Database\Migrations\Migration;
-use \Neutrino\Database\Schema\Builder;
-use \Neutrino\Database\Schema\Blueprint;
+declare(strict_types=1);
 
-class CreateUsersTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @param \Neutrino\Database\Schema\Builder $schema
-     *
-     * @return void
-     */
-    public function up(Builder $schema)
+use Neutrino\Database\Migrations\Migration;
+use Neutrino\Database\Schema\Blueprint;
+use Neutrino\Database\Schema\Builder;
+
+return new class extends Migration {
+    public function up(Builder $schema): void
     {
-        $schema->create('users', function (Blueprint $table) {
-            $table->increments('id')->primary();
+        $schema->create('users', function (Blueprint $table): void {
+            $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
@@ -25,15 +19,8 @@ class CreateUsersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @param \Neutrino\Database\Schema\Builder $schema
-     *
-     * @return void
-     */
-    public function down(Builder $schema)
+    public function down(Builder $schema): void
     {
         $schema->dropIfExists('users');
     }
-}
+};

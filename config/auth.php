@@ -1,12 +1,19 @@
 <?php
 
+/*
+ +-------------------------------------------------------------------
+ | Authentication configuration
+ +-------------------------------------------------------------------
+ |
+ | The `auth` service is a Phalcon\Auth\Manager. Here, one session guard on the User model.
+ */
 return [
-  /*
-   +---------------------------------------------------------------
-   | Auth model
-   +---------------------------------------------------------------
-   |
-   | This value define the Model to use for authentication
-   */
-  'model' => \App\Core\Models\User::class,
+    'guards' => [
+        'web' => [
+            'type'    => 'session',
+            'default' => true,
+            'adapter' => ['name' => 'model', 'options' => ['model' => \App\Core\Models\User::class]],
+            'options' => ['name' => 'auth', 'rememberName' => 'remember_me', 'rememberTtl' => 1209600],
+        ],
+    ],
 ];

@@ -1,39 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core\Services;
 
 use Neutrino\Constants\Services;
 use Neutrino\Support\Facades\Log;
 use Phalcon\Di\Injectable;
-use Phalcon\Di\InjectionAwareInterface;
 
-/**
- * Class SomeApi
- *
- * @package App\Core\Api
- */
-class Example extends Injectable implements InjectionAwareInterface
+class Example extends Injectable
 {
-    /**
-     * @return string
-     */
-    public function doSomething()
+    public function doSomething(): string
     {
-        // Use DependencyInjection
-        $logger = $this->getDI()->get(Services::LOGGER);
-
-        $logger->debug('Something Appends !');
+        // With the container.
+        $this->getDI()->getShared(Services::LOGGER)->debug('Something happens!');
 
         return 'abc';
     }
 
-    /**
-     * @return string
-     */
-    public function doAnotherThing()
+    public function doAnotherThing(): string
     {
-        // Use Facade
-        Log::debug('Another thing Appends !');
+        // With a Facade.
+        Log::debug('Another thing happens!');
 
         return 'abc';
     }

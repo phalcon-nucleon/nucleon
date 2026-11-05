@@ -4,37 +4,25 @@
  +-------------------------------------------------------------------
  | Database configuration
  +-------------------------------------------------------------------
+ |
+ | `db` is the default connection, each connection is also `db.<name>` (built on first use).
+ | A model uses another connection with `$this->setConnectionService('db.reports')`.
+ |
+ | Adapters: mysql, postgresql, sqlite, or a class implementing Phalcon\Db\Adapter\AdapterInterface.
  */
 return [
-    /*
-     +---------------------------------------------------------------
-     | Database adapter
-     +---------------------------------------------------------------
-     |
-     | This value define the adapter to use
-     | for connect to the database.
-     |
-     | Available adapter :
-     |
-     | \Phalcon\Db\Adapter\Pdo\Mysql
-     | \Phalcon\Db\Adapter\Pdo\Postgresql
-     | \Phalcon\Db\Adapter\Pdo\Sqlite
-     |
-     | (phalcon/incubator)
-     | \Phalcon\Db\Adapter\Pdo\Oracle
-     | \Phalcon\Db\Adapter\Mongo\Db
-     */
     'default'     => 'mysql',
     'connections' => [
         'mysql' => [
-            'adapter' => \Phalcon\Db\Adapter\Pdo\Mysql::class,
+            'adapter' => 'mysql',
             'config'  => [
                 'host'     => DB_HOST,
                 'username' => DB_USER,
                 'password' => DB_PASSWORD,
                 'dbname'   => DB_NAME,
-                'charset'  => 'utf8',
-            ]
-        ]
+                'charset'  => 'utf8mb4',
+            ],
+        ],
+        // 'sqlite' => ['adapter' => 'sqlite', 'config' => ['dbname' => BASE_PATH . '/storage/database.sqlite']],
     ],
 ];
